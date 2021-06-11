@@ -1,9 +1,16 @@
 import React from 'react'
 
+import Navbar from './Navbar/Navbar'
+
 const Header = () => {
    return (
-      <header>
-         <h1>Food order App</h1>
+      <header className="main-head">
+         <div className="logo">
+            <h1>ReactMeals</h1>
+         </div>
+         <Navbar />
       </header>
    )
 }
+
+export default Header

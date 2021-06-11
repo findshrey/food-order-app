@@ -9,28 +9,26 @@ import NotFound from './components/NotFound'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <main>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/menu" exact>
-              <Menu />
-            </Route>
-            <Route path="/menu/:category">
-              <MenuCategory />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route path="/menu" exact>
+            <Menu />
+          </Route>
+          <Route path="/menu/:category">
+            <MenuCategory />
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
       </main>
-    </>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App

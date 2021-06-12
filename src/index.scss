@@ -1,25 +1,25 @@
+// ---------- CONFIG ---------- //
 // Fonts
-$font-primary: 'Hind Siliguri', sans-serif; // 300, 400, 500, 600, 700
+$font-primary: 'Hind Siliguri', sans-serif;
 
 // Header sizes
-$h1: clamp(3.5rem, calc(3rem + 2.25vw), 6rem);
-$h3: clamp(3rem, calc(2.5rem + 1vw), 5rem);
-$h4: clamp(1.8rem, calc(1.5rem + 1vw), 3rem);
+$h1: 3rem;
+$h2: 2.5rem;
+$h3: 2rem;
 
 // Text sizes
-$font-m: clamp(1.5rem, calc(1rem + 0.75vw), 1.8rem);
+$font-m: 1.8rem;
 $font-s: 1.4rem;
 
 // Colors
 $c-black-matte: #252525;
-$c-pink: #e91e63;
-$c-pink-gradient: linear-gradient(to right,#e91e63, #e91ec7);
 $c-white: #fff;
 
 // Paddings & Margins
 $padding-section: clamp(5rem, calc(4rem + 2vw), 8rem) 0;
 
-// Global Styles
+
+// ---------- GLOBAL STYLES ---------- //
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -32,35 +32,31 @@ $padding-section: clamp(5rem, calc(4rem + 2vw), 8rem) 0;
 }
 
 html {
-  // background-color: $c-white;
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 body {
-  // background-color: $c-white;
-  // color: $c-black-matte;
-  // font-family: $font-primary;
-  line-height: 1.6;
+  background-color: $c-white;
+  color: $c-black-matte;
+  font-family: $font-primary;
+  line-height: 1.5;
 }
 
 h1 {
-  // font-size: $h1;
+  font-size: $h1;
 }
+
 h2 {
-  // font-size: $h1;
-  font-weight: 600;
+  font-size: $h2;
 }
+
 h3 {
-  // font-size: $h3;
-  font-weight: 600;
-}
-h4 {
-  // font-size: $h4;
+  font-size: $h3;
 }
 
 div, span, p, a, li, button, label, input {
-  // font-size: $font-m;
+  font-size: $font-m;
 }
 
 ul {
@@ -78,7 +74,7 @@ button {
   font-family: inherit;
 
   &:focus {
-     outline: none;
+    outline: none;
   }
 }
 
@@ -86,7 +82,8 @@ img {
   width: 100%;
 }
 
-// Utility Classes and Mixins
+
+// ---------- UTILITY CLASSES & MIXINS ---------- //
 .container {
   width: 90%;
   max-width: 1024px;

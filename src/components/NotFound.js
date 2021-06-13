@@ -1,10 +1,14 @@
 import React from 'react'
 
+import styles from './NotFound.module.scss'
+
 const NotFound = () => {
    return (
-      <div>
-         Not Found
-      </div>
+      <section>
+         <div className="container">
+            <p>Not Found</p>
+         </div>
+      </section>
    )
 }
 

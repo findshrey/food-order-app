@@ -27,8 +27,13 @@ const MenuCategory = () => {
                {
                   renderedMenu.map((item) => (
                      <li>
-                        <div>{item.name}</div>
-                        <span>{item.price}</span>
+                        <div>
+                           <div>{item.name}</div>
+                           <span>{item.price}</span>
+                        </div>
+                        <div>
+
+                        </div>
                      </li>
                   ))
                }

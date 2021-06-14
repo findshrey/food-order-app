@@ -35,19 +35,23 @@ const MenuCategory = () => {
             </header>
             <ul className="menu-list">
                {
-                  renderedMenu.map((item) => (
-                     <li>
-                        <div>
-                           <div>{item.name}</div>
-                           <span>{item.price}</span>
-                        </div>
-                        <div>
-                           <button onClick={handleAddItem.bind(null, item)}>+</button>
-                           {/* <span>{item.quantity}</span> */}
-                           <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
-                        </div>
-                     </li>
-                  ))
+                  renderedMenu.map((item) => {
+                     const inCartItem = cartCtx.cartItems.find(cartItem => cartItem.id === item.id)
+
+                     return (
+                        <li>
+                           <div>
+                              <div>{item.name}</div>
+                              <span>{item.price}</span>
+                           </div>
+                           <div>
+                              <button onClick={handleAddItem.bind(null, item)}>+</button>
+                              <span>{inCartItem?.quantity ?? 0}</span>
+                              <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
+                           </div>
+                        </li>
+                     )
+                  })
                }
             </ul>
          </div>

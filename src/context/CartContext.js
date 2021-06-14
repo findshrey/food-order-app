@@ -21,7 +21,7 @@ const cartReducer = (state, action) => {
          if (existingItem) {
             const updateExistingItem = {
                ...existingItem,
-               quantity: existingItem.quantity + action.item.quantity
+               quantity: existingItem.quantity + 1
             }
 
             updatedItems = [...state.items]
@@ -86,9 +86,11 @@ const CartProvider = ({ children }) => {
    const contextData = {
       cartItems: cartState.items,
       totalAmount: cartState.totalAmount,
-      handleAddItem,
-      handleRemoveItem
+      addItem: handleAddItem,
+      removeItem: handleRemoveItem
    }
+
+   console.log(cartState.items);
 
    return (
       <CartContext.Provider value={contextData}>

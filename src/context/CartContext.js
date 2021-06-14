@@ -90,8 +90,6 @@ const CartProvider = ({ children }) => {
       removeItem: handleRemoveItem
    }
 
-   // console.log(cartState.totalAmount);
-
    return (
       <CartContext.Provider value={contextData}>
          {children}

@@ -14,6 +14,8 @@ const Cart = () => {
       cartCtx.removeItem(id)
    }
 
+   const hasItems = cartCtx.cartItems.length > 0
+
    return (
       <section className="cart">
          <div className="container">
@@ -36,6 +38,7 @@ const Cart = () => {
                   ))
                }
             </ul>
+            <button disabled={!hasItems}>Place Order</button>
          </div>
       </section>
    )

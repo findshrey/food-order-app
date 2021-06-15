@@ -1,21 +1,41 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 
 import styles from './MenuCategory.module.scss'
 import CartContext from './../../context/CartContext'
 
-const DUMMY_STATE = {
-   appetizers: [{ name: 'garlic bread', price: 10, id: 'a1' }],
-   pasta: [{ name: 'spaghetti', price: 11, id: 'a2' }],
-   entrees: [{ name: 'fritto misto', price: 12, id: 'a3' }],
-   pizza: [{ name: 'margherita', price: 13, id: 'a4' }],
-   beverages: [{ name: 'soda', price: 14, id: 'a5' }]
-}
-
 const MenuCategory = () => {
    const cartCtx = useContext(CartContext)
-   const [menuList, setMenuList] = useState(DUMMY_STATE)
+   const [menuList, setMenuList] = useState({})
    const { category } = useParams()
+
+   useEffect(() => {
+      const getMenu = async () => {
+         const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
+         const menuData = await response.json()
+
+         let updatedMenu = {}
+
+         for (const category in menuData) {
+            const categoryArray = []
+
+            for (const itemKey in menuData[category]) {
+               categoryArray.push({
+                  id: itemKey,
+                  name: menuData[category][itemKey].name,
+                  description: menuData[category][itemKey].description,
+                  price: menuData[category][itemKey].price
+               })
+            }
+
+            updatedMenu = { ...updatedMenu, [category]: categoryArray }
+         }
+
+         setMenuList(updatedMenu)
+      }
+
+      getMenu()
+   }, [])
 
    const renderedMenu = menuList[category]
 
@@ -35,7 +55,7 @@ const MenuCategory = () => {
             </header>
             <ul className="menu-list">
                {
-                  renderedMenu.map((item) => {
+                  renderedMenu?.map((item) => {
                      const inCartItem = cartCtx.cartItems.find(cartItem => cartItem.id === item.id)
 
                      return (

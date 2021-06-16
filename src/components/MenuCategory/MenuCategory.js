@@ -9,25 +9,38 @@ const MenuCategory = () => {
    const [menuList, setMenuList] = useState([])
    const { category } = useParams()
    const [isLoading, setIsLoading] = useState(false)
+   const [error, setError] = useState(null)
 
    useEffect(() => {
       const getMenu = async () => {
          setIsLoading(true)
-         const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
-         const menuData = await response.json()
+         setError(null)
 
-         const updatedMenu = []
+         try {
+            const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
 
-         for (const itemKey in menuData[category]) {
-            updatedMenu.push({
-               id: itemKey,
-               name: menuData[category][itemKey].name,
-               description: menuData[category][itemKey].description,
-               price: menuData[category][itemKey].price
-            })
+            if (!response.ok) {
+               throw new Error('Something went wrong!')
+            }
+
+            const menuData = await response.json()
+
+            const updatedMenu = []
+
+            for (const itemKey in menuData[category]) {
+               updatedMenu.push({
+                  id: itemKey,
+                  name: menuData[category][itemKey].name,
+                  description: menuData[category][itemKey].description,
+                  price: menuData[category][itemKey].price
+               })
+            }
+
+            setMenuList(updatedMenu)
+         } catch (e) {
+            setError(e.message)
          }
 
-         setMenuList(updatedMenu)
          setIsLoading(false)
       }
 
@@ -49,7 +62,7 @@ const MenuCategory = () => {
                <h2>Menu Category</h2>
             </header>
             {isLoading && <p>Loading ...</p>}
-            {!isLoading && menuList.length === 0 && <p>Found No Items to show</p>}
+            {!isLoading && menuList.length === 0 && !error && <p>Found No Items to show</p>}
             {
                !isLoading && menuList.length > 0 &&
                <ul className="menu-list">
@@ -74,6 +87,7 @@ const MenuCategory = () => {
                   }
                </ul>
             }
+            {!isLoading && error && <p>{error}</p>}
          </div>
       </section>
    )

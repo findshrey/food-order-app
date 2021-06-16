@@ -6,7 +6,7 @@ import CartContext from './../../context/CartContext'
 
 const MenuCategory = () => {
    const cartCtx = useContext(CartContext)
-   const [menuList, setMenuList] = useState({})
+   const [menuList, setMenuList] = useState([])
    const { category } = useParams()
 
    useEffect(() => {
@@ -14,21 +14,15 @@ const MenuCategory = () => {
          const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
          const menuData = await response.json()
 
-         let updatedMenu = {}
+         const updatedMenu = []
 
-         for (const category in menuData) {
-            const categoryArray = []
-
-            for (const itemKey in menuData[category]) {
-               categoryArray.push({
-                  id: itemKey,
-                  name: menuData[category][itemKey].name,
-                  description: menuData[category][itemKey].description,
-                  price: menuData[category][itemKey].price
-               })
-            }
-
-            updatedMenu = { ...updatedMenu, [category]: categoryArray }
+         for (const itemKey in menuData[category]) {
+            updatedMenu.push({
+               id: itemKey,
+               name: menuData[category][itemKey].name,
+               description: menuData[category][itemKey].description,
+               price: menuData[category][itemKey].price
+            })
          }
 
          setMenuList(updatedMenu)
@@ -36,8 +30,6 @@ const MenuCategory = () => {
 
       getMenu()
    }, [])
-
-   const renderedMenu = menuList[category]
 
    const handleAddItem = (item) => {
       cartCtx.addItem({ ...item, quantity: 1 })
@@ -55,7 +47,7 @@ const MenuCategory = () => {
             </header>
             <ul className="menu-list">
                {
-                  renderedMenu?.map((item) => {
+                  menuList?.map((item) => {
                      const inCartItem = cartCtx.cartItems.find(cartItem => cartItem.id === item.id)
 
                      return (

@@ -8,9 +8,11 @@ const MenuCategory = () => {
    const cartCtx = useContext(CartContext)
    const [menuList, setMenuList] = useState([])
    const { category } = useParams()
+   const [isLoading, setIsLoading] = useState(false)
 
    useEffect(() => {
       const getMenu = async () => {
+         setIsLoading(true)
          const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
          const menuData = await response.json()
 
@@ -26,6 +28,7 @@ const MenuCategory = () => {
          }
 
          setMenuList(updatedMenu)
+         setIsLoading(false)
       }
 
       getMenu()
@@ -45,27 +48,32 @@ const MenuCategory = () => {
             <header>
                <h2>Menu Category</h2>
             </header>
-            <ul className="menu-list">
-               {
-                  menuList?.map((item) => {
-                     const inCartItem = cartCtx.cartItems.find(cartItem => cartItem.id === item.id)
+            {isLoading && <p>Loading ...</p>}
+            {!isLoading && menuList.length === 0 && <p>Found No Items to show</p>}
+            {
+               !isLoading && menuList.length > 0 &&
+               <ul className="menu-list">
+                  {
+                     menuList?.map((item) => {
+                        const inCartItem = cartCtx.cartItems.find(cartItem => cartItem.id === item.id)
 
-                     return (
-                        <li>
-                           <div>
-                              <div>{item.name}</div>
-                              <span>{item.price}</span>
-                           </div>
-                           <div>
-                              <button onClick={handleAddItem.bind(null, item)}>+</button>
-                              <span>{inCartItem?.quantity ?? 0}</span>
-                              <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
-                           </div>
-                        </li>
-                     )
-                  })
-               }
-            </ul>
+                        return (
+                           <li>
+                              <div>
+                                 <div>{item.name}</div>
+                                 <span>{item.price}</span>
+                              </div>
+                              <div>
+                                 <button onClick={handleAddItem.bind(null, item)}>+</button>
+                                 <span>{inCartItem?.quantity ?? 0}</span>
+                                 <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
+                              </div>
+                           </li>
+                        )
+                     })
+                  }
+               </ul>
+            }
          </div>
       </section>
    )

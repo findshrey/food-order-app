@@ -14,6 +14,19 @@ const Cart = () => {
       cartCtx.removeItem(id)
    }
 
+   const handleOrder = async () => {
+      const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json', {
+         method: 'POST',
+         body: JSON.stringify(cartCtx.cartItems),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      })
+
+      const data = await response.json()
+      console.log(data)
+   }
+
    const hasItems = cartCtx.cartItems.length > 0
 
    return (
@@ -38,7 +51,7 @@ const Cart = () => {
                   ))
                }
             </ul>
-            <button disabled={!hasItems}>Place Order</button>
+            <button disabled={!hasItems} onClick={handleOrder}>Place Order</button>
          </div>
       </section>
    )

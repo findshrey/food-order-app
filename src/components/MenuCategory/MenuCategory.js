@@ -20,7 +20,7 @@ const MenuCategory = () => {
             const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
 
             if (!response.ok) {
-               throw new Error('Something went wrong!')
+               throw new Error('Request Failed')
             }
 
             const menuData = await response.json()
@@ -38,7 +38,7 @@ const MenuCategory = () => {
 
             setMenuList(updatedMenu)
          } catch (e) {
-            setError(e.message)
+            setError(e.message || 'Something went wrong!')
          }
 
          setIsLoading(false)

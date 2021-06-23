@@ -9,30 +9,29 @@ const MenuCategory = () => {
    const [menuList, setMenuList] = useState([])
    const cartCtx = useContext(CartContext)
    const { category } = useParams()
-
-   const transformMenuData = menuData => {
-      const updatedMenu = []
-
-      for (const itemKey in menuData[category]) {
-         updatedMenu.push({
-            id: itemKey,
-            name: menuData[category][itemKey].name,
-            description: menuData[category][itemKey].description,
-            price: menuData[category][itemKey].price
-         })
-      }
-
-      setMenuList(updatedMenu)
-   }
-
-   const { isLoading, error, sendRequest: fetchMenu } = useHttp(
-      { url: 'https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json' },
-      transformMenuData
-   )
+   const { isLoading, error, sendRequest: fetchMenu } = useHttp()
 
    useEffect(() => {
-      fetchMenu()
-   }, [])
+      const transformMenuData = menuData => {
+         const updatedMenu = []
+
+         for (const itemKey in menuData[category]) {
+            updatedMenu.push({
+               id: itemKey,
+               name: menuData[category][itemKey].name,
+               description: menuData[category][itemKey].description,
+               price: menuData[category][itemKey].price
+            })
+         }
+
+         setMenuList(updatedMenu)
+      }
+
+      fetchMenu(
+         { url: 'https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json' },
+         transformMenuData
+      )
+   }, [fetchMenu])
 
    const handleAddItem = (item) => {
       cartCtx.addItem({ ...item, quantity: 1 })

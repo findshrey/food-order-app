@@ -2,8 +2,10 @@ import React, { useContext } from 'react'
 
 import styles from './Cart.module.scss'
 import CartContext from '../../context/CartContext'
+import useHttp from './../../hooks/useHttp'
 
 const Cart = () => {
+   const { isLoading, error, sendRequest: placeOrder } = useHttp()
    const cartCtx = useContext(CartContext)
 
    const handleAddItem = (item) => {
@@ -14,17 +16,17 @@ const Cart = () => {
       cartCtx.removeItem(id)
    }
 
-   const handleOrder = async () => {
-      const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json', {
+   const handleOrder = () => {
+      placeOrder({
+         url: 'https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
          method: 'POST',
-         body: JSON.stringify(cartCtx.cartItems),
          headers: {
             'Content-Type': 'application/json'
-         }
+         },
+         body: cartCtx.cartItems
+      }, (data) => {
+         console.log(data);
       })
-
-      const data = await response.json()
-      console.log(data)
    }
 
    const hasItems = cartCtx.cartItems.length > 0

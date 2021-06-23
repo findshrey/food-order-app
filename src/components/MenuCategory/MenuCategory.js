@@ -3,48 +3,35 @@ import { useParams } from 'react-router-dom'
 
 import styles from './MenuCategory.module.scss'
 import CartContext from './../../context/CartContext'
+import useHttp from './../../hooks/useHttp'
 
 const MenuCategory = () => {
-   const cartCtx = useContext(CartContext)
    const [menuList, setMenuList] = useState([])
+   const cartCtx = useContext(CartContext)
    const { category } = useParams()
-   const [isLoading, setIsLoading] = useState(false)
-   const [error, setError] = useState(null)
 
-   useEffect(() => {
-      const getMenu = async () => {
-         setIsLoading(true)
-         setError(null)
+   const transformMenuData = menuData => {
+      const updatedMenu = []
 
-         try {
-            const response = await fetch('https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json')
-
-            if (!response.ok) {
-               throw new Error('Request Failed')
-            }
-
-            const menuData = await response.json()
-
-            const updatedMenu = []
-
-            for (const itemKey in menuData[category]) {
-               updatedMenu.push({
-                  id: itemKey,
-                  name: menuData[category][itemKey].name,
-                  description: menuData[category][itemKey].description,
-                  price: menuData[category][itemKey].price
-               })
-            }
-
-            setMenuList(updatedMenu)
-         } catch (e) {
-            setError(e.message || 'Something went wrong!')
-         }
-
-         setIsLoading(false)
+      for (const itemKey in menuData[category]) {
+         updatedMenu.push({
+            id: itemKey,
+            name: menuData[category][itemKey].name,
+            description: menuData[category][itemKey].description,
+            price: menuData[category][itemKey].price
+         })
       }
 
-      getMenu()
+      setMenuList(updatedMenu)
+   }
+
+   const { isLoading, error, sendRequest: fetchMenu } = useHttp(
+      { url: 'https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json' },
+      transformMenuData
+   )
+
+   useEffect(() => {
+      fetchMenu()
    }, [])
 
    const handleAddItem = (item) => {

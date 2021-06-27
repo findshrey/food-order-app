@@ -62,11 +62,19 @@ const MenuCategory = () => {
                                  <div>{item.name}</div>
                                  <span>{item.price}</span>
                               </div>
-                              <div>
-                                 <button onClick={handleAddItem.bind(null, item)}>+</button>
-                                 <span>{inCartItem?.quantity ?? 0}</span>
-                                 <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
-                              </div>
+                              {
+                                 !inCartItem ? (
+                                    <button onClick={handleAddItem.bind(null, item)}>
+                                       Add to Cart
+                                    </button>
+                                 ) : (
+                                    <div>
+                                       <button onClick={handleAddItem.bind(null, item)}>+</button>
+                                       <span>{inCartItem?.quantity ?? 0}</span>
+                                       <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
+                                    </div>
+                                 )
+                              }
                            </li>
                         )
                      })

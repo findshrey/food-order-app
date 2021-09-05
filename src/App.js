@@ -7,6 +7,7 @@ import MenuCategory from "./pages/MenuCategory/MenuCategory"
 import Cart from "./pages/Cart/Cart"
 import NotFound from "./pages/NotFound/NotFound"
 import { CartProvider } from "./context/CartContext"
+import AuthPage from "./pages/AuthPage"
 
 function App() {
    return (
@@ -15,6 +16,9 @@ function App() {
             <Header />
             <main>
                <Switch>
+                  <Route path="/auth">
+                     <AuthPage />
+                  </Route>
                   <Route path="/menu" exact>
                      <Menu />
                   </Route>

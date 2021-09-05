@@ -1,14 +1,18 @@
-import React, { useRef } from "react"
+import React, { useState, useRef } from "react"
 
 const SignUp = ({ handleAuthMode }) => {
    const emailRef = useRef()
    const passwordRef = useRef()
    const confirmPasswordRef = useRef()
 
+   const [isLoading, setIsLoading] = useState(false)
+
    const handleSubmit = (e) => {
       e.preventDefault()
 
       // Add validation
+
+      setIsLoading(true)
 
       fetch(
          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
@@ -24,12 +28,16 @@ const SignUp = ({ handleAuthMode }) => {
             },
          }
       ).then((res) => {
+         setIsLoading(false)
+
          if (res.ok) {
             // ..
          } else {
             return res.json().then((data) => {
-               // show error modal
-               console.log(data)
+               const errorMessage =
+                  data.error.message || "Authentication failed"
+               // can show modal
+               alert(errorMessage)
             })
          }
       })
@@ -51,7 +59,11 @@ const SignUp = ({ handleAuthMode }) => {
                <label>Confirm Password:</label>
                <input type="password" ref={confirmPasswordRef} required />
             </div>
-            <button type="submit">Sign up</button>
+            {!isLoading ? (
+               <button type="submit">Sign up</button>
+            ) : (
+               <p>Sending Request...</p>
+            )}
             <button type="button" onClick={handleAuthMode}>
                Login with existing account
             </button>

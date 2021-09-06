@@ -27,20 +27,27 @@ const SignUp = ({ handleAuthMode }) => {
                "Content-Type": "application/json",
             },
          }
-      ).then((res) => {
-         setIsLoading(false)
+      )
+         .then((res) => {
+            setIsLoading(false)
 
-         if (res.ok) {
-            // ..
-         } else {
-            return res.json().then((data) => {
-               const errorMessage =
-                  data.error.message || "Authentication failed"
-               // can show modal
-               alert(errorMessage)
-            })
-         }
-      })
+            if (res.ok) {
+               return res.json()
+            } else {
+               return res.json().then((data) => {
+                  const errorMessage =
+                     data?.error?.message || "Authentication failed"
+
+                  throw new Error(errorMessage)
+               })
+            }
+         })
+         .then((data) => {
+            console.log(data)
+         })
+         .catch((err) => {
+            alert(err)
+         })
    }
 
    return (

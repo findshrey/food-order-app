@@ -1,9 +1,13 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useContext } from "react"
+
+import AuthContext from "../../context/AuthContext"
 
 const LoginForm = ({ handleAuthMode }) => {
    const emailRef = useRef()
    const passwordRef = useRef()
    const [isLoading, setIsLoading] = useState(false)
+
+   const authCtx = useContext(AuthContext)
 
    const handleSubmit = (e) => {
       e.preventDefault()
@@ -41,7 +45,7 @@ const LoginForm = ({ handleAuthMode }) => {
             }
          })
          .then((data) => {
-            console.log(data)
+            authCtx.login(data.idToken)
          })
          .catch((err) => {
             alert(err)

@@ -1,9 +1,13 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useContext } from "react"
+
+import AuthContext from "../../context/AuthContext"
 
 const SignUp = ({ handleAuthMode }) => {
    const emailRef = useRef()
    const passwordRef = useRef()
    const confirmPasswordRef = useRef()
+
+   const authCtx = useContext(AuthContext)
 
    const [isLoading, setIsLoading] = useState(false)
 
@@ -43,7 +47,7 @@ const SignUp = ({ handleAuthMode }) => {
             }
          })
          .then((data) => {
-            console.log(data)
+            authCtx.login(data.idToken)
          })
          .catch((err) => {
             alert(err)

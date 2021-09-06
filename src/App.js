@@ -8,33 +8,36 @@ import Cart from "./pages/Cart/Cart"
 import NotFound from "./pages/NotFound/NotFound"
 import { CartProvider } from "./context/CartContext"
 import AuthPage from "./pages/AuthPage"
+import { AuthProvider } from "./context/AuthContext"
 
 function App() {
    return (
-      <BrowserRouter>
+      <AuthProvider>
          <CartProvider>
-            <Header />
-            <main>
-               <Switch>
-                  <Route path="/auth">
-                     <AuthPage />
-                  </Route>
-                  <Route path="/menu" exact>
-                     <Menu />
-                  </Route>
-                  <Route path="/menu/:category">
-                     <MenuCategory />
-                  </Route>
-                  <Route path="/cart">
-                     <Cart />
-                  </Route>
-                  <Route>
-                     <NotFound />
-                  </Route>
-               </Switch>
-            </main>
+            <BrowserRouter>
+               <Header />
+               <main>
+                  <Switch>
+                     <Route path="/auth">
+                        <AuthPage />
+                     </Route>
+                     <Route path="/menu" exact>
+                        <Menu />
+                     </Route>
+                     <Route path="/menu/:category">
+                        <MenuCategory />
+                     </Route>
+                     <Route path="/cart">
+                        <Cart />
+                     </Route>
+                     <Route>
+                        <NotFound />
+                     </Route>
+                  </Switch>
+               </main>
+            </BrowserRouter>
          </CartProvider>
-      </BrowserRouter>
+      </AuthProvider>
    )
 }
 

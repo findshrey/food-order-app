@@ -3,9 +3,11 @@ import { Link } from "react-router-dom"
 
 import styles from "./Navbar.module.scss"
 import CartContext from "../../context/CartContext"
+import AuthContext from "../../context/AuthContext"
 
 const Navbar = () => {
    const cartCtx = useContext(CartContext)
+   const authCtx = useContext(AuthContext)
 
    const numberOfItems = cartCtx.cartItems.reduce((acc, cartItem) => {
       return acc + cartItem.quantity
@@ -24,9 +26,20 @@ const Navbar = () => {
                   Cart - {numberOfItems}
                </Link>
             </li>
-            <li>
-               <Link to="/auth">Login</Link>
-            </li>
+            {!authCtx.isLoggedIn ? (
+               <li>
+                  <Link to="/auth">Login</Link>
+               </li>
+            ) : (
+               <li>
+                  <Link to="/profile">Profile</Link>
+               </li>
+            )}
+            {authCtx.isLoggedIn && (
+               <li>
+                  <button onClick={authCtx.logout}>Logout</button>
+               </li>
+            )}
          </ul>
       </nav>
    )

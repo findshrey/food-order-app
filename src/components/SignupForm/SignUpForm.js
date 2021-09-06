@@ -1,8 +1,10 @@
 import React, { useState, useRef, useContext } from "react"
+import { useHistory } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 
 const SignUp = ({ handleAuthMode }) => {
+   const history = useHistory()
    const emailRef = useRef()
    const passwordRef = useRef()
    const confirmPasswordRef = useRef()
@@ -48,6 +50,7 @@ const SignUp = ({ handleAuthMode }) => {
          })
          .then((data) => {
             authCtx.login(data.idToken)
+            history.replace("/")
          })
          .catch((err) => {
             alert(err)

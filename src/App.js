@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound/NotFound"
 import { CartProvider } from "./context/CartContext"
 import AuthPage from "./pages/AuthPage"
 import { AuthProvider } from "./context/AuthContext"
+import ProfilePage from "./pages/ProfilePage"
 
 function App() {
    return (
@@ -20,6 +21,9 @@ function App() {
                   <Switch>
                      <Route path="/auth">
                         <AuthPage />
+                     </Route>
+                     <Route path="/profile">
+                        <ProfilePage />
                      </Route>
                      <Route path="/menu" exact>
                         <Menu />

@@ -1,5 +1,5 @@
-import React from "react"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import React, { useContext } from "react"
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
 
 import Header from "./components/Header/Header"
 import Menu from "./pages/Menu/Menu"
@@ -8,10 +8,13 @@ import Cart from "./pages/Cart/Cart"
 import NotFound from "./pages/NotFound/NotFound"
 import { CartProvider } from "./context/CartContext"
 import AuthPage from "./pages/AuthPage"
-import { AuthProvider } from "./context/AuthContext"
+import AuthContext, { AuthProvider } from "./context/AuthContext"
 import ProfilePage from "./pages/ProfilePage"
 
 function App() {
+   const authCtx = useContext(AuthContext)
+   console.log(authCtx?.isLoggedIn)
+
    return (
       <AuthProvider>
          <CartProvider>
@@ -19,11 +22,17 @@ function App() {
                <Header />
                <main>
                   <Switch>
-                     <Route path="/auth">
-                        <AuthPage />
-                     </Route>
+                     {!authCtx?.isLoggedIn && (
+                        <Route path="/auth">
+                           <AuthPage />
+                        </Route>
+                     )}
                      <Route path="/profile">
-                        <ProfilePage />
+                        {authCtx?.isLoggedIn ? (
+                           <ProfilePage />
+                        ) : (
+                           <Redirect to="/auth" />
+                        )}
                      </Route>
                      <Route path="/menu" exact>
                         <Menu />
@@ -34,7 +43,7 @@ function App() {
                      <Route path="/cart">
                         <Cart />
                      </Route>
-                     <Route>
+                     <Route path="*">
                         <NotFound />
                      </Route>
                   </Switch>

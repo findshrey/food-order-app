@@ -13,7 +13,6 @@ import ProfilePage from "./pages/ProfilePage"
 
 function App() {
    const authCtx = useContext(AuthContext)
-   console.log(authCtx?.isLoggedIn)
 
    return (
       <AuthProvider>

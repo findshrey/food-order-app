@@ -47,7 +47,9 @@ const LoginForm = ({ handleAuthMode }) => {
             }
          })
          .then((data) => {
-            authCtx.login(data.idToken)
+            const expirationTime = Date.now() + data.expiresIn * 1000
+
+            authCtx.login(data.idToken, expirationTime)
             history.replace("/")
          })
          .catch((err) => {

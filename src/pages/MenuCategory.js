@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
 
-import styles from "./MenuCategory.module.scss"
-import CartContext from "../../context/CartContext"
-import useHttp from "../../hooks/useHttp"
+import CartContext from "../context/CartContext"
+import useHttp from "../hooks/useHttp"
 
 const MenuCategory = () => {
    const [menuList, setMenuList] = useState([])

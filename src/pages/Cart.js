@@ -1,8 +1,7 @@
 import React, { useContext } from "react"
 
-import styles from "./Cart.module.scss"
-import CartContext from "../../context/CartContext"
-import useHttp from "../../hooks/useHttp"
+import CartContext from "../context/CartContext"
+import useHttp from "../hooks/useHttp"
 
 const Cart = () => {
    const { isLoading, error, sendRequest: placeOrder } = useHttp()

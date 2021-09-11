@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Redirect, Route } from "react-router-dom"
 
+import AuthPage from "./pages/AuthPage"
+import AuthContext from "./context/AuthContext"
+import Cart from "./pages/Cart"
 import Header from "./components/Header/Header"
 import Menu from "./pages/Menu"
 import MenuCategory from "./pages/MenuCategory"
-import Cart from "./pages/Cart"
 import NotFound from "./pages/NotFound"
-import AuthPage from "./pages/AuthPage"
-import AuthContext from "./context/AuthContext"
 import ProfilePage from "./pages/ProfilePage"
 
 function App() {

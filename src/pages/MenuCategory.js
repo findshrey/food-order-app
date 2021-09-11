@@ -43,7 +43,7 @@ const MenuCategory = () => {
    }
 
    return (
-      <section className="menu-category">
+      <div className="container">
          <div className="container">
             <header>
                <h2>Menu Category</h2>
@@ -94,7 +94,7 @@ const MenuCategory = () => {
             )}
             {!isLoading && error && <p>{error}</p>}
          </div>
-      </section>
+      </div>
    )
 }
 

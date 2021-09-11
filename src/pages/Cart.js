@@ -34,7 +34,7 @@ const Cart = () => {
    const hasItems = cartCtx.cartItems.length > 0
 
    return (
-      <section className="cart">
+      <div className="container">
          <div className="container">
             <header>
                <h2>Cart</h2>
@@ -59,7 +59,7 @@ const Cart = () => {
                Place Order
             </button>
          </div>
-      </section>
+      </div>
    )
 }
 

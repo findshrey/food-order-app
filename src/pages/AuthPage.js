@@ -11,13 +11,13 @@ const AuthPage = () => {
    }
 
    return (
-      <section>
+      <div className="container">
          {isLogin ? (
             <LoginForm handleAuthMode={handleAuthMode} />
          ) : (
             <SignUp handleAuthMode={handleAuthMode} />
          )}
-      </section>
+      </div>
    )
 }
 

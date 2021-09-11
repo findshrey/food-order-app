@@ -4,7 +4,7 @@ import ProfileForm from "../components/ProfileForm/ProfileForm"
 
 const ProfilePage = () => {
    return (
-      <div className="profile-page">
+      <div className="container">
          <ProfileForm />
       </div>
    )

@@ -5,7 +5,7 @@ import { MENU_CATEGORY } from "../data/constants"
 
 const Menu = () => {
    return (
-      <section className="menu">
+      <div className="container">
          <div className="container">
             <header>
                <h2>Menu</h2>
@@ -18,7 +18,7 @@ const Menu = () => {
                ))}
             </ul>
          </div>
-      </section>
+      </div>
    )
 }
 

@@ -35,30 +35,26 @@ const Cart = () => {
 
    return (
       <div className="container">
-         <div className="container">
-            <header>
-               <h2>Cart</h2>
-            </header>
-            <ul>
-               {cartCtx.cartItems.map((item) => (
-                  <li>
-                     <div>{`Item: ${item.name}, Price: ${item.price}`}</div>
-                     <div>
-                        <button onClick={handleAddItem.bind(null, item)}>
-                           +
-                        </button>
-                        <span>{item.quantity}</span>
-                        <button onClick={handleRemoveItem.bind(null, item.id)}>
-                           -
-                        </button>
-                     </div>
-                  </li>
-               ))}
-            </ul>
-            <button disabled={!hasItems} onClick={handleOrder}>
-               Place Order
-            </button>
-         </div>
+         <header>
+            <h2>Cart</h2>
+         </header>
+         <ul>
+            {cartCtx.cartItems.map((item) => (
+               <li>
+                  <div>{`Item: ${item.name}, Price: ${item.price}`}</div>
+                  <div>
+                     <button onClick={handleAddItem.bind(null, item)}>+</button>
+                     <span>{item.quantity}</span>
+                     <button onClick={handleRemoveItem.bind(null, item.id)}>
+                        -
+                     </button>
+                  </div>
+               </li>
+            ))}
+         </ul>
+         <button disabled={!hasItems} onClick={handleOrder}>
+            Place Order
+         </button>
       </div>
    )
 }

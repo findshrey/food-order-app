@@ -4,6 +4,7 @@ import { Switch, Redirect, Route } from "react-router-dom"
 import AuthPage from "./pages/AuthPage"
 import AuthContext from "./context/AuthContext"
 import Cart from "./pages/Cart"
+import HomePage from "./pages/HomePage"
 import Layout from "./components/Layout/Layout"
 import Menu from "./pages/Menu"
 import MenuCategory from "./pages/MenuCategory"
@@ -16,6 +17,9 @@ const App = () => {
    return (
       <Layout>
          <Switch>
+            <Route to="/" exact>
+               <HomePage />
+            </Route>
             {!authCtx.isLoggedIn && (
                <Route path="/auth">
                   <AuthPage />

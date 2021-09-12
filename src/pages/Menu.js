@@ -6,18 +6,16 @@ import { MENU_CATEGORY } from "../data/constants"
 const Menu = () => {
    return (
       <div className="container">
-         <div className="container">
-            <header>
-               <h2>Menu</h2>
-            </header>
-            <ul className="menu-inner">
-               {MENU_CATEGORY.map((category) => (
-                  <li key={category}>
-                     <Link to={`/menu/${category}`}>{category}</Link>
-                  </li>
-               ))}
-            </ul>
-         </div>
+         <header>
+            <h2>Menu</h2>
+         </header>
+         <ul className="menu-inner">
+            {MENU_CATEGORY.map((category) => (
+               <li key={category}>
+                  <Link to={`/menu/${category}`}>{category}</Link>
+               </li>
+            ))}
+         </ul>
       </div>
    )
 }

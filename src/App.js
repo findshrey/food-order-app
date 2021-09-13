@@ -4,6 +4,7 @@ import { Switch, Redirect, Route } from "react-router-dom"
 import AuthPage from "./pages/AuthPage"
 import AuthContext from "./context/AuthContext"
 import Cart from "./pages/Cart"
+import Contact from "./components/Contact/Contact"
 import HomePage from "./pages/HomePage"
 import Layout from "./components/Layout/Layout"
 import Menu from "./pages/Menu"
@@ -17,7 +18,7 @@ const App = () => {
    return (
       <Layout>
          <Switch>
-            <Route to="/" exact>
+            <Route path="/" exact>
                <HomePage />
             </Route>
             {!authCtx.isLoggedIn && (
@@ -36,6 +37,9 @@ const App = () => {
             </Route>
             <Route path="/cart">
                <Cart />
+            </Route>
+            <Route path="/contact">
+               <Contact />
             </Route>
             <Route path="*">
                <NotFound />

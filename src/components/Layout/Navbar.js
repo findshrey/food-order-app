@@ -17,8 +17,18 @@ const Navbar = () => {
       <nav className={styles.navbar}>
          <ul>
             <li>
+               <Link to="/" className="nav-link">
+                  Home
+               </Link>
+            </li>
+            <li>
                <Link to="/menu" className="nav-link">
                   Menu
+               </Link>
+            </li>
+            <li>
+               <Link to="/contact" className="nav-link">
+                  Contact
                </Link>
             </li>
             <li>

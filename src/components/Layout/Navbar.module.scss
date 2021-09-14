@@ -1,15 +1,25 @@
+// .navbar {
+//    display: flex;
+//    align-items: center;
+
+//    ul {
+//       display: flex;
+//    }
+
+//    li {
+//       margin-left: 2rem;
+//    }
+// }
+
+// .nav-link {
+// }
 .navbar {
-   display: flex;
-   align-items: center;
+   flex: 1;
 
    ul {
       display: flex;
+      // height: 100%;
+      // display: grid;
+      // grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr;
    }
-
-   li {
-      margin-left: 2rem;
-   }
-}
-
-.nav-link {
 }

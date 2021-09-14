@@ -1,8 +1,15 @@
-// .main-head {
-//    padding: 2rem 0;
+.main-head {
+   padding: 2rem 0;
 
-//    :global(.container) {
-//       display: flex;
-//       justify-content: space-between;
-//    }
-// }
+   // :global(.container) {
+   //    display: flex;
+   //    justify-content: space-between;
+   // }
+   :global(.container) {
+      display: flex;
+
+      & > a {
+         margin-right: 10rem;
+      }
+   }
+}

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 import CartContext from "../../context/CartContext"
+import IconCart from "../../icons/IconCart"
+import IconUser from "../../icons/IconUser"
+
 import styles from "./Navbar.module.scss"
 
 const Navbar = () => {
@@ -17,23 +20,22 @@ const Navbar = () => {
       <nav className={styles.navbar}>
          <ul>
             <li>
-               <Link to="/" className="nav-link">
-                  Home
+               <Link to="/">Home</Link>
+            </li>
+            <li>
+               <Link to="/menu">Menu</Link>
+            </li>
+            <li>
+               <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+               <Link to="/cart">
+                  <IconCart />
                </Link>
             </li>
             <li>
-               <Link to="/menu" className="nav-link">
-                  Menu
-               </Link>
-            </li>
-            <li>
-               <Link to="/contact" className="nav-link">
-                  Contact
-               </Link>
-            </li>
-            <li>
-               <Link to="/cart" className="nav-link">
-                  Cart - {numberOfItems}
+               <Link to="/profile">
+                  <IconUser />
                </Link>
             </li>
             {!authCtx.isLoggedIn ? (
@@ -41,11 +43,6 @@ const Navbar = () => {
                   <Link to="/auth">Login</Link>
                </li>
             ) : (
-               <li>
-                  <Link to="/profile">Profile</Link>
-               </li>
-            )}
-            {authCtx.isLoggedIn && (
                <li>
                   <button onClick={authCtx.logout}>Logout</button>
                </li>

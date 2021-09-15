@@ -1,15 +1,15 @@
-.main-head {
-   padding: 2rem 0;
+@import "../../index.scss";
 
-   // :global(.container) {
-   //    display: flex;
-   //    justify-content: space-between;
-   // }
+.main-head {
+   padding: 3rem 0;
+
    :global(.container) {
       display: flex;
+      gap: 20rem;
+   }
 
-      & > a {
-         margin-right: 10rem;
-      }
+   span {
+      color: $c-red;
+      font-size: $h1;
    }
 }

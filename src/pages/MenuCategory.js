@@ -53,13 +53,13 @@ const MenuCategory = () => {
          )}
          {!isLoading && menuList.length > 0 && (
             <ul className="menu-list">
-               {menuList?.map((item) => {
+               {menuList?.map((item, index) => {
                   const inCartItem = cartCtx.cartItems.find(
                      (cartItem) => cartItem.id === item.id
                   )
 
                   return (
-                     <li>
+                     <li key={index}>
                         <div>
                            <div>{item.name}</div>
                            <span>{item.price}</span>

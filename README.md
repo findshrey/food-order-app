@@ -1,3 +1,3 @@
 ### React Meals
 
-Uses Firebase as DB.
+Uses Firebase as DB. Hosted on Netlify.

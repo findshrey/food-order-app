@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 import CartContext from "../../context/CartContext"
@@ -20,31 +20,41 @@ const Navbar = () => {
       <nav className={styles.navbar}>
          <ul>
             <li>
-               <Link to="/">Home</Link>
+               <NavLink to="/" activeClassName={styles["active-link"]} exact>
+                  Home
+               </NavLink>
             </li>
             <li>
-               <Link to="/menu">Menu</Link>
+               <NavLink to="/menu" activeClassName={styles["active-link"]}>
+                  Menu
+               </NavLink>
             </li>
             <li>
-               <Link to="/contact">Contact</Link>
+               <NavLink to="/contact" activeClassName={styles["active-link"]}>
+                  Contact
+               </NavLink>
             </li>
             <li>
-               <Link to="/cart">
+               <NavLink to="/cart">
                   <IconCart />
-               </Link>
+               </NavLink>
             </li>
             <li>
-               <Link to="/profile">
+               <NavLink to="/profile">
                   <IconUser />
-               </Link>
+               </NavLink>
             </li>
             {!authCtx.isLoggedIn ? (
                <li>
-                  <Link to="/auth">Login</Link>
+                  <NavLink className="btn-red" to="/auth">
+                     Login
+                  </NavLink>
                </li>
             ) : (
                <li>
-                  <button onClick={authCtx.logout}>Logout</button>
+                  <button className="btn-red" onClick={authCtx.logout}>
+                     Logout
+                  </button>
                </li>
             )}
          </ul>

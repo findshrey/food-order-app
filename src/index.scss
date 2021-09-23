@@ -8,7 +8,7 @@ $h2: 2.5rem;
 $h3: 2rem;
 
 // Text sizes
-$font-m: 1.8rem;
+$font-m: 1.7rem;
 $font-s: 1.4rem;
 
 // Colors
@@ -96,4 +96,24 @@ img {
    width: 90%;
    max-width: 1280px;
    margin: 0 auto;
+}
+
+// Buttons
+%btn-common {
+   border: none;
+   border-radius: 3rem;
+   padding: 1rem 2rem;
+   transition: all 0.4s ease;
+}
+
+.btn {
+   &-red {
+      @extend %btn-common;
+      background-color: $c-red;
+      color: $c-white;
+
+      &:hover {
+         background-color: darken($c-red, 10%);
+      }
+   }
 }

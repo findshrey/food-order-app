@@ -1,3 +1,18 @@
 .hero {
-   min-height: 90vh;
+   // min-height: 90vh;
+   display: flex;
+   padding: 5rem 0;
+
+   &-text {
+      flex: 3;
+      margin-right: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+   }
+
+   &-img {
+      flex: 2;
+   }
 }

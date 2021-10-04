@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 import CartContext from "../../context/CartContext"
-import IconCart from "../../icons/IconCart"
-import IconUser from "../../icons/IconUser"
+import IconCart from "../../assets/icons/IconCart"
+import IconUser from "../../assets/icons/IconUser"
 
 import styles from "./Navbar.module.scss"
 

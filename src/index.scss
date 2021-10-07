@@ -4,7 +4,7 @@ $font-primary: "Fira Sans", sans-serif;
 
 // Header sizes
 $h1: 3rem;
-$h2: 2.5rem;
+$h2: 5rem;
 $h3: 2rem;
 
 // Text sizes
@@ -13,8 +13,8 @@ $font-s: 1.4rem;
 
 // Colors
 $c-black-matte: #252525;
-$c-cream: #fef4f4;
-$c-red: #f54748;
+$c-cream: #fef4f4; //fef4f4, fdebcf
+$c-red: #f54748; //f54748, fb9433
 $c-white: #fff;
 
 // Paddings & Margins
@@ -95,7 +95,7 @@ img {
 // ---------- UTILITY CLASSES & MIXINS ---------- //
 .container {
    width: 90%;
-   max-width: 1200px;
+   max-width: 1280px;
    margin: 0 auto;
 }
 

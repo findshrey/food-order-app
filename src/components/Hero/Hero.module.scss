@@ -1,7 +1,6 @@
 @import "../../index.scss";
 
 .hero {
-   // min-height: 90vh;
    display: flex;
    padding: 5rem 0;
 
@@ -25,7 +24,5 @@
 
    &-img {
       flex: 1 1 40%;
-      // display: flex;
-      // justify-content: center;
    }
 }

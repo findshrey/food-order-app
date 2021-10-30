@@ -8,7 +8,7 @@ const Hero = () => {
       <section className={styles.hero}>
          <div className={styles["hero-text"]}>
             <h2>
-               Be The Fastest In Delivering Your <span>Food</span>
+               The Fastest In Delivering Your <span>Food</span>
             </h2>
             <p>
                Our job is to fill your tummy with delicious food with fast and

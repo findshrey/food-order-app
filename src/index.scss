@@ -8,13 +8,14 @@ $h2: 5rem;
 $h3: 2rem;
 
 // Text sizes
-$font-m: 1.7rem;
+$font-l: 2.2rem;
+$font-m: 1.8rem;
 $font-s: 1.4rem;
 
 // Colors
 $c-black-matte: #252525;
 $c-cream: #fef4f4; //fef4f4, fdebcf
-$c-red: #f54748; //f54748, fb9433
+$c-red: #fba500; //fb9433, fb9433, #FBA500
 $c-white: #fff;
 
 // Paddings & Margins
@@ -89,7 +90,7 @@ button {
 }
 
 img {
-   width: 100%;
+   // width: 100%;
 }
 
 // ---------- UTILITY CLASSES & MIXINS ---------- //

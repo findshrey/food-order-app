@@ -1,6 +1,6 @@
 import React from "react"
 
-import imgHero from "../../assets/images/hero.png"
+import ChefCooking from "../../assets/illustrations/ChefCooking"
 import styles from "./Hero.module.scss"
 
 const Hero = () => {
@@ -8,7 +8,7 @@ const Hero = () => {
       <section className={styles.hero}>
          <div className={styles["hero-text"]}>
             <h2>
-               The Fastest In Delivering Your <span>Food</span>
+               Made with love, <span>savoured</span> with interest.
             </h2>
             <p>
                Our job is to fill your tummy with delicious food with fast and
@@ -17,7 +17,7 @@ const Hero = () => {
             <button className="btn-red">Order Food</button>
          </div>
          <div className={styles["hero-img"]}>
-            <img src={imgHero} />
+            <ChefCooking />
          </div>
       </section>
    )

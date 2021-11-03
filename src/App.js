@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { Switch, Redirect, Route } from "react-router-dom"
 
+import * as ROUTES from "./constants/routes"
 import AuthPage from "./pages/AuthPage"
 import AuthContext from "./context/AuthContext"
 import Cart from "./pages/Cart"
@@ -18,27 +19,31 @@ const App = () => {
    return (
       <Layout>
          <Switch>
-            <Route path="/" exact>
+            <Route path={ROUTES.HOME} exact>
                <HomePage />
             </Route>
             {!authCtx.isLoggedIn && (
-               <Route path="/auth">
+               <Route path={ROUTES.AUTH}>
                   <AuthPage />
                </Route>
             )}
-            <Route path="/profile">
-               {authCtx.isLoggedIn ? <ProfilePage /> : <Redirect to="/auth" />}
+            <Route path={ROUTES.PROFILE}>
+               {authCtx.isLoggedIn ? (
+                  <ProfilePage />
+               ) : (
+                  <Redirect to={ROUTES.AUTH} />
+               )}
             </Route>
-            <Route path="/menu" exact>
+            <Route path={ROUTES.MENU} exact>
                <Menu />
             </Route>
-            <Route path="/menu/:category">
+            <Route path={`${ROUTES.MENU}/:category`}>
                <MenuCategory />
             </Route>
-            <Route path="/cart">
+            <Route path={ROUTES.CART}>
                <Cart />
             </Route>
-            <Route path="/contact">
+            <Route path={ROUTES.CONTACT}>
                <Contact />
             </Route>
             <Route path="*">

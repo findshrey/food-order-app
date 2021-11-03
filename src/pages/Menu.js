@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-import { MENU_CATEGORY } from "../data/constants"
+import { MENU_CATEGORY } from "../constants/menuCategory"
 
 const Menu = () => {
    return (

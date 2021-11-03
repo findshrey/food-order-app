@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Switch, Redirect, Route } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 
 import * as ROUTES from "./constants/routes"
 import AuthPage from "./pages/AuthPage"
@@ -12,43 +12,29 @@ import Menu from "./pages/Menu"
 import MenuCategory from "./pages/MenuCategory"
 import NotFound from "./pages/NotFound"
 import ProfilePage from "./pages/ProfilePage"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 const App = () => {
    const authCtx = useContext(AuthContext)
 
+   // Auth status
+   const isAuth = authCtx.isLoggedIn
+
    return (
       <Layout>
          <Switch>
-            <Route path={ROUTES.HOME} exact>
-               <HomePage />
-            </Route>
-            {!authCtx.isLoggedIn && (
-               <Route path={ROUTES.AUTH}>
-                  <AuthPage />
-               </Route>
-            )}
-            <Route path={ROUTES.PROFILE}>
-               {authCtx.isLoggedIn ? (
-                  <ProfilePage />
-               ) : (
-                  <Redirect to={ROUTES.AUTH} />
-               )}
-            </Route>
-            <Route path={ROUTES.MENU} exact>
-               <Menu />
-            </Route>
-            <Route path={`${ROUTES.MENU}/:category`}>
-               <MenuCategory />
-            </Route>
-            <Route path={ROUTES.CART}>
-               <Cart />
-            </Route>
-            <Route path={ROUTES.CONTACT}>
-               <Contact />
-            </Route>
-            <Route path="*">
-               <NotFound />
-            </Route>
+            <Route path={ROUTES.HOME} exact component={HomePage} />
+            {!isAuth && <Route path={ROUTES.AUTH} component={AuthPage} />}
+            <ProtectedRoute
+               path={ROUTES.PROFILE}
+               isAuth={isAuth}
+               component={ProfilePage}
+            />
+            <Route path={ROUTES.MENU} exact component={Menu} />
+            <Route path={`${ROUTES.MENU}/:category`} component={MenuCategory} />
+            <Route path={ROUTES.CART} component={Cart} />
+            <Route path={ROUTES.CONTACT} component={Contact} />
+            <Route path="*" component={NotFound} />
          </Switch>
       </Layout>
    )

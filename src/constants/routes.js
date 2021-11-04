@@ -1,8 +1,8 @@
-const HOME = "/"
 const AUTH = "/auth"
-const PROFILE = "/profile"
-const MENU = "/menu"
 const CART = "/cart"
 const CONTACT = "/contact"
+const HOME = "/"
+const MENU = "/menu"
+const PROFILE = "/profile"
 
-export { HOME, AUTH, PROFILE, MENU, CART, CONTACT }
+export { AUTH, CART, CONTACT, HOME, MENU, PROFILE }

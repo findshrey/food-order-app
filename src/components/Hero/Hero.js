@@ -1,7 +1,7 @@
 import React from "react"
 
-import ChefCooking from "../../assets/illustrations/ChefCooking"
 import styles from "./Hero.module.scss"
+import imgCooking from "../../assets/illustrations/cooking.svg"
 
 const Hero = () => {
    return (
@@ -17,7 +17,7 @@ const Hero = () => {
             <button className="btn-red">Order Food</button>
          </div>
          <div className={styles["hero-img"]}>
-            <ChefCooking />
+            <img src={imgCooking} />
          </div>
       </section>
    )

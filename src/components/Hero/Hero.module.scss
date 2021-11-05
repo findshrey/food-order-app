@@ -19,14 +19,14 @@
 
       p {
          font-size: $font-l;
-         margin: 3rem 0;
+         margin: 3rem 0 4rem 0;
       }
    }
 
    &-img {
       flex: 1 1 50%;
 
-      svg {
+      img {
          width: 100%;
       }
    }

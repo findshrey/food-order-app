@@ -4,7 +4,7 @@ $font-primary: "Fira Sans", sans-serif;
 
 // Header sizes
 $h1: 3rem;
-$h2: 5rem;
+$h2: 5.5rem;
 $h3: 2rem;
 
 // Text sizes
@@ -14,8 +14,8 @@ $font-s: 1.4rem;
 
 // Colors
 $c-black-matte: #252525;
-$c-cream: #fef4f4; //fef4f4, fdebcf
-$c-red: #fba500; //fb9433, fb9433, #FBA500
+$c-cream: #fef4f4;
+$c-red: #fb9300;
 $c-white: #fff;
 
 // Paddings & Margins
@@ -104,7 +104,7 @@ img {
 %btn-common {
    border: none;
    border-radius: 3rem;
-   padding: 1rem 2rem;
+   padding: 1.5rem 2.5rem;
    transition: all 0.4s ease;
 }
 
@@ -115,7 +115,7 @@ img {
       color: $c-white;
 
       &:hover {
-         background-color: darken($c-red, 10%);
+         background-color: darken($c-red, 5%);
       }
    }
 }

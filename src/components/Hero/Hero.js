@@ -8,11 +8,11 @@ const Hero = () => {
       <section className={styles.hero}>
          <div className={styles["hero-text"]}>
             <h2>
-               Made with love, <span>savoured</span> with interest.
+               Made With Love, <span>Savoured</span> With Interest
             </h2>
             <p>
-               Our job is to fill your tummy with delicious food with fast and
-               free delivery
+               Our job is to fill your tummy with delicious food and fast
+               delivery!
             </p>
             <button className="btn-red">Order Food</button>
          </div>

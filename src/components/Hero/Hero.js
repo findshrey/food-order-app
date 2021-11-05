@@ -1,9 +1,18 @@
 import React from "react"
+import { useHistory } from "react-router-dom"
 
-import styles from "./Hero.module.scss"
+import { MENU } from "../../constants/routes"
 import imgCooking from "../../assets/illustrations/cooking.svg"
+import styles from "./Hero.module.scss"
 
 const Hero = () => {
+   let history = useHistory()
+
+   // Navigate to menu
+   const handleClick = () => {
+      history.push(MENU)
+   }
+
    return (
       <section className={styles.hero}>
          <div className={styles["hero-text"]}>
@@ -14,7 +23,9 @@ const Hero = () => {
                Our job is to fill your tummy with delicious food and fast
                delivery!
             </p>
-            <button className="btn-red">Order Food</button>
+            <button className="btn-red" onClick={handleClick}>
+               Order Food
+            </button>
          </div>
          <div className={styles["hero-img"]}>
             <img src={imgCooking} />

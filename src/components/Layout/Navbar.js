@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { NavLink } from "react-router-dom"
 
+import * as ROUTES from "../../constants/routes"
 import AuthContext from "../../context/AuthContext"
 import CartContext from "../../context/CartContext"
 import IconCart from "../../icons/IconCart"
@@ -20,33 +21,43 @@ const Navbar = () => {
       <nav className={styles.navbar}>
          <ul>
             <li>
-               <NavLink to="/" activeClassName={styles["active-link"]} exact>
+               <NavLink
+                  to={ROUTES.HOME}
+                  activeClassName={styles["active-link"]}
+                  exact
+               >
                   Home
                </NavLink>
             </li>
             <li>
-               <NavLink to="/menu" activeClassName={styles["active-link"]}>
+               <NavLink
+                  to={ROUTES.MENU}
+                  activeClassName={styles["active-link"]}
+               >
                   Menu
                </NavLink>
             </li>
             <li>
-               <NavLink to="/contact" activeClassName={styles["active-link"]}>
+               <NavLink
+                  to={ROUTES.CONTACT}
+                  activeClassName={styles["active-link"]}
+               >
                   Contact
                </NavLink>
             </li>
             <li>
-               <NavLink to="/cart">
+               <NavLink to={ROUTES.CART}>
                   <IconCart />
                </NavLink>
             </li>
             <li>
-               <NavLink to="/profile">
+               <NavLink to={ROUTES.PROFILE}>
                   <IconUser />
                </NavLink>
             </li>
             {!authCtx.isLoggedIn ? (
                <li>
-                  <NavLink className="btn-red" to="/auth">
+                  <NavLink className="btn-red" to={ROUTES.AUTH}>
                      Login
                   </NavLink>
                </li>

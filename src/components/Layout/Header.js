@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
+import { HOME } from "../../constants/routes"
 import Navbar from "./Navbar"
 import styles from "./Header.module.scss"
 
@@ -8,7 +9,7 @@ const Header = () => {
    return (
       <header className={styles["main-head"]}>
          <div className="container">
-            <Link to="/">
+            <Link to={HOME}>
                <div className="logo">
                   <h1>
                      <span>React</span>Meals

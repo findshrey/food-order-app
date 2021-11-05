@@ -22,10 +22,14 @@
    a {
       display: flex;
       align-items: center;
-      font-weight: 500;
+   }
+
+   :global(.btn-red) {
+      padding: 1rem 2.5rem;
    }
 }
 
 .active-link {
    color: $c-red;
+   font-weight: 500;
 }

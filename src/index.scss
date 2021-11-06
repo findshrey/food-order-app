@@ -5,7 +5,8 @@ $font-primary: "Fira Sans", sans-serif;
 // Header sizes
 $h1: 3rem;
 $h2: 5.5rem;
-$h3: 2rem;
+$h3: 3rem;
+$h4: 2rem;
 
 // Text sizes
 $font-l: 2.2rem;
@@ -57,6 +58,10 @@ h2 {
 
 h3 {
    font-size: $h3;
+}
+
+h4 {
+   font-size: $h4;
 }
 
 div,

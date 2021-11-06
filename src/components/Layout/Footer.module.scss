@@ -1,0 +1,63 @@
+@import "../../index.scss";
+
+.footer {
+   background-color: #fff8ed;
+}
+
+.footer-upper {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   // gap: 2rem;
+   padding: 5rem 0;
+   border-bottom: 1px solid $c-black-matte;
+}
+
+.block-1 {
+   max-width: 350px;
+
+   h3 {
+      margin-bottom: 3.5rem;
+   }
+
+   span {
+      color: $c-red;
+      font-size: $h1;
+   }
+}
+
+.block-2 {
+   h4 {
+      color: $c-red;
+      font-size: $h4;
+      margin-bottom: 3.5rem;
+   }
+
+   li {
+      margin-bottom: 3rem;
+   }
+}
+
+.block-3 {
+   h4 {
+      color: $c-red;
+      font-size: $h4;
+      margin-bottom: 3.5rem;
+   }
+
+   li {
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+   }
+}
+
+.footer-lower {
+   display: flex;
+   justify-content: space-between;
+   padding: 5rem 0;
+
+   .external-links {
+      display: flex;
+   }
+}

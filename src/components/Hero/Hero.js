@@ -20,8 +20,8 @@ const Hero = () => {
                Made With Love, <span>Savoured</span> With Interest
             </h2>
             <p>
-               Our job is to fill your tummy with delicious food and fast
-               delivery!
+               Our job is to fill your tummy with delicious food and fast and
+               free delivery!
             </p>
             <button className="btn-red" onClick={handleClick}>
                Order Food

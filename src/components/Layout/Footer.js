@@ -1,5 +1,7 @@
 import React from "react"
+import { NavLink } from "react-router-dom"
 
+import * as ROUTES from "../../constants/routes"
 import {
    IconFacebook,
    IconLinkedIn,
@@ -28,9 +30,27 @@ const Footer = () => {
                <div className={styles["block-2"]}>
                   <h4>Feature</h4>
                   <ul>
-                     <li>Home</li>
-                     <li>Menu</li>
-                     <li>Contact</li>
+                     <li>
+                        <NavLink to={ROUTES.HOME} exact>
+                           Home
+                        </NavLink>
+                     </li>
+                     <li>
+                        <NavLink
+                           to={ROUTES.MENU}
+                           activeClassName={styles["active-link"]}
+                        >
+                           Menu
+                        </NavLink>
+                     </li>
+                     <li>
+                        <NavLink
+                           to={ROUTES.CONTACT}
+                           activeClassName={styles["active-link"]}
+                        >
+                           Contact
+                        </NavLink>
+                     </li>
                   </ul>
                </div>
                <div className={styles["block-3"]}>

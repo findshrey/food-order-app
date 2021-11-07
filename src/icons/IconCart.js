@@ -1,6 +1,6 @@
 import React from "react"
 
-const IconCart = () => {
+export const IconCart = () => {
    return (
       <svg
          xmlns="http://www.w3.org/2000/svg"
@@ -40,5 +40,3 @@ const IconCart = () => {
       </svg>
    )
 }
-
-export default IconCart

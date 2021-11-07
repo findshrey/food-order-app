@@ -1,6 +1,6 @@
 import React from "react"
 
-const IconMail = () => {
+export const IconMail = () => {
    return (
       <svg
          xmlns="http://www.w3.org/2000/svg"
@@ -16,5 +16,3 @@ const IconMail = () => {
       </svg>
    )
 }
-
-export default IconMail

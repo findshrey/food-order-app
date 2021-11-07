@@ -1,0 +1,8 @@
+export { IconCart } from "./IconCart"
+export { IconFacebook } from "./IconFacebook"
+export { IconLinkedIn } from "./IconLinkedIn"
+export { IconLocation } from "./IconLocation"
+export { IconMail } from "./IconMail"
+export { IconPhone } from "./IconPhone"
+export { IconTwitter } from "./IconTwitter"
+export { IconUser } from "./IconUser"

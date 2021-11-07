@@ -1,8 +1,14 @@
 import React from "react"
 
-import IconLocation from "../../icons/IconLocation"
-import IconMail from "../../icons/IconMail"
-import IconPhone from "../../icons/IconPhone"
+import {
+   IconFacebook,
+   IconLinkedIn,
+   IconLocation,
+   IconMail,
+   IconPhone,
+   IconTwitter,
+} from "../../icons"
+
 import styles from "./Footer.module.scss"
 
 const Footer = () => {
@@ -48,9 +54,15 @@ const Footer = () => {
             <div className={styles["footer-lower"]}>
                <span>Copyright &copy; React Meals 2021</span>
                <ul className={styles["external-links"]}>
-                  <li>FaceBook</li>
-                  <li>Twitter</li>
-                  <li>LinkedIn</li>
+                  <li>
+                     <IconFacebook />
+                  </li>
+                  <li>
+                     <IconTwitter />
+                  </li>
+                  <li>
+                     <IconLinkedIn />
+                  </li>
                </ul>
             </div>
          </div>

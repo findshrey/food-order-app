@@ -1,6 +1,6 @@
 import React from "react"
 
-const IconLocation = () => {
+export const IconLocation = () => {
    return (
       <svg
          xmlns="http://www.w3.org/2000/svg"
@@ -23,5 +23,3 @@ const IconLocation = () => {
       </svg>
    )
 }
-
-export default IconLocation

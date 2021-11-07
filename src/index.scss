@@ -10,13 +10,12 @@ $h4: 2rem;
 
 // Text sizes
 $font-l: 2.2rem;
-$font-m: 1.8rem;
-$font-s: 1.4rem;
+$font-m: 1.7rem;
+// $font-s: 1.4rem;
 
 // Colors
 $c-black-matte: #252525;
-$c-cream: #fef4f4;
-$c-red: #fb9300;
+$c-mustard: #fb9300;
 $c-white: #fff;
 
 // Paddings & Margins
@@ -94,10 +93,6 @@ button {
    }
 }
 
-img {
-   // width: 100%;
-}
-
 // ---------- UTILITY CLASSES & MIXINS ---------- //
 .container {
    width: 90%;
@@ -114,13 +109,13 @@ img {
 }
 
 .btn {
-   &-red {
+   &-mustard {
       @extend %btn-common;
-      background-color: $c-red;
+      background-color: $c-mustard;
       color: $c-white;
 
       &:hover {
-         background-color: darken($c-red, 5%);
+         background-color: darken($c-mustard, 8%);
       }
    }
 }

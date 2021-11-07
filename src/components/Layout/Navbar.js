@@ -56,13 +56,13 @@ const Navbar = () => {
             </li>
             {!authCtx.isLoggedIn ? (
                <li>
-                  <NavLink className="btn-red" to={ROUTES.AUTH}>
+                  <NavLink className="btn-mustard" to={ROUTES.AUTH}>
                      Login
                   </NavLink>
                </li>
             ) : (
                <li>
-                  <button className="btn-red" onClick={authCtx.logout}>
+                  <button className="btn-mustard" onClick={authCtx.logout}>
                      Logout
                   </button>
                </li>

@@ -17,7 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 const App = () => {
    const authCtx = useContext(AuthContext)
 
-   // Auth status
+   // Authentication status
    const isAuth = authCtx.isLoggedIn
 
    return (

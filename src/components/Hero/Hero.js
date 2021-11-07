@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 
 import { MENU } from "../../constants/routes"
 import imgCooking from "../../assets/illustrations/cooking.svg"
+
 import styles from "./Hero.module.scss"
 
 const Hero = () => {
@@ -23,7 +24,7 @@ const Hero = () => {
                Our job is to fill your tummy with delicious food and fast and
                free delivery!
             </p>
-            <button className="btn-red" onClick={handleClick}>
+            <button className="btn-mustard" onClick={handleClick}>
                Order Food
             </button>
          </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 import { HOME } from "../../constants/routes"
 import Navbar from "./Navbar"
+
 import styles from "./Header.module.scss"
 
 const Header = () => {
@@ -10,7 +11,7 @@ const Header = () => {
       <header className={styles["main-head"]}>
          <div className="container">
             <Link to={HOME}>
-               <div className="logo">
+               <div className={styles.logo}>
                   <h1>
                      <span>React</span>Meals
                   </h1>

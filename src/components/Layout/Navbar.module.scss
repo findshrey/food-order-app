@@ -18,18 +18,18 @@
       }
    }
 
-   // Vertically centering svg
+   // Vertically centers SVG
    a {
       display: flex;
       align-items: center;
    }
 
-   :global(.btn-red) {
+   :global(.btn-mustard) {
       padding: 1rem 2.5rem;
    }
 }
 
 .active-link {
-   color: $c-red;
+   color: $c-mustard;
    font-weight: 500;
 }

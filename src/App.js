@@ -2,17 +2,19 @@ import React, { useContext } from "react"
 import { Switch, Route } from "react-router-dom"
 
 import * as ROUTES from "./constants/routes"
-import AuthPage from "./pages/AuthPage"
+import {
+   AuthPage,
+   Cart,
+   Contact,
+   DealsPage,
+   HomePage,
+   Menu,
+   MenuCategory,
+   NotFound,
+   ProfilePage,
+} from "./pages"
 import AuthContext from "./context/AuthContext"
-import Cart from "./pages/Cart"
-import Contact from "./components/Contact/Contact"
-import DealsPage from "./pages/DealsPage"
-import HomePage from "./pages/HomePage"
 import Layout from "./components/Layout/Layout"
-import Menu from "./pages/Menu"
-import MenuCategory from "./pages/MenuCategory"
-import NotFound from "./pages/NotFound"
-import ProfilePage from "./pages/ProfilePage"
 import ProtectedRoute from "./components/ProtectedRoute"
 
 const App = () => {

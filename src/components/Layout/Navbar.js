@@ -38,6 +38,14 @@ const Navbar = () => {
             </li>
             <li>
                <NavLink
+                  to={ROUTES.DEALS}
+                  activeClassName={styles["active-link"]}
+               >
+                  Deals
+               </NavLink>
+            </li>
+            <li>
+               <NavLink
                   to={ROUTES.CONTACT}
                   activeClassName={styles["active-link"]}
                >

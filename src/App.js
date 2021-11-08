@@ -6,6 +6,7 @@ import AuthPage from "./pages/AuthPage"
 import AuthContext from "./context/AuthContext"
 import Cart from "./pages/Cart"
 import Contact from "./components/Contact/Contact"
+import DealsPage from "./pages/DealsPage"
 import HomePage from "./pages/HomePage"
 import Layout from "./components/Layout/Layout"
 import Menu from "./pages/Menu"
@@ -29,6 +30,11 @@ const App = () => {
                path={ROUTES.PROFILE}
                isAuth={isAuth}
                component={ProfilePage}
+            />
+            <ProtectedRoute
+               path={ROUTES.DEALS}
+               isAuth={isAuth}
+               component={DealsPage}
             />
             <Route path={ROUTES.MENU} exact component={Menu} />
             <Route path={`${ROUTES.MENU}/:category`} component={MenuCategory} />

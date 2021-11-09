@@ -20,7 +20,7 @@ const Header = () => {
    return (
       <header className={styles["main-head"]}>
          <div className="container">
-            <nav>
+            <nav className={styles["nav-primary"]}>
                <div className={styles.logo}>
                   <Link to={ROUTES.HOME}>
                      <h1>
@@ -28,7 +28,7 @@ const Header = () => {
                      </h1>
                   </Link>
                </div>
-               <ul>
+               <ul className={styles["nav-left"]}>
                   {NAV_LINKS.map((link, index) => (
                      <li key={index}>
                         <NavLink
@@ -40,7 +40,7 @@ const Header = () => {
                      </li>
                   ))}
                </ul>
-               <ul>
+               <ul className={styles["nav-right"]}>
                   <li>
                      <NavLink to={ROUTES.CART}>
                         <IconCart />

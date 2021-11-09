@@ -1,23 +1,74 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useContext } from "react"
+import { Link, NavLink } from "react-router-dom"
 
-import { HOME } from "../../constants/routes"
-import Navbar from "./Navbar"
+import * as ROUTES from "../../constants/routes"
+import { IconCart, IconUser } from "../../icons"
+import NAV_LINKS from "../../constants/navLinks"
+import AuthContext from "../../context/AuthContext"
+import CartContext from "../../context/CartContext"
 
 import styles from "./Header.module.scss"
 
 const Header = () => {
+   const cartCtx = useContext(CartContext)
+   const authCtx = useContext(AuthContext)
+
+   const numberOfItems = cartCtx.cartItems.reduce((acc, cartItem) => {
+      return acc + cartItem.quantity
+   }, 0)
+
    return (
       <header className={styles["main-head"]}>
          <div className="container">
-            <Link to={HOME}>
+            <nav>
                <div className={styles.logo}>
-                  <h1>
-                     <span>React</span>Meals
-                  </h1>
+                  <Link to={ROUTES.HOME}>
+                     <h1>
+                        <span>React</span>Meals
+                     </h1>
+                  </Link>
                </div>
-            </Link>
-            <Navbar />
+               <ul>
+                  {NAV_LINKS.map((link, index) => (
+                     <li key={index}>
+                        <NavLink
+                           to={link.url}
+                           activeClassName={styles["active-link"]}
+                        >
+                           {link.name}
+                        </NavLink>
+                     </li>
+                  ))}
+               </ul>
+               <ul>
+                  <li>
+                     <NavLink to={ROUTES.CART}>
+                        <IconCart />
+                     </NavLink>
+                  </li>
+                  <li>
+                     <NavLink to={ROUTES.PROFILE}>
+                        <IconUser />
+                     </NavLink>
+                  </li>
+                  {!authCtx.isLoggedIn ? (
+                     <li>
+                        <NavLink className="btn-mustard" to={ROUTES.AUTH}>
+                           Login
+                        </NavLink>
+                     </li>
+                  ) : (
+                     <li>
+                        <button
+                           className="btn-mustard"
+                           onClick={authCtx.logout}
+                        >
+                           Logout
+                        </button>
+                     </li>
+                  )}
+               </ul>
+            </nav>
          </div>
       </header>
    )

@@ -1,6 +1,6 @@
 import React from "react"
 
-export const IconLinkedIn = () => {
+const IconLinkedIn = () => {
    return (
       <svg
          xmlns="http://www.w3.org/2000/svg"
@@ -16,3 +16,5 @@ export const IconLinkedIn = () => {
       </svg>
    )
 }
+
+export default IconLinkedIn

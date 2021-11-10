@@ -39,7 +39,34 @@
    }
 }
 
-.logo span {
-   color: $c-mustard;
-   font-size: $h1;
+.nav-secondary {
+   display: none;
+}
+
+@media (max-width: 1024px) {
+   .nav-primary {
+      display: none;
+   }
+
+   .nav-secondary {
+      display: flex;
+      justify-content: space-between;
+
+      .hamburger {
+         display: flex;
+         align-items: center;
+         background-color: transparent;
+         border: none;
+      }
+
+      .cart {
+         display: flex;
+         align-items: center;
+
+         a {
+            display: flex;
+            align-items: center;
+         }
+      }
+   }
 }

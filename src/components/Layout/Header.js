@@ -1,11 +1,12 @@
 import React, { useContext } from "react"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import * as ROUTES from "../../constants/routes"
-import { IconCart, IconUser } from "../../icons"
+import { IconCart, IconMenu, IconUser } from "../../icons"
 import NAV_LINKS from "../../constants/navLinks"
 import AuthContext from "../../context/AuthContext"
 import CartContext from "../../context/CartContext"
+import Logo from "./Logo"
 
 import styles from "./Header.module.scss"
 
@@ -20,14 +21,9 @@ const Header = () => {
    return (
       <header className={styles["main-head"]}>
          <div className="container">
+            {/* DESKTOP NAVIGATION */}
             <nav className={styles["nav-primary"]}>
-               <div className={styles.logo}>
-                  <Link to={ROUTES.HOME}>
-                     <h1>
-                        <span>React</span>Meals
-                     </h1>
-                  </Link>
-               </div>
+               <Logo />
                <ul className={styles["nav-left"]}>
                   {NAV_LINKS.map((link, index) => (
                      <li key={index}>
@@ -51,23 +47,34 @@ const Header = () => {
                         <IconUser />
                      </NavLink>
                   </li>
-                  {!authCtx.isLoggedIn ? (
-                     <li>
-                        <NavLink className="btn-mustard" to={ROUTES.AUTH}>
+                  <li>
+                     {!authCtx.isLoggedIn ? (
+                        <NavLink to={ROUTES.AUTH} className="btn-mustard">
                            Login
                         </NavLink>
-                     </li>
-                  ) : (
-                     <li>
+                     ) : (
                         <button
                            className="btn-mustard"
                            onClick={authCtx.logout}
                         >
                            Logout
                         </button>
-                     </li>
-                  )}
+                     )}
+                  </li>
                </ul>
+            </nav>
+
+            {/* MOBILE NAVIGATION */}
+            <nav className={styles["nav-secondary"]}>
+               <button className={styles.hamburger}>
+                  <IconMenu />
+               </button>
+               <Logo />
+               <div className={styles.cart}>
+                  <NavLink to={ROUTES.CART}>
+                     <IconCart />
+                  </NavLink>
+               </div>
             </nav>
          </div>
       </header>

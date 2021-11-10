@@ -1,6 +1,11 @@
 @import "../../index.scss";
 
-.logo span {
-   color: $c-mustard;
-   font-size: $h1;
+.logo {
+   display: flex;
+   align-items: center;
+
+   span {
+      color: $c-mustard;
+      font-size: $h1;
+   }
 }

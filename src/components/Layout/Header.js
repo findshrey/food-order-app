@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useState, useContext } from "react"
 import { NavLink } from "react-router-dom"
 
 import * as ROUTES from "../../constants/routes"
@@ -11,8 +11,17 @@ import Logo from "./Logo"
 import styles from "./Header.module.scss"
 
 const Header = () => {
+   const [sideDrawer, setSideDrawer] = useState(false)
    const cartCtx = useContext(CartContext)
    const authCtx = useContext(AuthContext)
+
+   // Toggle sideDrawer
+   const handleSideDrawer = () => {
+      setSideDrawer((prevDrawerState) => !prevDrawerState)
+   }
+
+   // Add 'active' class
+   const activeDrawer = sideDrawer ? styles.active : ""
 
    const numberOfItems = cartCtx.cartItems.reduce((acc, cartItem) => {
       return acc + cartItem.quantity
@@ -66,7 +75,7 @@ const Header = () => {
 
             {/* MOBILE NAVIGATION */}
             <nav className={styles["nav-secondary"]}>
-               <button className={styles.hamburger}>
+               <button className={styles.hamburger} onClick={handleSideDrawer}>
                   <IconMenu />
                </button>
                <Logo />
@@ -75,6 +84,42 @@ const Header = () => {
                      <IconCart />
                   </NavLink>
                </div>
+
+               {/* SIDE DRAWER */}
+               <ul className={`${styles["side-drawer"]} ${activeDrawer}`}>
+                  <li>
+                     <NavLink to={ROUTES.PROFILE} onClick={handleSideDrawer}>
+                        Profile
+                     </NavLink>
+                  </li>
+                  {NAV_LINKS.map((link, index) => (
+                     <li key={index}>
+                        <NavLink
+                           to={link.url}
+                           activeClassName={styles["active-link"]}
+                           onClick={handleSideDrawer}
+                        >
+                           {link.name}
+                        </NavLink>
+                     </li>
+                  ))}
+                  <li>
+                     {!authCtx.isLoggedIn ? (
+                        <NavLink to={ROUTES.AUTH} onClick={handleSideDrawer}>
+                           Login
+                        </NavLink>
+                     ) : (
+                        <button
+                           onClick={() => {
+                              authCtx.logout()
+                              handleSideDrawer()
+                           }}
+                        >
+                           Logout
+                        </button>
+                     )}
+                  </li>
+               </ul>
             </nav>
          </div>
       </header>

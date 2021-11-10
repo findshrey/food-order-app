@@ -32,15 +32,16 @@
    :global(.btn-mustard) {
       padding: 1rem 2.5rem;
    }
-
-   .active-link {
-      color: $c-mustard;
-      font-weight: 500;
-   }
 }
 
 .nav-secondary {
    display: none;
+}
+
+// React router active class
+.active-link {
+   color: $c-mustard;
+   font-weight: 500;
 }
 
 @media (max-width: 1024px) {
@@ -57,6 +58,7 @@
          align-items: center;
          background-color: transparent;
          border: none;
+         z-index: 100;
       }
 
       .cart {
@@ -66,6 +68,26 @@
          a {
             display: flex;
             align-items: center;
+         }
+      }
+
+      .side-drawer {
+         background-color: $c-white;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 2rem;
+         position: fixed;
+         top: 0;
+         left: -100%;
+         height: 100%;
+         width: 100%;
+         z-index: 95;
+         transition: transform 0.4s ease-in-out;
+
+         &.active {
+            transform: translateX(100%);
          }
       }
    }

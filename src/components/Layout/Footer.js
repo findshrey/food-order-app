@@ -31,33 +31,16 @@ const Footer = () => {
                   <h4>Feature</h4>
                   <ul>
                      <li>
-                        <NavLink to={ROUTES.HOME} exact>
-                           Home
-                        </NavLink>
+                        <NavLink to={ROUTES.HOME}>Home</NavLink>
                      </li>
                      <li>
-                        <NavLink
-                           to={ROUTES.MENU}
-                           activeClassName={styles["active-link"]}
-                        >
-                           Menu
-                        </NavLink>
+                        <NavLink to={ROUTES.MENU}>Menu</NavLink>
                      </li>
                      <li>
-                        <NavLink
-                           to={ROUTES.DEALS}
-                           activeClassName={styles["active-link"]}
-                        >
-                           Deals
-                        </NavLink>
+                        <NavLink to={ROUTES.DEALS}>Deals</NavLink>
                      </li>
                      <li>
-                        <NavLink
-                           to={ROUTES.CONTACT}
-                           activeClassName={styles["active-link"]}
-                        >
-                           Contact
-                        </NavLink>
+                        <NavLink to={ROUTES.CONTACT}>Contact</NavLink>
                      </li>
                   </ul>
                </div>

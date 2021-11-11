@@ -1,10 +1,10 @@
 import React, { useContext, useRef, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 
 const SignUp = ({ handleAuthMode }) => {
-   const history = useHistory()
+   const navigate = useNavigate()
    const emailRef = useRef()
    const passwordRef = useRef()
    const confirmPasswordRef = useRef()
@@ -52,7 +52,7 @@ const SignUp = ({ handleAuthMode }) => {
             const expirationTime = Date.now() + data.expiresIn * 1000
 
             authCtx.login(data.idToken, expirationTime)
-            history.replace("/")
+            navigate("/", { replace: true })
          })
          .catch((err) => {
             alert(err)

@@ -38,7 +38,9 @@ const Header = () => {
                      <li key={index}>
                         <NavLink
                            to={link.url}
-                           activeClassName={styles["active-link"]}
+                           className={(navData) =>
+                              navData.isActive ? styles["active-link"] : ""
+                           }
                         >
                            {link.name}
                         </NavLink>
@@ -96,7 +98,9 @@ const Header = () => {
                      <li key={index}>
                         <NavLink
                            to={link.url}
-                           activeClassName={styles["active-link"]}
+                           className={(navData) =>
+                              navData.isActive ? styles["active-link"] : ""
+                           }
                            onClick={handleSideDrawer}
                         >
                            {link.name}

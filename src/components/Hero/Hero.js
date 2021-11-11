@@ -1,5 +1,5 @@
 import React from "react"
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { MENU } from "../../constants/routes"
 import imgCooking from "../../assets/illustrations/cooking.svg"
@@ -7,11 +7,11 @@ import imgCooking from "../../assets/illustrations/cooking.svg"
 import styles from "./Hero.module.scss"
 
 const Hero = () => {
-   let history = useHistory()
+   let navigate = useNavigate()
 
    // Navigate to menu
    const handleClick = () => {
-      history.push(MENU)
+      navigate(MENU)
    }
 
    return (

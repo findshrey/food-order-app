@@ -1,5 +1,5 @@
 import React from "react"
-import { Redirect, Route } from "react-router-dom"
+import { Navigate, Route } from "react-router-dom"
 
 import { AUTH } from "../constants/routes"
 
@@ -12,7 +12,7 @@ const ProtectedRoute = ({ isAuth, component: Component, ...rest }) => {
                return <Component {...routeProps} />
             }
 
-            return <Redirect to={AUTH} />
+            return <Navigate to={AUTH} />
          }}
       />
    )

@@ -1,10 +1,10 @@
 import React, { useContext, useRef } from "react"
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 
 const ProfileForm = () => {
-   const history = useHistory()
+   const navigate = useNavigate()
    const passwordRef = useRef()
    const authCtx = useContext(AuthContext)
 
@@ -28,7 +28,7 @@ const ProfileForm = () => {
          }
       ).then((res) => {
          // assumption: Always succeeds!
-         history.replace("/")
+         navigate("/", { replace: true })
       })
    }
 

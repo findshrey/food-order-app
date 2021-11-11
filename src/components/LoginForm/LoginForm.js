@@ -1,10 +1,10 @@
 import React, { useContext, useRef, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 
 const LoginForm = ({ handleAuthMode }) => {
-   const history = useHistory()
+   const navigate = useNavigate()
    const emailRef = useRef()
    const passwordRef = useRef()
    const [isLoading, setIsLoading] = useState(false)
@@ -50,7 +50,7 @@ const LoginForm = ({ handleAuthMode }) => {
             const expirationTime = Date.now() + data.expiresIn * 1000
 
             authCtx.login(data.idToken, expirationTime)
-            history.replace("/")
+            navigate("/", { replace: true })
          })
          .catch((err) => {
             alert(err)

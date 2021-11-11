@@ -28,16 +28,22 @@ const App = () => {
          <Routes>
             <Route path={ROUTES.HOME} element={<HomePage />} />
             {!isAuth && <Route path={ROUTES.AUTH} element={<AuthPage />} />}
-            {/* <ProtectedRoute
+            <Route
                path={ROUTES.PROFILE}
-               isAuth={isAuth}
-               component={ProfilePage}
-            /> */}
-            {/* <ProtectedRoute
+               element={
+                  <ProtectedRoute isAuth={isAuth}>
+                     <ProfilePage />
+                  </ProtectedRoute>
+               }
+            />
+            <Route
                path={ROUTES.DEALS}
-               isAuth={isAuth}
-               component={DealsPage}
-            /> */}
+               element={
+                  <ProtectedRoute isAuth={isAuth}>
+                     <DealsPage />
+                  </ProtectedRoute>
+               }
+            />
             <Route path={ROUTES.MENU} element={<Menu />} />
             <Route
                path={`${ROUTES.MENU}/:category`}

@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 
 import { MENU } from "../../constants/routes"
-import imgCooking from "../../assets/illustrations/cooking.svg"
+import imgCooking from "../../assets/images/cooking.svg"
 
 import styles from "./Hero.module.scss"
 

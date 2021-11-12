@@ -1,10 +1,10 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-import * as ROUTES from "../../constants/routes"
+import NAV_LINKS from "../../constants/navLinks"
 import {
    IconFacebook,
-   IconLinkedIn,
+   IconInstagram,
    IconLocation,
    IconMail,
    IconPhone,
@@ -18,7 +18,7 @@ const Footer = () => {
       <footer className={styles.footer}>
          <div className="container">
             <div className={styles["footer-upper"]}>
-               <div className={styles["block-1"]}>
+               <div className={styles.logo}>
                   <h3>
                      <span>React</span>Meals
                   </h3>
@@ -27,24 +27,17 @@ const Footer = () => {
                      and free delivery!
                   </p>
                </div>
-               <div className={styles["block-2"]}>
+               <div className={styles.navigation}>
                   <h4>Feature</h4>
                   <ul>
-                     <li>
-                        <NavLink to={ROUTES.HOME}>Home</NavLink>
-                     </li>
-                     <li>
-                        <NavLink to={ROUTES.MENU}>Menu</NavLink>
-                     </li>
-                     <li>
-                        <NavLink to={ROUTES.DEALS}>Deals</NavLink>
-                     </li>
-                     <li>
-                        <NavLink to={ROUTES.CONTACT}>Contact</NavLink>
-                     </li>
+                     {NAV_LINKS.map((link, index) => (
+                        <li key={index}>
+                           <Link to={link.url}>{link.name}</Link>
+                        </li>
+                     ))}
                   </ul>
                </div>
-               <div className={styles["block-3"]}>
+               <div className={styles.contact}>
                   <h4>Get in Touch</h4>
                   <ul>
                      <li>
@@ -66,13 +59,13 @@ const Footer = () => {
                <span>Copyright &copy; React Meals 2021</span>
                <ul className={styles["external-links"]}>
                   <li>
+                     <IconInstagram />
+                  </li>
+                  <li>
                      <IconFacebook />
                   </li>
                   <li>
                      <IconTwitter />
-                  </li>
-                  <li>
-                     <IconLinkedIn />
                   </li>
                </ul>
             </div>

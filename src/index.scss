@@ -4,22 +4,24 @@ $font-primary: "Fira Sans", sans-serif;
 
 // Header sizes
 $h1: 3rem;
-$h2: 5.5rem;
+$h2: clamp(3.5rem, calc(2rem + 2.25vw), 5.5rem);
 $h3: 3rem;
 $h4: 2rem;
 
 // Text sizes
-$font-l: 2.2rem;
+$font-l: clamp(1.8rem, calc(1.5rem + 0.5vw), 2.2rem);
 $font-m: 1.7rem;
-// $font-s: 1.4rem;
+$font-s: 1.4rem;
 
 // Colors
 $c-black-matte: #252525;
+$c-cream: #fff8ed;
 $c-mustard: #fb9300;
 $c-white: #fff;
 
 // Paddings & Margins
-$padding-section: clamp(5rem, calc(4rem + 2vw), 8rem) 0;
+$pad-5y: 5rem 0;
+$pad-3y: 3rem 0;
 
 // ---------- GLOBAL STYLES ---------- //
 *,

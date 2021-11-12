@@ -1,6 +1,6 @@
 export { default as IconCart } from "./IconCart"
 export { default as IconFacebook } from "./IconFacebook"
-export { default as IconLinkedIn } from "./IconLinkedIn"
+export { default as IconInstagram } from "./IconInstagram"
 export { default as IconLocation } from "./IconLocation"
 export { default as IconMail } from "./IconMail"
 export { default as IconMenu } from "./IconMenu"

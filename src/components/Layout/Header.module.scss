@@ -90,5 +90,10 @@
             transform: translateX(100%);
          }
       }
+
+      button {
+         background-color: transparent;
+         border: none;
+      }
    }
 }

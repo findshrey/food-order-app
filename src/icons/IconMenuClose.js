@@ -1,6 +1,6 @@
 import React from "react"
 
-const IconMenu = () => {
+const IconMenuClose = () => {
    return (
       <svg
          xmlns="http://www.w3.org/2000/svg"
@@ -11,10 +11,10 @@ const IconMenu = () => {
       >
          <path
             fill="#252525"
-            d="M19 15.848H0V19h19v-3.152zM19 7.924H0v3.152h19V7.924zM19 0H0v3.152h19V0z"
+            d="M19 16.685l-7.27-7.2 7.197-7.263L16.685 0 9.49 7.267 2.225.072 0 2.297l7.272 7.208-7.2 7.27L2.297 19l7.213-7.277 7.268 7.204L19 16.685z"
          ></path>
       </svg>
    )
 }
 
-export default IconMenu
+export default IconMenuClose

@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom"
 import { AUTH } from "../constants/routes"
 
 const ProtectedRoute = ({ isAuth, children }) => {
-   return isAuth ? children : <Navigate to={AUTH} />
+   return isAuth ? children : <Navigate to={AUTH} replace />
 }
 
 export default ProtectedRoute

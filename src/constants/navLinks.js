@@ -1,4 +1,4 @@
-import { AUTH, CART, DEALS, CONTACT, HOME, MENU, PROFILE } from "./routes"
+import { CONTACT, HOME, MENU, OFFERS } from "./routes"
 
 const NAV_LINKS = [
    {
@@ -10,8 +10,8 @@ const NAV_LINKS = [
       url: MENU,
    },
    {
-      name: "Deals",
-      url: DEALS,
+      name: "Offers",
+      url: OFFERS,
    },
    {
       name: "Contact",

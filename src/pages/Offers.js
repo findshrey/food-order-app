@@ -1,11 +1,11 @@
 import React from "react"
 
-const DealsPage = () => {
+const Offers = () => {
    return (
       <div className="container">
-         <h2>Deals</h2>
+         <h2>Deals & Offers</h2>
       </div>
    )
 }
 
-export default DealsPage
+export default Offers

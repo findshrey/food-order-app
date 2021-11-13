@@ -2,7 +2,7 @@ import React from "react"
 
 import ProfileForm from "../components/ProfileForm/ProfileForm"
 
-const ProfilePage = () => {
+const Profile = () => {
    return (
       <div className="container">
          <ProfileForm />
@@ -10,4 +10,4 @@ const ProfilePage = () => {
    )
 }
 
-export default ProfilePage
+export default Profile

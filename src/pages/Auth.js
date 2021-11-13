@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import LoginForm from "../components/LoginForm/LoginForm"
 import SignUp from "../components/SignupForm/SignUpForm"
 
-const AuthPage = () => {
+const Auth = () => {
    const [isLogin, setIsLogin] = useState(true)
 
    const handleAuthMode = () => {
@@ -21,4 +21,4 @@ const AuthPage = () => {
    )
 }
 
-export default AuthPage
+export default Auth

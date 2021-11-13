@@ -3,15 +3,15 @@ import { Routes, Route } from "react-router-dom"
 
 import * as ROUTES from "./constants/routes"
 import {
-   AuthPage,
+   Auth,
    Cart,
    Contact,
-   DealsPage,
-   HomePage,
+   Offers,
+   Home,
    Menu,
    MenuCategory,
    NotFound,
-   ProfilePage,
+   Profile,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
 import Layout from "./components/Layout/Layout"
@@ -26,21 +26,21 @@ const App = () => {
    return (
       <Layout>
          <Routes>
-            <Route path={ROUTES.HOME} element={<HomePage />} />
-            {!isAuth && <Route path={ROUTES.AUTH} element={<AuthPage />} />}
+            <Route path={ROUTES.HOME} element={<Home />} />
+            {!isAuth && <Route path={ROUTES.AUTH} element={<Auth />} />}
             <Route
                path={ROUTES.PROFILE}
                element={
                   <ProtectedRoute isAuth={isAuth}>
-                     <ProfilePage />
+                     <Profile />
                   </ProtectedRoute>
                }
             />
             <Route
-               path={ROUTES.DEALS}
+               path={ROUTES.OFFERS}
                element={
                   <ProtectedRoute isAuth={isAuth}>
-                     <DealsPage />
+                     <Offers />
                   </ProtectedRoute>
                }
             />

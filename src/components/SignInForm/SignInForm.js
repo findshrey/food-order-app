@@ -1,9 +1,10 @@
 import React, { useContext, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+import * as MODES from "../../constants/formModes"
 import AuthContext from "../../context/AuthContext"
 
-const LoginForm = ({ handleAuthMode }) => {
+const SignInForm = ({ handleFormMode }) => {
    const navigate = useNavigate()
    const emailRef = useRef()
    const passwordRef = useRef()
@@ -59,7 +60,7 @@ const LoginForm = ({ handleAuthMode }) => {
 
    return (
       <div className="login-form">
-         <h3>Login</h3>
+         <h3>Sign In</h3>
          <form onSubmit={handleSubmit}>
             <div className="form-control">
                <label>Email:</label>
@@ -69,8 +70,8 @@ const LoginForm = ({ handleAuthMode }) => {
                <label>Password:</label>
                <input type="password" ref={passwordRef} required />
             </div>
-            {!isLoading ? <button type="submit">Login</button> : "Logging In"}
-            <button type="button" onClick={handleAuthMode}>
+            {!isLoading ? <button type="submit">Sign In</button> : "Signing In"}
+            <button type="button" onClick={() => handleFormMode(MODES.SIGN_UP)}>
                Create new account
             </button>
          </form>
@@ -78,4 +79,4 @@ const LoginForm = ({ handleAuthMode }) => {
    )
 }
 
-export default LoginForm
+export default SignInForm

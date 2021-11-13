@@ -1,9 +1,10 @@
 import React, { useContext, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+import * as MODES from "../../constants/formModes"
 import AuthContext from "../../context/AuthContext"
 
-const SignUp = ({ handleAuthMode }) => {
+const SignUpForm = ({ handleFormMode }) => {
    const navigate = useNavigate()
    const emailRef = useRef()
    const passwordRef = useRef()
@@ -80,7 +81,7 @@ const SignUp = ({ handleAuthMode }) => {
             ) : (
                <p>Sending Request...</p>
             )}
-            <button type="button" onClick={handleAuthMode}>
+            <button type="button" onClick={() => handleFormMode(MODES.SIGN_IN)}>
                Login with existing account
             </button>
          </form>
@@ -88,4 +89,4 @@ const SignUp = ({ handleAuthMode }) => {
    )
 }
 
-export default SignUp
+export default SignUpForm

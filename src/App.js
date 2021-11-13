@@ -21,7 +21,7 @@ const App = () => {
    const authCtx = useContext(AuthContext)
 
    // Authentication status
-   const isAuth = authCtx.isLoggedIn
+   const isAuth = authCtx.isSignedIn
 
    return (
       <Layout>

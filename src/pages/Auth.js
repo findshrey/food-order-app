@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
 import * as MODES from "../constants/formModes"
-import LoginForm from "../components/LoginForm/LoginForm"
-import SignUpForm from "../components/SignupForm/SignUpForm"
+import LoginForm from "../components/Forms/LoginForm"
+import SignUpForm from "../components/Forms/SignUpForm"
 
 const Auth = () => {
    const [formMode, setFormMode] = useState(MODES.LOGIN)

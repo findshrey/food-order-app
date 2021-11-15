@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import * as MODES from "../../constants/formModes"
 import AuthContext from "../../context/AuthContext"
 
+import styles from "./Forms.module.scss"
+
 const LoginForm = ({ handleFormMode }) => {
    const navigate = useNavigate()
    const emailRef = useRef()
@@ -59,22 +61,39 @@ const LoginForm = ({ handleFormMode }) => {
    }
 
    return (
-      <div className="login-form">
-         <h3>Login</h3>
-         <form onSubmit={handleSubmit}>
-            <div className="form-control">
-               <label>Email:</label>
-               <input type="email" ref={emailRef} required />
-            </div>
-            <div className="form-control">
-               <label>Password:</label>
-               <input type="password" ref={passwordRef} required />
-            </div>
-            {!isLoading ? <button type="submit">Login</button> : "Logging In"}
-            <button type="button" onClick={() => handleFormMode(MODES.SIGN_UP)}>
-               Create new account
-            </button>
-         </form>
+      <div className={styles["login-form"]}>
+         <div className={styles["form-inner"]}>
+            <h3>Login</h3>
+            <form onSubmit={handleSubmit}>
+               <div className={styles["form-control"]}>
+                  <label>Email:</label>
+                  <input type="email" ref={emailRef} required />
+               </div>
+               <div className={styles["form-control"]}>
+                  <label>Password:</label>
+                  <input type="password" ref={passwordRef} required />
+               </div>
+               {!isLoading ? (
+                  <button type="submit" className={styles["btn-primary"]}>
+                     Login
+                  </button>
+               ) : (
+                  <span className={styles["logging-message"]}>
+                     Logging In ...
+                  </span>
+               )}
+               <div className={styles["text-row"]}>
+                  Don't have an account?
+                  <button
+                     type="button"
+                     className={styles["button-secondary"]}
+                     onClick={() => handleFormMode(MODES.SIGN_UP)}
+                  >
+                     Sign Up
+                  </button>
+               </div>
+            </form>
+         </div>
       </div>
    )
 }

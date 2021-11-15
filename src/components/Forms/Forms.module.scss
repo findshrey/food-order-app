@@ -1,6 +1,7 @@
 @import "../../index.scss";
 
-.login-form {
+.login-form,
+.sign-up-form {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -62,7 +63,6 @@
 }
 
 .logging-message {
-   display: block;
    font-weight: 500;
    color: darken($c-red-light, 10%);
    text-align: center;

@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom"
 import * as MODES from "../../constants/formModes"
 import AuthContext from "../../context/AuthContext"
 
+import styles from "./Forms.module.scss"
+
 const SignUpForm = ({ handleFormMode }) => {
    const navigate = useNavigate()
    const emailRef = useRef()
    const passwordRef = useRef()
-   const confirmPasswordRef = useRef()
 
    const authCtx = useContext(AuthContext)
 
@@ -61,30 +62,49 @@ const SignUpForm = ({ handleFormMode }) => {
    }
 
    return (
-      <div className="sign-up">
-         <h3>Sign Up</h3>
-         <form onSubmit={handleSubmit}>
-            <div className="form-control">
-               <label>Email:</label>
-               <input type="email" ref={emailRef} required />
-            </div>
-            <div className="form-control">
-               <label>Password:</label>
-               <input type="password" ref={passwordRef} required />
-            </div>
-            <div className="form-control">
-               <label>Confirm Password:</label>
-               <input type="password" ref={confirmPasswordRef} required />
-            </div>
-            {!isLoading ? (
-               <button type="submit">Sign up</button>
-            ) : (
-               <p>Sending Request...</p>
-            )}
-            <button type="button" onClick={() => handleFormMode(MODES.LOGIN)}>
-               Login with existing account
-            </button>
-         </form>
+      <div className={styles["sign-up-form"]}>
+         <div className={styles["form-inner"]}>
+            <h3>Sign Up</h3>
+            <form onSubmit={handleSubmit}>
+               <div className={styles["form-control"]}>
+                  <label>Name:</label>
+                  <input type="text" required />
+               </div>
+               <div className={styles["form-control"]}>
+                  <label>Email:</label>
+                  <input type="email" ref={emailRef} required />
+               </div>
+               <div className={styles["form-control"]}>
+                  <label>Password:</label>
+                  <input type="password" ref={passwordRef} required />
+               </div>
+               <div className={styles["form-control"]}>
+                  <label>Phone:</label>
+                  <input type="number" required />
+               </div>
+               <div className={styles["form-control"]}>
+                  <label>Address:</label>
+                  <input type="text" required />
+               </div>
+               {!isLoading ? (
+                  <button type="submit" className={styles["btn-primary"]}>
+                     Sign up
+                  </button>
+               ) : (
+                  <p className={styles["logging-message"]}>Signing Up ...</p>
+               )}
+               <div className={styles["text-row"]}>
+                  Already a member?
+                  <button
+                     type="button"
+                     className={styles["button-secondary"]}
+                     onClick={() => handleFormMode(MODES.LOGIN)}
+                  >
+                     Log in
+                  </button>
+               </div>
+            </form>
+         </div>
       </div>
    )
 }

@@ -78,9 +78,7 @@ const LoginForm = ({ handleFormMode }) => {
                      Login
                   </button>
                ) : (
-                  <span className={styles["logging-message"]}>
-                     Logging In ...
-                  </span>
+                  <p className={styles["logging-message"]}>Logging In ...</p>
                )}
                <div className={styles["text-row"]}>
                   Don't have an account?

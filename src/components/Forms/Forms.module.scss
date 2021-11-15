@@ -4,14 +4,14 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   padding: $pad-5y;
+   padding: $pad-6y;
 }
 
 .form-inner {
    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
       rgba(17, 17, 26, 0.05) 0px 8px 32px;
    border-radius: 15px;
-   padding: 6rem 3rem;
+   padding: 6rem 2.5rem;
    width: 100%;
    max-width: 450px;
 

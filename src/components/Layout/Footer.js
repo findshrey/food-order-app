@@ -59,10 +59,10 @@ const Footer = () => {
                <span>Copyright &copy; React Meals 2021</span>
                <ul className={styles["external-links"]}>
                   <li>
-                     <IconInstagram />
+                     <IconFacebook />
                   </li>
                   <li>
-                     <IconFacebook />
+                     <IconInstagram />
                   </li>
                   <li>
                      <IconTwitter />

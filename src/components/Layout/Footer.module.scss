@@ -1,14 +1,15 @@
 @import "../../index.scss";
 
 .footer {
-   background-color: $c-cream;
+   background-color: $c-navy;
+   color: darken($c-white, 8%);
 }
 
 .footer-upper {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   padding: $pad-5y;
-   border-bottom: 1px solid lighten($c-black-matte, 40%);
+   padding: $pad-6y;
+   border-bottom: 1px solid darken($c-white, 65%);
 }
 
 // Block-1
@@ -53,7 +54,7 @@
    }
 
    li {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       display: flex;
       align-items: center;
       gap: 2rem;
@@ -67,7 +68,7 @@
 .footer-lower {
    display: flex;
    justify-content: space-between;
-   padding: $pad-5y;
+   padding: $pad-6y;
 
    span {
       display: flex;
@@ -76,7 +77,7 @@
 
    .external-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2.5rem;
 
       li {
          display: flex;

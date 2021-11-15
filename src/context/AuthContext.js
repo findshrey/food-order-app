@@ -4,13 +4,13 @@ import { calculateRemainingTime } from "../utils/commonFunction"
 
 const AuthContext = React.createContext()
 
-let SignoutTimer
+let logoutTimer
 
 const AuthProvider = ({ children }) => {
    const [token, setToken] = useState(null)
 
-   // Check if user is signed in
-   const userSignedIn = !!token
+   // Check if user is logged in
+   const userLoggedIn = !!token
 
    useEffect(() => {
       const tokenData = JSON.parse(localStorage.getItem("token"))
@@ -23,36 +23,36 @@ const AuthProvider = ({ children }) => {
             localStorage.removeItem("token")
          } else {
             setToken(tokenData.token)
-            SignoutTimer = setTimeout(handleSignOut, remainingTime)
+            logoutTimer = setTimeout(handleLogout, remainingTime)
          }
       }
    }, [])
 
-   const handleSignIn = (token, expirationTime) => {
+   const handleLogin = (token, expirationTime) => {
       setToken(token)
       localStorage.setItem("token", JSON.stringify({ token, expirationTime }))
 
       const remainingTime = calculateRemainingTime(expirationTime)
 
       // Auto-logout on token expiration
-      SignoutTimer = setTimeout(handleSignOut, remainingTime)
+      logoutTimer = setTimeout(handleLogout, remainingTime)
    }
 
-   const handleSignOut = () => {
+   const handleLogout = () => {
       setToken(null)
       localStorage.removeItem("token")
 
-      if (SignoutTimer) {
-         clearTimeout(SignoutTimer)
+      if (logoutTimer) {
+         clearTimeout(logoutTimer)
       }
    }
 
    // Context data to share
    const contextData = {
       token,
-      isSignedIn: userSignedIn,
-      login: handleSignIn,
-      logout: handleSignOut,
+      isLoggedIn: userLoggedIn,
+      login: handleLogin,
+      logout: handleLogout,
    }
 
    return (

@@ -81,7 +81,7 @@ const SignUpForm = ({ handleFormMode }) => {
             ) : (
                <p>Sending Request...</p>
             )}
-            <button type="button" onClick={() => handleFormMode(MODES.SIGN_IN)}>
+            <button type="button" onClick={() => handleFormMode(MODES.LOGIN)}>
                Login with existing account
             </button>
          </form>

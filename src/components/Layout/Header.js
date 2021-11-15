@@ -60,16 +60,16 @@ const Header = () => {
                      </NavLink>
                   </li>
                   <li>
-                     {!authCtx.isSignedIn ? (
+                     {!authCtx.isLoggedIn ? (
                         <NavLink to={ROUTES.AUTH} className="btn-mustard">
-                           Sign In
+                           Login
                         </NavLink>
                      ) : (
                         <button
                            className="btn-mustard"
                            onClick={authCtx.logout}
                         >
-                           Sign Out
+                           Logout
                         </button>
                      )}
                   </li>
@@ -115,7 +115,7 @@ const Header = () => {
                      </li>
                   ))}
                   <li>
-                     {!authCtx.isSignedIn ? (
+                     {!authCtx.isLoggedIn ? (
                         <NavLink
                            to={ROUTES.AUTH}
                            className={(navData) =>
@@ -123,7 +123,7 @@ const Header = () => {
                            }
                            onClick={handleSideDrawer}
                         >
-                           Sign In
+                           Login
                         </NavLink>
                      ) : (
                         <button
@@ -133,7 +133,7 @@ const Header = () => {
                               handleSideDrawer()
                            }}
                         >
-                           Sign Out
+                           Logout
                         </button>
                      )}
                   </li>

@@ -1,21 +1,21 @@
 import React, { useState } from "react"
 
 import * as MODES from "../constants/formModes"
-import SignInForm from "../components/SignInForm/SignInForm"
-import SignUpForm from "../components/SignUpForm/SignUpForm"
+import LoginForm from "../components/LoginForm/LoginForm"
+import SignUpForm from "../components/SignupForm/SignUpForm"
 
 const Auth = () => {
-   const [formMode, setFormMode] = useState(MODES.SIGN_IN)
+   const [formMode, setFormMode] = useState(MODES.LOGIN)
 
-   // Switch b/w sign-in/ sign-up
+   // Switch b/w login/ sign-up
    const handleFormMode = (mode) => {
       setFormMode(mode)
    }
 
    return (
       <div className="container">
-         {formMode === MODES.SIGN_IN ? (
-            <SignInForm handleFormMode={handleFormMode} />
+         {formMode === MODES.LOGIN ? (
+            <LoginForm handleFormMode={handleFormMode} />
          ) : (
             <SignUpForm handleFormMode={handleFormMode} />
          )}

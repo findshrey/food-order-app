@@ -81,7 +81,7 @@ const LoginForm = ({ handleFormMode }) => {
                   <p className={styles["logging-message"]}>Logging In ...</p>
                )}
                <div className={styles["text-row"]}>
-                  Don't have an account?
+                  <span>Don't have an account?</span>
                   <button
                      type="button"
                      className={styles["button-secondary"]}

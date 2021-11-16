@@ -67,10 +67,6 @@ const SignUpForm = ({ handleFormMode }) => {
             <h3>Sign Up</h3>
             <form onSubmit={handleSubmit}>
                <div className={styles["form-control"]}>
-                  <label>Name:</label>
-                  <input type="text" required />
-               </div>
-               <div className={styles["form-control"]}>
                   <label>Email:</label>
                   <input type="email" ref={emailRef} required />
                </div>
@@ -94,7 +90,7 @@ const SignUpForm = ({ handleFormMode }) => {
                   <p className={styles["logging-message"]}>Signing Up ...</p>
                )}
                <div className={styles["text-row"]}>
-                  Already a member?
+                  <span>Already a member?</span>
                   <button
                      type="button"
                      className={styles["button-secondary"]}

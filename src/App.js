@@ -9,7 +9,6 @@ import {
    Offers,
    Home,
    Menu,
-   MenuCategory,
    NotFound,
    Profile,
 } from "./pages"
@@ -45,10 +44,6 @@ const App = () => {
                }
             />
             <Route path={ROUTES.MENU} element={<Menu />} />
-            <Route
-               path={`${ROUTES.MENU}/:category`}
-               element={<MenuCategory />}
-            />
             <Route path={ROUTES.CART} element={<Cart />} />
             <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path="*" element={<NotFound />} />

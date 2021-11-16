@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 import * as MODES from "../../constants/formModes"
 import AuthContext from "../../context/AuthContext"
+import useHttp from "../../hooks/useHttp"
 
 import styles from "./Forms.module.scss"
 
@@ -10,54 +11,30 @@ const LoginForm = ({ handleFormMode }) => {
    const navigate = useNavigate()
    const emailRef = useRef()
    const passwordRef = useRef()
-   const [isLoading, setIsLoading] = useState(false)
+   const { isLoading, error, sendRequest: loginRequest } = useHttp()
 
    const authCtx = useContext(AuthContext)
 
    const handleSubmit = (e) => {
       e.preventDefault()
 
-      // Add validation
-
-      setIsLoading(true)
-
-      fetch(
-         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
+      loginRequest(
          {
+            url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
             method: "POST",
-            body: JSON.stringify({
+            body: {
                email: emailRef.current.value,
                password: passwordRef.current.value,
                returnSecureToken: true,
-            }),
-            headers: {
-               "Content-Type": "application/json",
             },
-         }
-      )
-         .then((res) => {
-            setIsLoading(false)
-
-            if (res.ok) {
-               return res.json()
-            } else {
-               return res.json().then((data) => {
-                  const errorMessage =
-                     data?.error?.message || "Authentication failed"
-
-                  throw new Error(errorMessage)
-               })
-            }
-         })
-         .then((data) => {
+         },
+         (data) => {
             const expirationTime = Date.now() + data.expiresIn * 1000
 
             authCtx.login(data.idToken, expirationTime)
             navigate("/", { replace: true })
-         })
-         .catch((err) => {
-            alert(err)
-         })
+         }
+      )
    }
 
    return (
@@ -80,6 +57,7 @@ const LoginForm = ({ handleFormMode }) => {
                ) : (
                   <p className={styles["logging-message"]}>Logging In ...</p>
                )}
+               {!isLoading && error && <p>{error}</p>}
                <div className={styles["text-row"]}>
                   <span>Don't have an account?</span>
                   <button

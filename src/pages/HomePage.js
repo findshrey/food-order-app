@@ -2,7 +2,7 @@ import React from "react"
 
 import Hero from "../components/Hero/Hero"
 
-const Home = () => {
+const HomePage = () => {
    return (
       <div className="container">
          <Hero />
@@ -10,4 +10,4 @@ const Home = () => {
    )
 }
 
-export default Home
+export default HomePage

@@ -3,14 +3,14 @@ import { Routes, Route } from "react-router-dom"
 
 import * as ROUTES from "./constants/routes"
 import {
-   Auth,
-   Cart,
-   Contact,
-   Offers,
-   Home,
-   Menu,
+   AuthPage,
+   CartPage,
+   ContactPage,
+   HomePage,
+   MenuPage,
    NotFound,
-   Profile,
+   OffersPage,
+   ProfilePage,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
 import Layout from "./components/Layout/Layout"
@@ -25,13 +25,13 @@ const App = () => {
    return (
       <Layout>
          <Routes>
-            <Route path={ROUTES.HOME} element={<Home />} />
-            {!isAuth && <Route path={ROUTES.AUTH} element={<Auth />} />}
+            <Route path={ROUTES.HOME} element={<HomePage />} />
+            {!isAuth && <Route path={ROUTES.AUTH} element={<AuthPage />} />}
             <Route
                path={ROUTES.PROFILE}
                element={
                   <ProtectedRoute isAuth={isAuth}>
-                     <Profile />
+                     <ProfilePage />
                   </ProtectedRoute>
                }
             />
@@ -39,13 +39,13 @@ const App = () => {
                path={ROUTES.OFFERS}
                element={
                   <ProtectedRoute isAuth={isAuth}>
-                     <Offers />
+                     <OffersPage />
                   </ProtectedRoute>
                }
             />
-            <Route path={ROUTES.MENU} element={<Menu />} />
-            <Route path={ROUTES.CART} element={<Cart />} />
-            <Route path={ROUTES.CONTACT} element={<Contact />} />
+            <Route path={ROUTES.MENU} element={<MenuPage />} />
+            <Route path={ROUTES.CART} element={<CartPage />} />
+            <Route path={ROUTES.CONTACT} element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
          </Routes>
       </Layout>

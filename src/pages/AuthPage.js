@@ -4,7 +4,7 @@ import * as MODES from "../constants/formModes"
 import LoginForm from "../components/Forms/LoginForm"
 import SignUpForm from "../components/Forms/SignUpForm"
 
-const Auth = () => {
+const AuthPage = () => {
    const [formMode, setFormMode] = useState(MODES.LOGIN)
 
    // Switch b/w login/ sign-up
@@ -23,4 +23,4 @@ const Auth = () => {
    )
 }
 
-export default Auth
+export default AuthPage

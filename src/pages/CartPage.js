@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import CartContext from "../context/CartContext"
 import useHttp from "../hooks/useHttp"
 
-const Cart = () => {
+const CartPage = () => {
    const { isLoading, error, sendRequest: placeOrder } = useHttp()
    const cartCtx = useContext(CartContext)
 
@@ -59,4 +59,4 @@ const Cart = () => {
    )
 }
 
-export default Cart
+export default CartPage

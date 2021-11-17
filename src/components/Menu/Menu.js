@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import MenuItem from "./MenuItem"
 import useHttp from "../../hooks/useHttp"
 
-const MenuContainer = () => {
+const Menu = () => {
    const [menu, setMenu] = useState({})
    const { isLoading, error, sendRequest: fetchMenu } = useHttp()
 
@@ -36,7 +36,7 @@ const MenuContainer = () => {
    const subMenuKeys = Object.keys(menu)
 
    return (
-      <section className="menu-container">
+      <section className="menu">
          <header>
             <h3>ReactMeals Menu</h3>
          </header>
@@ -60,4 +60,4 @@ const MenuContainer = () => {
    )
 }
 
-export default MenuContainer
+export default Menu

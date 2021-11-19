@@ -2,6 +2,8 @@ import React, { useContext } from "react"
 
 import CartContext from "../../context/CartContext"
 
+import styles from ".MenuItem.module.scss"
+
 const MenuItem = ({ item }) => {
    const cartCtx = useContext(CartContext)
 

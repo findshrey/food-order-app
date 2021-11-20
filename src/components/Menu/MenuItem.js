@@ -21,7 +21,7 @@ const MenuItem = ({ item }) => {
    )
 
    return (
-      <li>
+      <li className="menu-item">
          <div>
             <div>{item.name}</div>
             <span>{item.price}</span>

@@ -34,30 +34,37 @@ const Menu = () => {
       )
    }, [fetchMenu])
 
-   // Submenu keys array
+   // Submenu keys array (apptizers, pizza etc..)
    const subMenuKeys = Object.keys(menu)
 
    return (
-      <section className="menu">
-         <header>
-            <h3>ReactMeals Menu</h3>
+      <section className={styles["menu"]}>
+         <header className={styles["menu-head"]}>
+            <h3>MENU</h3>
          </header>
-         {isLoading && <p>Loading ...</p>}
-         {!isLoading && subMenuKeys.length === 0 && !error && (
-            <p>Found No Items to show</p>
-         )}
-         {!isLoading && subMenuKeys.length > 0 && (
-            <div className="menu-wrapper">
-               {subMenuKeys.map((el) => (
-                  <ul className="menu-list">
-                     {menu[el].map((item) => (
-                        <MenuItem item={item} />
-                     ))}
-                  </ul>
-               ))}
-            </div>
-         )}
-         {!isLoading && error && <p>{error}</p>}
+         <div className={styles["menu-wrapper"]}>
+            {!isLoading && subMenuKeys.length > 0 && (
+               <div className={styles["menu-container"]}>
+                  {subMenuKeys.map((key) => (
+                     <div className={styles["sub-menu"]}>
+                        <header>
+                           <h3>{key}</h3>
+                        </header>
+                        <ul className={styles["sub-menu-list"]}>
+                           {menu[key].map((item) => (
+                              <MenuItem item={item} />
+                           ))}
+                        </ul>
+                     </div>
+                  ))}
+               </div>
+            )}
+            {isLoading && <p>Loading ...</p>}
+            {!isLoading && subMenuKeys.length === 0 && !error && (
+               <p>Found No Items to show</p>
+            )}
+            {!isLoading && error && <p>{error}</p>}
+         </div>
       </section>
    )
 }

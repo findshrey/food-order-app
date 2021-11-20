@@ -8,14 +8,14 @@ $h2: clamp(3.5rem, calc(2rem + 2.25vw), 5.5rem);
 $h3: 3rem;
 $h4: 2rem;
 
-// Text sizes
+// Text sizes (fs-100,300,500,700,900)
 $font-l: clamp(1.8rem, calc(1.5rem + 0.5vw), 2.2rem);
 $font-m: 1.7rem;
 $font-s: 1.5rem;
 
 // Colors
 $c-black-matte: #252525;
-$c-cream: #fff8ed;
+// $c-cream: #fff8ed;
 $c-mustard: #fe8338; // #fb9300, #fe8338
 $c-navy: #262743;
 $c-red-light: #fd5353; // #fd5353, #e75c63

@@ -40,7 +40,7 @@ const LoginForm = ({ handleFormMode }) => {
    return (
       <div className={styles["login-form"]}>
          <div className={styles["form-inner"]}>
-            <h3>Login</h3>
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                <div className={styles["form-control"]}>
                   <label>Email:</label>
@@ -51,7 +51,7 @@ const LoginForm = ({ handleFormMode }) => {
                   <input type="password" ref={passwordRef} required />
                </div>
                {!isLoading ? (
-                  <button type="submit" className={styles["btn-primary"]}>
+                  <button type="submit" className="btn-tomato">
                      Login
                   </button>
                ) : (

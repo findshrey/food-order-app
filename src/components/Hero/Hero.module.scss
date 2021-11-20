@@ -12,25 +12,22 @@
       align-items: flex-start;
       justify-content: center;
 
+      h2 {
+         font-size: $fs-700;
+      }
+
       span {
          color: $c-mustard;
-         font-size: $h2;
       }
 
       p {
-         font-size: $font-l;
+         font-size: $fs-500;
          margin: 3rem 0 4rem 0;
       }
    }
 
    &-img {
       flex: 1 1 50%;
-      display: flex;
-      align-items: center;
-
-      img {
-         width: 100%;
-      }
    }
 }
 

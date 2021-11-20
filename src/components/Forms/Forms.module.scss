@@ -16,7 +16,7 @@
    width: 100%;
    max-width: 450px;
 
-   h3 {
+   h2 {
       color: $c-red-light;
       text-align: center;
       margin-bottom: 5rem;
@@ -36,7 +36,6 @@
       border: 2px solid darken($c-white, 8%);
       border-radius: 10px;
       color: $c-black-matte;
-      font-family: inherit;
       width: 100%;
       padding: 1.5rem;
 
@@ -46,20 +45,13 @@
    }
 }
 
-.btn-primary {
+:global(.btn-tomato) {
    margin-top: 2rem;
    border: 2px solid $c-red-light;
    border-radius: 10px;
    padding: 1.5rem;
    width: 100%;
-   background-color: $c-red-light;
-   color: $c-white;
    font-weight: 500;
-   transition: all ease-in-out 0.4s;
-
-   &:hover {
-      background-color: darken($c-red-light, 10%);
-   }
 }
 
 .logging-message {

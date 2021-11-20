@@ -18,27 +18,29 @@ const Footer = () => {
       <footer className={styles.footer}>
          <div className="container">
             <div className={styles["footer-upper"]}>
-               <div className={styles.logo}>
-                  <h3>
+               <header className={styles.logo}>
+                  <h2>
                      <span>React</span>Meals
-                  </h3>
+                  </h2>
                   <p>
                      Our job is to fill your tummy with delicious food and fast
                      and free delivery!
                   </p>
-               </div>
+               </header>
                <div className={styles.navigation}>
-                  <h4>Feature</h4>
-                  <ul>
-                     {NAV_LINKS.map((link, index) => (
-                        <li key={index}>
-                           <Link to={link.url}>{link.name}</Link>
-                        </li>
-                     ))}
-                  </ul>
+                  <h3>Feature</h3>
+                  <nav>
+                     <ul>
+                        {NAV_LINKS.map((link, index) => (
+                           <li key={index}>
+                              <Link to={link.url}>{link.name}</Link>
+                           </li>
+                        ))}
+                     </ul>
+                  </nav>
                </div>
                <div className={styles.contact}>
-                  <h4>Get in Touch</h4>
+                  <h3>Get in Touch</h3>
                   <ul>
                      <li>
                         <IconLocation />

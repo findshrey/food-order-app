@@ -1,17 +1,16 @@
-// ---------- CONFIG ---------- //
-// Fonts
-$font-primary: "Fira Sans", sans-serif;
+// ------------------------------ //
+// CONFIG
+// ------------------------------ //
 
-// Header sizes
-$h1: 3rem;
-$h2: clamp(3.5rem, calc(2rem + 2.25vw), 5.5rem);
-$h3: 3rem;
-$h4: 2rem;
+// Font family
+$ff-sans-fira: "Fira Sans", sans-serif;
 
-// Text sizes (fs-100,300,500,700,900)
-$font-l: clamp(1.8rem, calc(1.5rem + 0.5vw), 2.2rem);
-$font-m: 1.7rem;
-$font-s: 1.5rem;
+// Font sizes
+$fs-700: clamp(3.5rem, calc(2rem + 2.25vw), 5.5rem);
+$fs-600: 3rem;
+$fs-500: clamp(1.8rem, calc(1.5rem + 0.5vw), 2.2rem);
+$fs-400: 1.7rem;
+$fs-300: 1.5rem;
 
 // Colors
 $c-black-matte: #252525;
@@ -25,7 +24,10 @@ $c-white: #fff;
 $pad-6y: 6rem 0;
 $pad-3y: 3rem 0;
 
-// ---------- GLOBAL STYLES ---------- //
+// ------------------------------ //
+// GLOBAL STYLES
+// ------------------------------ //
+
 *,
 *::before,
 *::after {
@@ -47,35 +49,11 @@ html {
 body {
    background-color: $c-white;
    color: $c-black-matte;
-   font-family: $font-primary;
+   font-family: $ff-sans-fira;
+   font-size: $fs-400;
    line-height: 1.5;
-}
-
-h1 {
-   font-size: $h1;
-}
-
-h2 {
-   font-size: $h2;
-}
-
-h3 {
-   font-size: $h3;
-}
-
-h4 {
-   font-size: $h4;
-}
-
-div,
-span,
-p,
-a,
-li,
-button,
-label,
-input {
-   font-size: $font-m;
+   // min-height: 100vh;
+   // overflow-x: hidden;
 }
 
 ul {
@@ -87,17 +65,30 @@ a {
    text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+   font: inherit;
+}
+
 button {
-   color: inherit;
    cursor: pointer;
-   font-family: inherit;
 
    &:focus {
       outline: none;
    }
 }
 
-// ---------- UTILITY CLASSES & MIXINS ---------- //
+img {
+   display: block;
+   max-width: 100%;
+}
+
+// ------------------------------ //
+// UTILITY CLASSES & MIXINS
+// ------------------------------ //
+
 .container {
    width: 90%;
    max-width: 1280px;
@@ -120,6 +111,16 @@ button {
 
       &:hover {
          background-color: darken($c-mustard, 8%);
+      }
+   }
+
+   &-tomato {
+      @extend %btn-common;
+      background-color: $c-red-light;
+      color: $c-white;
+
+      &:hover {
+         background-color: darken($c-red-light, 10%);
       }
    }
 }

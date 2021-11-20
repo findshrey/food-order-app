@@ -16,13 +16,13 @@
 .logo {
    padding-right: 3rem;
 
-   h3 {
+   h2 {
+      font-size: $fs-600;
       margin-bottom: 3rem;
    }
 
    span {
       color: $c-mustard;
-      font-size: $h1;
    }
 }
 
@@ -30,9 +30,9 @@
 .navigation {
    padding-left: 3rem;
 
-   h4 {
+   h3 {
       color: $c-mustard;
-      font-size: $h4;
+      font-size: 2rem;
       margin-bottom: 3rem;
    }
 
@@ -47,9 +47,9 @@
 
 // Block-3
 .contact {
-   h4 {
+   h3 {
       color: $c-mustard;
-      font-size: $h4;
+      font-size: 2rem;
       margin-bottom: 3rem;
    }
 

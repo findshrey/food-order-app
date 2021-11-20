@@ -4,8 +4,11 @@
    display: flex;
    align-items: center;
 
+   h1 {
+      font-size: $fs-600;
+   }
+
    span {
       color: $c-mustard;
-      font-size: $h1;
    }
 }

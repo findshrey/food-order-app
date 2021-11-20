@@ -40,7 +40,7 @@ const Menu = () => {
    return (
       <section className={styles["menu"]}>
          <header className={styles["menu-head"]}>
-            <h3>MENU</h3>
+            <h2>MENU</h2>
          </header>
          <div className={styles["menu-wrapper"]}>
             {!isLoading && subMenuKeys.length > 0 && (

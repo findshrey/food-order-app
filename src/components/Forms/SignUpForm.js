@@ -43,7 +43,7 @@ const SignUpForm = ({ handleFormMode }) => {
    return (
       <div className={styles["sign-up-form"]}>
          <div className={styles["form-inner"]}>
-            <h3>Sign Up</h3>
+            <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                <div className={styles["form-control"]}>
                   <label>Email:</label>
@@ -62,7 +62,7 @@ const SignUpForm = ({ handleFormMode }) => {
                   <input type="text" required />
                </div>
                {!isLoading ? (
-                  <button type="submit" className={styles["btn-primary"]}>
+                  <button type="submit" className="btn-tomato">
                      Sign up
                   </button>
                ) : (

@@ -13,7 +13,7 @@ import {
    ProfilePage,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
-import Layout from "./components/Layout/Layout"
+import Layout from "./components/Layout"
 import ProtectedRoute from "./components/ProtectedRoute"
 
 const App = () => {

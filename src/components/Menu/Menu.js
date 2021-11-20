@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import MenuItem from "./MenuItem"
 import useHttp from "../../hooks/useHttp"
 
-import styles from ".Menu.module.scss"
+import styles from "./Menu.module.scss"
 
 const Menu = () => {
    const [menu, setMenu] = useState({})

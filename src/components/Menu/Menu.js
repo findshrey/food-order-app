@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+import { capitalizeFirst } from "../../utils/commonFunction"
 import MenuItem from "./MenuItem"
 import useHttp from "../../hooks/useHttp"
 
@@ -48,7 +49,7 @@ const Menu = () => {
                   {subMenuKeys.map((key) => (
                      <div className={styles["sub-menu"]}>
                         <header>
-                           <h3>{key}</h3>
+                           <h3>{capitalizeFirst(key)}</h3>
                         </header>
                         <ul className={styles["sub-menu-list"]}>
                            {menu[key].map((item) => (

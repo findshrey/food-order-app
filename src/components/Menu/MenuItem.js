@@ -22,19 +22,33 @@ const MenuItem = ({ item }) => {
 
    return (
       <li className="menu-item">
-         <div>
-            <div>{item.name}</div>
+         <header className="item-head">
+            <h4>{item.name}</h4>
             <span>{item.price}</span>
-         </div>
+         </header>
+         <p className="item-desc">{item.description}</p>
          {!inCartItem ? (
-            <button onClick={handleAddItem.bind(null, item)}>
+            <button
+               className={styles["add-to-cart"]}
+               onClick={handleAddItem.bind(null, item)}
+            >
                Add to Cart
             </button>
          ) : (
-            <div>
-               <button onClick={handleAddItem.bind(null, item)}>+</button>
-               <span>{inCartItem?.quantity ?? 0}</span>
-               <button onClick={handleRemoveItem.bind(null, item.id)}>-</button>
+            <div className={styles["content"]}>
+               <button
+                  className={styles["btn-cart"]}
+                  onClick={handleAddItem.bind(null, item)}
+               >
+                  +
+               </button>
+               <span className="item-qty">{inCartItem?.quantity ?? 0}</span>
+               <button
+                  className={styles["btn-cart"]}
+                  onClick={handleRemoveItem.bind(null, item.id)}
+               >
+                  -
+               </button>
             </div>
          )}
       </li>

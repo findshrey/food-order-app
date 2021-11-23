@@ -9,6 +9,26 @@
    }
 }
 
-.menu-wrapper {
-   // background-color: ;
+.menu-container {
+   border: 2px solid red;
+   padding: 2rem;
+}
+
+// menu-wrapper and menu-container ???
+
+.sub-menu {
+   & > header {
+      border-bottom: 1px solid $c-black-matte;
+      margin-bottom: 3rem;
+
+      h3 {
+         font-size: $fs-600;
+      }
+   }
+
+   &-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+   }
 }

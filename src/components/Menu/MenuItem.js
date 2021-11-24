@@ -21,36 +21,43 @@ const MenuItem = ({ item }) => {
    )
 
    return (
-      <li className="menu-item">
-         <header className="item-head">
-            <h4>{item.name}</h4>
-            <span>{item.price}</span>
-         </header>
-         <p className="item-desc">{item.description}</p>
-         {!inCartItem ? (
-            <button
-               className={styles["add-to-cart"]}
-               onClick={handleAddItem.bind(null, item)}
-            >
-               Add to Cart
-            </button>
-         ) : (
-            <div className={styles["content"]}>
-               <button
-                  className={styles["btn-cart"]}
-                  onClick={handleAddItem.bind(null, item)}
-               >
-                  +
-               </button>
-               <span className="item-qty">{inCartItem?.quantity ?? 0}</span>
-               <button
-                  className={styles["btn-cart"]}
-                  onClick={handleRemoveItem.bind(null, item.id)}
-               >
-                  -
-               </button>
+      <li className={styles["menu-item"]}>
+         {item.img && <img src={item.img} />}
+         <div className={styles["item-info"]}>
+            <header className="item-head">
+               <h4>{item.name}</h4>
+               <p className="item-desc">{item.description}</p>
+            </header>
+            <div className={styles["item-lower"]}>
+               <span className={styles["item-price"]}>{`$${item.price}`}</span>
+               {!inCartItem ? (
+                  <button
+                     className={styles["add-to-cart"]}
+                     onClick={handleAddItem.bind(null, item)}
+                  >
+                     ADD TO CART
+                  </button>
+               ) : (
+                  <div className={styles["content"]}>
+                     <button
+                        className={styles["btn-cart"]}
+                        onClick={handleAddItem.bind(null, item)}
+                     >
+                        +
+                     </button>
+                     <span className="item-qty">
+                        {inCartItem?.quantity ?? 0}
+                     </span>
+                     <button
+                        className={styles["btn-cart"]}
+                        onClick={handleRemoveItem.bind(null, item.id)}
+                     >
+                        -
+                     </button>
+                  </div>
+               )}
             </div>
-         )}
+         </div>
       </li>
    )
 }

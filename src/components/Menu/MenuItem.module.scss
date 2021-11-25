@@ -2,11 +2,10 @@
 
 .menu-item {
    background-color: $c-cream;
-   border-radius: 3px;
-   padding: 1.2rem;
+   border-radius: 20px;
    display: flex;
    flex-direction: column;
-   border-radius: 20px;
+   padding: 1.2rem;
 
    .item-img {
       border-radius: 20px;
@@ -23,7 +22,6 @@
 
 .item-head {
    margin-top: 2rem;
-   color: $c-blue-dark;
 
    h4 {
       font-size: $fs-400;
@@ -31,7 +29,7 @@
    }
 
    p {
-      color: darken($c-white, 65%);
+      color: darken($c-white, 60%);
       font-size: $fs-300;
       font-style: italic;
       margin-top: 0.5rem;
@@ -45,37 +43,40 @@
    margin-top: 3rem;
 
    .item-price {
-      color: $c-blue-dark;
       font-weight: 500;
    }
 }
 
 .add-to-cart {
+   background-color: darken($c-red-light, 5%);
    border: none;
    border-radius: 20px;
+   color: $c-white;
+   font-size: $fs-300;
    padding: 0.8rem 1.6rem;
    transition: all 0.4s ease;
-   font-size: $fs-300;
-   background-color: darken($c-red-light, 5%);
-   color: $c-white;
 }
 
-.content {
+.btns-qty {
    display: flex;
    align-items: center;
    gap: 0.7rem;
 
-   .btn-cart {
+   .btn-qty-adjust {
+      background-color: darken($c-red-light, 5%);
       border: none;
       border-radius: 50%;
-      padding: 0;
-      transition: all 0.4s ease;
-      height: 30px;
-      width: 30px;
+      color: $c-white;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: darken($c-red-light, 5%);
-      color: $c-white;
+      height: 30px;
+      width: 30px;
+      padding: 0;
+      transition: all 0.4s ease;
+   }
+
+   .item-qty {
+      font-weight: 500;
    }
 }

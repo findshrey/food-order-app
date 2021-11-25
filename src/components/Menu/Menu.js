@@ -43,9 +43,9 @@ const Menu = () => {
          <header className={styles["menu-head"]}>
             <h2>MENU</h2>
          </header>
-         <div className={styles["menu-wrapper"]}>
+         <div className={styles["menu-inner"]}>
             {!isLoading && subMenuKeys.length > 0 && (
-               <div className={styles["menu-container"]}>
+               <div>
                   {subMenuKeys.map((key) => (
                      <div className={styles["sub-menu"]}>
                         <header>

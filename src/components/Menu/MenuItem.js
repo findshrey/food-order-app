@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 
+import { addZeroes } from "../../utils/commonFunction"
 import CartContext from "../../context/CartContext"
 
 import styles from "./MenuItem.module.scss"
@@ -22,20 +23,24 @@ const MenuItem = ({ item }) => {
 
    return (
       <li className={styles["menu-item"]}>
-         {item.img && <img src={item.img} />}
+         <div className={styles["item-img"]}>
+            <img src={item.img} />
+         </div>
          <div className={styles["item-info"]}>
-            <header className="item-head">
+            <header className={styles["item-head"]}>
                <h4>{item.name}</h4>
-               <p className="item-desc">{item.description}</p>
+               <p>{item.description}</p>
             </header>
             <div className={styles["item-lower"]}>
-               <span className={styles["item-price"]}>{`$${item.price}`}</span>
+               <span className={styles["item-price"]}>
+                  {`$ ${addZeroes(item.price)}`}
+               </span>
                {!inCartItem ? (
                   <button
                      className={styles["add-to-cart"]}
                      onClick={handleAddItem.bind(null, item)}
                   >
-                     ADD TO CART
+                     Add to Cart
                   </button>
                ) : (
                   <div className={styles["content"]}>
@@ -45,7 +50,7 @@ const MenuItem = ({ item }) => {
                      >
                         +
                      </button>
-                     <span className="item-qty">
+                     <span className={styles["item-qty"]}>
                         {inCartItem?.quantity ?? 0}
                      </span>
                      <button

@@ -40,7 +40,7 @@ const MenuItem = ({ item }) => {
                      className={styles["add-to-cart"]}
                      onClick={handleAddItem.bind(null, item)}
                   >
-                     Add to Cart
+                     ADD
                   </button>
                ) : (
                   <div className={styles["btns-qty"]}>

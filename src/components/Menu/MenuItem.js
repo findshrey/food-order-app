@@ -29,15 +29,15 @@ const MenuItem = ({ item }) => {
          <div className={styles["item-info"]}>
             <header className={styles["item-head"]}>
                <h4>{item.name}</h4>
-               <p>{item.description}</p>
-            </header>
-            <div className={styles["item-lower"]}>
                <span className={styles["item-price"]}>
-                  {`$ ${addZeroes(item.price)}`}
+                  {`$${addZeroes(item.price)}`}
                </span>
+            </header>
+            <p className={styles["item-desc"]}>{item.description}</p>
+            <div className={styles["item-lower"]}>
                {!inCartItem ? (
                   <button
-                     className={styles["add-to-cart"]}
+                     className={styles["btn-add"]}
                      onClick={handleAddItem.bind(null, item)}
                   >
                      ADD

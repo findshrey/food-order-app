@@ -3,6 +3,8 @@ import React, { useContext } from "react"
 import CartContext from "../../context/CartContext"
 import useHttp from "../../hooks/useHttp"
 
+import styles from "./Cart.module.scss"
+
 const Cart = () => {
    const { isLoading, error, sendRequest: placeOrder } = useHttp()
    const cartCtx = useContext(CartContext)
@@ -34,28 +36,44 @@ const Cart = () => {
    const hasItems = cartCtx.cartItems.length > 0
 
    return (
-      <section className="cart">
+      <div className={styles.cart}>
          <header>
             <h2>My Cart</h2>
          </header>
-         <ul>
-            {cartCtx.cartItems.map((item) => (
-               <li>
-                  <div>{`Item: ${item.name}, Price: ${item.price}`}</div>
-                  <div>
-                     <button onClick={handleAddItem.bind(null, item)}>+</button>
-                     <span>{item.quantity}</span>
-                     <button onClick={handleRemoveItem.bind(null, item.id)}>
-                        -
-                     </button>
-                  </div>
-               </li>
-            ))}
-         </ul>
-         <button disabled={!hasItems} onClick={handleOrder}>
-            Place Order
-         </button>
-      </section>
+         <div className={styles["cart-wrapper"]}>
+            <section className={styles["cart-item-list"]}>
+               <ul>
+                  {cartCtx.cartItems.map((item) => (
+                     <li className={styles["cart-item"]}>
+                        <div>{`Item: ${item.name}, Price: ${item.price}`}</div>
+                        <div>
+                           <button onClick={handleAddItem.bind(null, item)}>
+                              +
+                           </button>
+                           <span>{item.quantity}</span>
+                           <button
+                              onClick={handleRemoveItem.bind(null, item.id)}
+                           >
+                              -
+                           </button>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </section>
+            <aside className="cart-summary">
+               <div className="card">
+                  <header>
+                     <h3>3 Items</h3>
+                  </header>
+                  <span>Subtotal $25</span>
+                  <button disabled={!hasItems} onClick={handleOrder}>
+                     Place Order
+                  </button>
+               </div>
+            </aside>
+         </div>
+      </div>
    )
 }
 

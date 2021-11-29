@@ -1,0 +1,11 @@
+@import "../../index.scss";
+
+.cart {
+   padding: $pad-6y;
+}
+
+.cart-wrapper {
+   display: grid;
+   grid-template-columns: 1fr 35rem;
+   gap: 5rem;
+}

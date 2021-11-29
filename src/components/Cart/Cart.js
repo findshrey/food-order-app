@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 
 import CartContext from "../../context/CartContext"
+import CartItem from "./CartItem"
 import useHttp from "../../hooks/useHttp"
 
 import styles from "./Cart.module.scss"
@@ -44,20 +45,11 @@ const Cart = () => {
             <section className={styles["cart-item-list"]}>
                <ul>
                   {cartCtx.cartItems.map((item) => (
-                     <li className={styles["cart-item"]}>
-                        <div>{`Item: ${item.name}, Price: ${item.price}`}</div>
-                        <div>
-                           <button onClick={handleAddItem.bind(null, item)}>
-                              +
-                           </button>
-                           <span>{item.quantity}</span>
-                           <button
-                              onClick={handleRemoveItem.bind(null, item.id)}
-                           >
-                              -
-                           </button>
-                        </div>
-                     </li>
+                     <CartItem
+                        item={item}
+                        handleAddItem={handleAddItem}
+                        handleRemoveItem={handleRemoveItem}
+                     />
                   ))}
                </ul>
             </section>

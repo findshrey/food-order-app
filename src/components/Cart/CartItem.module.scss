@@ -10,6 +10,10 @@
    margin-bottom: 1rem;
 }
 
+.item-name {
+   font-weight: 500;
+}
+
 .item-info {
    display: flex;
    align-items: center;
@@ -34,4 +38,21 @@
    width: 30px;
    padding: 0;
    transition: all 0.4s ease;
+}
+
+@media (max-width: 768px) {
+   .cart-item {
+      flex-direction: column;
+      padding: 2rem;
+   }
+
+   .item-name {
+      align-self: flex-start;
+   }
+
+   .item-info {
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 2rem;
+   }
 }

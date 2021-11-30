@@ -11,6 +11,15 @@
    .cart-inner {
       display: grid;
       grid-template-columns: 1fr 35rem;
-      gap: 5rem;
+      align-items: start;
+      gap: 4rem;
+   }
+}
+
+@media (max-width: 1024px) {
+   .cart {
+      .cart-inner {
+         grid-template-columns: 1fr;
+      }
    }
 }

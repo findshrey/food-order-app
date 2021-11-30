@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 
 import CartContext from "../../context/CartContext"
 import CartItem from "./CartItem"
+import CartSummary from "./CartSummary"
 import useHttp from "../../hooks/useHttp"
 
 import styles from "./Cart.module.scss"
@@ -34,8 +35,6 @@ const Cart = () => {
       )
    }
 
-   const hasItems = cartCtx.cartItems.length > 0
-
    return (
       <div className={styles.cart}>
          <header className={styles["cart-head"]}>
@@ -53,17 +52,11 @@ const Cart = () => {
                   ))}
                </ul>
             </section>
-            <aside className="cart-summary">
-               <div className="card">
-                  <header>
-                     <h3>3 Items</h3>
-                  </header>
-                  <span>Subtotal $25</span>
-                  <button disabled={!hasItems} onClick={handleOrder}>
-                     Place Order
-                  </button>
-               </div>
-            </aside>
+            <CartSummary
+               items={cartCtx.cartItems}
+               totalAmount={cartCtx.totalAmount}
+               handleOrder={handleOrder}
+            />
          </div>
       </div>
    )

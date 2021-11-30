@@ -7,7 +7,7 @@ import styles from "./CartItem.module.scss"
 const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
    return (
       <li className={styles["cart-item"]}>
-         <span>{item.name}</span>
+         <span className={styles["item-name"]}>{item.name}</span>
          <div className={styles["item-info"]}>
             <div className={styles["btns"]}>
                <button

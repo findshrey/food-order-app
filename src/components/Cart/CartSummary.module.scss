@@ -1,0 +1,35 @@
+@import "../../index.scss";
+
+.cart-summary {
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   padding: 4rem;
+
+   h3 {
+      font-size: $fs-500;
+   }
+}
+
+.summary-content {
+   border-bottom: 1px solid darken($c-white, 15%);
+   display: flex;
+   justify-content: space-between;
+   padding-bottom: 3rem;
+   margin: 3rem 0;
+}
+
+.place-order {
+   background-color: darken($c-red-light, 5%);
+   border: 1px solid $c-red-light;
+   border-radius: 20px;
+   color: $c-white;
+   padding: 0.8rem 1.6rem;
+   transition: all 0.4s ease;
+   width: 100%;
+
+   &:disabled {
+      background-color: $c-white;
+      color: $c-black-matte;
+      border: 1px solid $c-black-matte;
+      cursor: auto;
+   }
+}

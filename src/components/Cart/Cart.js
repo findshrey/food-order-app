@@ -61,6 +61,7 @@ const Cart = () => {
                   <ul>
                      {cartCtx.cartItems.map((item) => (
                         <CartItem
+                           key={item.id}
                            item={item}
                            handleAddItem={handleAddItem}
                            handleRemoveItem={handleRemoveItem}

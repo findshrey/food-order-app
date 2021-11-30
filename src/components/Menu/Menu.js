@@ -46,14 +46,14 @@ const Menu = () => {
          <div className={styles["menu-inner"]}>
             {!isLoading && subMenuKeys.length > 0 && (
                <div>
-                  {subMenuKeys.map((key) => (
-                     <div className={styles["sub-menu"]}>
+                  {subMenuKeys.map((key, index) => (
+                     <div key={index} className={styles["sub-menu"]}>
                         <header>
                            <h3>{capitalizeFirst(key)}</h3>
                         </header>
                         <ul className={styles["sub-menu-list"]}>
                            {menu[key].map((item) => (
-                              <MenuItem item={item} />
+                              <MenuItem key={item.id} item={item} />
                            ))}
                         </ul>
                      </div>

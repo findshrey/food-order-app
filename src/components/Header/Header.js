@@ -67,7 +67,10 @@ const Header = () => {
                      ) : (
                         <button
                            className="btn-mustard"
-                           onClick={authCtx.logout}
+                           onClick={() => {
+                              authCtx.logout()
+                              navigate(ROUTES.HOME)
+                           }}
                         >
                            Logout
                         </button>

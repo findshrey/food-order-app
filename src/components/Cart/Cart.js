@@ -38,10 +38,10 @@ const Cart = () => {
 
    return (
       <div className={styles.cart}>
-         <header>
+         <header className={styles["cart-head"]}>
             <h2>My Cart</h2>
          </header>
-         <div className={styles["cart-wrapper"]}>
+         <div className={styles["cart-inner"]}>
             <section className={styles["cart-item-list"]}>
                <ul>
                   {cartCtx.cartItems.map((item) => (

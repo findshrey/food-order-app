@@ -46,18 +46,18 @@ const MenuItem = ({ item }) => {
                   <div className={styles["btns-qty"]}>
                      <button
                         className={styles["btn-qty-adjust"]}
-                        onClick={handleAddItem.bind(null, item)}
+                        onClick={handleRemoveItem.bind(null, item.id)}
                      >
-                        +
+                        -
                      </button>
                      <span className={styles["item-qty"]}>
                         {inCartItem?.quantity ?? 0}
                      </span>
                      <button
                         className={styles["btn-qty-adjust"]}
-                        onClick={handleRemoveItem.bind(null, item.id)}
+                        onClick={handleAddItem.bind(null, item)}
                      >
-                        -
+                        +
                      </button>
                   </div>
                )}

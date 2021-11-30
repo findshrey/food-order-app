@@ -2,10 +2,15 @@
 
 .cart {
    padding: $pad-6y;
-}
 
-.cart-wrapper {
-   display: grid;
-   grid-template-columns: 1fr 35rem;
-   gap: 5rem;
+   .cart-head {
+      text-align: center;
+      margin-bottom: 5rem;
+   }
+
+   .cart-inner {
+      display: grid;
+      grid-template-columns: 1fr 35rem;
+      gap: 5rem;
+   }
 }

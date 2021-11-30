@@ -14,6 +14,28 @@
       align-items: start;
       gap: 4rem;
    }
+
+   .empty-cart {
+      background-color: $c-cream;
+      text-align: center;
+      padding: 5rem 2rem;
+      border-radius: 20px;
+
+      p {
+         font-size: $fs-700;
+         font-weight: 700;
+         margin-bottom: 5rem;
+      }
+
+      button {
+         background-color: darken($c-red-light, 5%);
+         border: 1px solid $c-red-light;
+         border-radius: 30px;
+         color: $c-white;
+         font-size: $fs-300;
+         padding: 1rem 3rem;
+      }
+   }
 }
 
 @media (max-width: 1024px) {

@@ -1,0 +1,19 @@
+@import "../../index.scss";
+
+.contact {
+   padding: $pad-6y;
+
+   .contact-head {
+      text-align: center;
+
+      h2 {
+         font-size: $fs-600;
+         margin-bottom: 1rem;
+      }
+
+      span {
+         color: darken($c-white, 65%);
+         font-weight: 500;
+      }
+   }
+}

@@ -1,0 +1,26 @@
+@import "../../index.scss";
+
+.deals {
+   padding: $pad-6y;
+}
+
+.deals-head {
+   text-align: center;
+   margin-bottom: 5rem;
+
+   h2 {
+      font-size: $fs-600;
+   }
+}
+
+.deals-inner {
+   background-color: $c-cream;
+   text-align: center;
+   padding: 5rem 2rem;
+   border-radius: 20px;
+
+   p {
+      font-size: $fs-700;
+      font-weight: 700;
+   }
+}

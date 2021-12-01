@@ -35,14 +35,7 @@ const App = () => {
                   </ProtectedRoute>
                }
             />
-            <Route
-               path={ROUTES.OFFERS}
-               element={
-                  <ProtectedRoute isAuth={isAuth}>
-                     <OffersPage />
-                  </ProtectedRoute>
-               }
-            />
+            <Route path={ROUTES.OFFERS} element={<OffersPage />} />
             <Route path={ROUTES.MENU} element={<MenuPage />} />
             <Route path={ROUTES.CART} element={<CartPage />} />
             <Route path={ROUTES.CONTACT} element={<ContactPage />} />

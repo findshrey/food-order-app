@@ -1,9 +1,11 @@
 import React from "react"
 
+import Deals from "../components/Deals/Deals"
+
 const OffersPage = () => {
    return (
       <div className="container">
-         <h2>Deals & Offers</h2>
+         <Deals />
       </div>
    )
 }

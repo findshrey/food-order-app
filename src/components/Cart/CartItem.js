@@ -16,7 +16,7 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
                >
                   -
                </button>
-               <span>{item.quantity}</span>
+               <span className={styles["item-quant"]}>{item.quantity}</span>
                <button
                   className={styles["btn-qty-adjust"]}
                   onClick={handleAddItem.bind(null, item)}
@@ -24,7 +24,9 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
                   +
                </button>
             </div>
-            <span>{`$${addZeroes(item.price)}`}</span>
+            <span className={styles["item-price"]}>{`$${addZeroes(
+               item.price
+            )}`}</span>
          </div>
       </li>
    )

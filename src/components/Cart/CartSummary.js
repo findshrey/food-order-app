@@ -5,8 +5,6 @@ import { addZeroes } from "../../utils/commonFunction"
 import styles from "./CartSummary.module.scss"
 
 const CartSummary = ({ items, totalAmount, handleOrder }) => {
-   const hasItems = items.length > 0
-
    const numberOfItems = items.reduce((acc, item) => {
       return acc + item.quantity
    }, 0)
@@ -20,11 +18,7 @@ const CartSummary = ({ items, totalAmount, handleOrder }) => {
             <span>Subtotal</span>
             <span>{`$${addZeroes(totalAmount)}`}</span>
          </div>
-         <button
-            className={styles["place-order"]}
-            disabled={!hasItems}
-            onClick={handleOrder}
-         >
+         <button className={styles["place-order"]} onClick={handleOrder}>
             Place Order
          </button>
       </aside>

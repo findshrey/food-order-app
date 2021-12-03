@@ -12,6 +12,7 @@ import styles from "./Cart.module.scss"
 const Cart = () => {
    const { isLoading, error, sendRequest: placeOrder } = useHttp()
    const cartCtx = useContext(CartContext)
+
    let navigate = useNavigate()
 
    const handleAddItem = (item) => {
@@ -22,6 +23,7 @@ const Cart = () => {
       cartCtx.removeItem(id)
    }
 
+   // Place order if autheticated
    const handleOrder = () => {
       placeOrder(
          {
@@ -38,14 +40,15 @@ const Cart = () => {
       )
    }
 
-   const hasItems = cartCtx.cartItems.length > 0
+   // Check if cart has items
+   const emptyCart = cartCtx.cartItems.length === 0
 
    return (
       <div className={styles.cart}>
          <header className={styles["cart-head"]}>
-            <h2>My Cart</h2>
+            <h2>MY CART</h2>
          </header>
-         {!hasItems ? (
+         {emptyCart ? (
             <div className={styles["empty-cart"]}>
                <p>
                   YOUR CART IS EMPTY. <br />
@@ -57,7 +60,7 @@ const Cart = () => {
             </div>
          ) : (
             <div className={styles["cart-inner"]}>
-               <section className={styles["cart-item-list"]}>
+               <section>
                   <ul>
                      {cartCtx.cartItems.map((item) => (
                         <CartItem

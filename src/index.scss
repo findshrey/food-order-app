@@ -6,8 +6,7 @@
 $ff-sans-fira: "Fira Sans", sans-serif;
 
 // Font sizes
-$fs-800: clamp(3.5rem, calc(2rem + 2.25vw), 5.5rem);
-$fs-700: 3.5rem;
+$fs-700: clamp(3.5rem, calc(2rem + 2.25vw), 5.5rem);
 $fs-600: 3rem;
 $fs-500: clamp(1.8rem, calc(1.5rem + 0.5vw), 2.2rem);
 $fs-400: 1.7rem;
@@ -25,6 +24,7 @@ $c-yellow-mustard: #fe8338;
 
 // Paddings & Margins
 $pad-y5_8: clamp(5rem, calc(2.5rem + 5vw), 8rem) 0;
+$pad-y6-x2: 6rem 2rem;
 
 // ------------------------------ //
 // GLOBAL STYLES

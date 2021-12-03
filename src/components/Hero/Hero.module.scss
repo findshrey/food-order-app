@@ -2,7 +2,7 @@
 
 .hero {
    display: flex;
-   padding: $pad-6y;
+   padding: $pad-y-5_9;
 
    &-text {
       flex: 1 1 50%;
@@ -17,7 +17,7 @@
       }
 
       span {
-         color: $c-mustard;
+         color: $c-yellow-mustard;
       }
 
       p {

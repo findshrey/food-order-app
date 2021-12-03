@@ -6,10 +6,10 @@
 }
 
 .footer-upper {
+   border-bottom: 1px solid darken($c-white, 65%);
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   padding: $pad-6y;
-   border-bottom: 1px solid darken($c-white, 65%);
+   padding: $pad-y-5_9;
 }
 
 // Block-1
@@ -18,11 +18,12 @@
 
    h2 {
       font-size: $fs-600;
+      font-weight: 600;
       margin-bottom: 3rem;
    }
 
    span {
-      color: $c-mustard;
+      color: $c-yellow-mustard;
    }
 }
 
@@ -31,8 +32,9 @@
    padding-left: 3rem;
 
    h3 {
-      color: $c-mustard;
+      color: $c-yellow-mustard;
       font-size: 2rem;
+      font-weight: 500;
       margin-bottom: 3rem;
    }
 
@@ -48,16 +50,17 @@
 // Block-3
 .contact {
    h3 {
-      color: $c-mustard;
+      color: $c-yellow-mustard;
       font-size: 2rem;
+      font-weight: 500;
       margin-bottom: 3rem;
    }
 
    li {
-      margin-bottom: 3rem;
       display: flex;
       align-items: center;
       gap: 2rem;
+      margin-bottom: 3rem;
 
       &:last-child {
          margin: 0;
@@ -68,7 +71,7 @@
 .footer-lower {
    display: flex;
    justify-content: space-between;
-   padding: $pad-6y;
+   padding: $pad-y-5_9;
 
    span {
       display: flex;
@@ -108,7 +111,7 @@
 
    .footer-lower {
       flex-direction: column-reverse;
-      gap: 3rem;
       align-items: center;
+      gap: 3rem;
    }
 }

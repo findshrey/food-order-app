@@ -28,7 +28,7 @@ const Footer = () => {
                   </p>
                </header>
                <div className={styles.navigation}>
-                  <h3>Feature</h3>
+                  <h3>Links</h3>
                   <nav>
                      <ul>
                         {NAV_LINKS.map((link, index) => (

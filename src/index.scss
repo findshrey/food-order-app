@@ -17,14 +17,13 @@ $fs-200: 1.3rem;
 $c-black-matte: #252525;
 $c-blue-dark: #262743;
 $c-blue-navy: #004a9c;
-$c-cream: #fef2f2;
-$c-mustard: #fe8338;
-$c-red-light: #e75c63; // fd5353
+$c-red-light: #e75c63;
 $c-white: #fff;
+$c-white-cream: #fef2f2;
+$c-yellow-mustard: #fe8338;
 
 // Paddings & Margins
-$pad-6y: 6rem 0;
-$pad-3y: 3rem 0;
+$pad-y-5_9: clamp(5rem, calc(2.5rem + 5vw), 9rem) 0;
 
 // ------------------------------ //
 // GLOBAL STYLES
@@ -106,11 +105,11 @@ img {
 .btn {
    &-mustard {
       @extend %btn-common;
-      background-color: $c-mustard;
+      background-color: $c-yellow-mustard;
       color: $c-white;
 
       &:hover {
-         background-color: darken($c-mustard, 8%);
+         background-color: darken($c-yellow-mustard, 8%);
       }
    }
 

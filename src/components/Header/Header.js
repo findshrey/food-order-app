@@ -12,8 +12,9 @@ import styles from "./Header.module.scss"
 
 const Header = () => {
    const [sideDrawer, setSideDrawer] = useState(false)
-   const cartCtx = useContext(CartContext)
    const authCtx = useContext(AuthContext)
+   const cartCtx = useContext(CartContext)
+
    let navigate = useNavigate()
 
    // Toggle sideDrawer
@@ -32,7 +33,7 @@ const Header = () => {
       <header className={styles["main-head"]}>
          <div className="container">
             {/* DESKTOP NAVIGATION */}
-            <nav className={styles["nav-primary"]}>
+            <nav className={styles["nav-desktop"]}>
                <Logo />
                <ul className={styles["nav-left"]}>
                   {NAV_LINKS.map((link, index) => (
@@ -80,7 +81,7 @@ const Header = () => {
             </nav>
 
             {/* MOBILE NAVIGATION */}
-            <nav className={styles["nav-secondary"]}>
+            <nav className={styles["nav-mobile"]}>
                <button className={styles.hamburger} onClick={handleSideDrawer}>
                   {sideDrawer ? <IconMenuClose /> : <IconMenu />}
                </button>

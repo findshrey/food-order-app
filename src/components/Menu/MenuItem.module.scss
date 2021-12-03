@@ -20,6 +20,7 @@
 }
 
 .item-head {
+   color: darken($c-red-light, 5%);
    display: flex;
    justify-content: space-between;
    gap: 2rem;
@@ -44,7 +45,9 @@
 
 .item-lower {
    display: flex;
+   align-items: center;
    justify-content: flex-end;
+   min-height: 39px;
    margin-top: auto;
 }
 

@@ -35,36 +35,36 @@ const Menu = () => {
       )
    }, [fetchMenu])
 
-   // Submenu keys array (apptizers, pizza etc..)
+   // Submenu keys array (apptizers, beverages etc..)
    const subMenuKeys = Object.keys(menu)
 
    return (
       <section className={styles["menu"]}>
          <header className={styles["menu-head"]}>
-            <h2>MENU</h2>
+            <h2>OUR MENU</h2>
          </header>
          <div className={styles["menu-inner"]}>
+            {isLoading && <p className={styles.message}>Loading ...</p>}
+            {!isLoading && subMenuKeys.length === 0 && !error && (
+               <p className={styles.message}>Found no items to show!</p>
+            )}
             {!isLoading && subMenuKeys.length > 0 && (
-               <div>
-                  {subMenuKeys.map((key, index) => (
+               <>
+                  {subMenuKeys.map((subKey, index) => (
                      <div key={index} className={styles["sub-menu"]}>
                         <header>
-                           <h3>{capitalizeFirst(key)}</h3>
+                           <h3>{capitalizeFirst(subKey)}</h3>
                         </header>
                         <ul className={styles["sub-menu-list"]}>
-                           {menu[key].map((item) => (
+                           {menu[subKey].map((item) => (
                               <MenuItem key={item.id} item={item} />
                            ))}
                         </ul>
                      </div>
                   ))}
-               </div>
+               </>
             )}
-            {isLoading && <p>Loading ...</p>}
-            {!isLoading && subMenuKeys.length === 0 && !error && (
-               <p>Found No Items to show</p>
-            )}
-            {!isLoading && error && <p>{error}</p>}
+            {!isLoading && error && <p className={styles.message}>{error}</p>}
          </div>
       </section>
    )

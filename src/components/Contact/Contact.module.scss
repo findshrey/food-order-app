@@ -1,18 +1,20 @@
 @import "../../index.scss";
 
 .contact {
-   padding: $pad-y-5_9;
+   padding: $pad-y5_8;
 
-   .contact-head {
+   &-head {
       text-align: center;
+      margin-bottom: 5rem;
 
       h2 {
-         font-size: $fs-600;
+         color: darken($c-yellow-mustard, 5%);
+         font-size: $fs-700;
          margin-bottom: 1rem;
       }
 
       span {
-         color: darken($c-white, 65%);
+         color: darken($c-white, 6%);
          font-weight: 500;
       }
    }

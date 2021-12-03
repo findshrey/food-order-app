@@ -2,18 +2,18 @@
 
 .hero {
    display: flex;
-   padding: $pad-y-5_9;
+   padding: $pad-y5_8;
 
    &-text {
       flex: 1 1 50%;
-      margin-right: 5rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+      margin-right: 5rem;
 
       h2 {
-         font-size: $fs-700;
+         font-size: $fs-800;
       }
 
       span {
@@ -36,9 +36,9 @@
       flex-direction: column-reverse;
 
       &-text {
-         margin: 5rem 0 0 0;
          align-items: center;
          text-align: center;
+         margin: 5rem 0 0 0;
       }
    }
 }

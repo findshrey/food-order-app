@@ -10,7 +10,7 @@ const Hero = () => {
    let navigate = useNavigate()
 
    // Navigate to menu
-   const handleClick = () => {
+   const handleOrder = () => {
       navigate(MENU)
    }
 
@@ -24,7 +24,7 @@ const Hero = () => {
                Our job is to fill your tummy with delicious food and fast and
                free delivery!
             </p>
-            <button className="btn-mustard" onClick={handleClick}>
+            <button className="btn-mustard" onClick={handleOrder}>
                Order Food
             </button>
          </div>

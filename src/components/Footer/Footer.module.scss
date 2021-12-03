@@ -9,7 +9,7 @@
    border-bottom: 1px solid darken($c-white, 65%);
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   padding: $pad-y-5_9;
+   padding: $pad-y5_8;
 }
 
 // Block-1
@@ -71,7 +71,7 @@
 .footer-lower {
    display: flex;
    justify-content: space-between;
-   padding: $pad-y-5_9;
+   padding: $pad-y5_8;
 
    span {
       display: flex;

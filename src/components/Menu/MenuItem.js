@@ -17,7 +17,7 @@ const MenuItem = ({ item }) => {
    }
 
    // Check if item exists in cart
-   const inCartItem = cartCtx.cartItems.find(
+   const itemInCart = cartCtx.cartItems.find(
       (cartItem) => cartItem.id === item.id
    )
 
@@ -35,7 +35,7 @@ const MenuItem = ({ item }) => {
             </header>
             <p className={styles["item-desc"]}>{item.description}</p>
             <div className={styles["item-lower"]}>
-               {!inCartItem ? (
+               {!itemInCart ? (
                   <button
                      className={styles["btn-add"]}
                      onClick={handleAddItem.bind(null, item)}
@@ -51,7 +51,7 @@ const MenuItem = ({ item }) => {
                         -
                      </button>
                      <span className={styles["item-qty"]}>
-                        {inCartItem?.quantity ?? 0}
+                        {itemInCart?.quantity ?? 0}
                      </span>
                      <button
                         className={styles["btn-qty-adjust"]}

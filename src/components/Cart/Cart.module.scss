@@ -1,7 +1,7 @@
 @import "../../index.scss";
 
 .cart {
-   padding: $pad-y-5_9;
+   padding: $pad-y5_8;
 
    .cart-head {
       text-align: center;
@@ -22,7 +22,7 @@
       border-radius: 20px;
 
       p {
-         font-size: $fs-700;
+         font-size: $fs-800;
          font-weight: 700;
          margin-bottom: 4rem;
       }

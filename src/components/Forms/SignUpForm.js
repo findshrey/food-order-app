@@ -8,14 +8,21 @@ import useHttp from "../../hooks/useHttp"
 import styles from "./Forms.module.scss"
 
 const SignUpForm = ({ handleFormMode }) => {
-   const emailRef = useRef()
-   const passwordRef = useRef()
+   const [passVisible, setPassVisible] = useState(false)
    const { isLoading, error, sendRequest: signUpRequest } = useHttp()
-   const navigate = useNavigate()
-
    const authCtx = useContext(AuthContext)
 
-   const handleSubmit = (e) => {
+   const emailRef = useRef()
+   const passwordRef = useRef()
+
+   const navigate = useNavigate()
+
+   // Toggle password visibility
+   const handlePassVisible = () => {
+      setPassVisible((prevState) => !prevState)
+   }
+
+   const handleSignUp = (e) => {
       e.preventDefault()
 
       signUpRequest(
@@ -43,15 +50,21 @@ const SignUpForm = ({ handleFormMode }) => {
    return (
       <div className={styles["sign-up-form"]}>
          <div className={styles["form-inner"]}>
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSubmit}>
+            <header>
+               <h2>Sign Up</h2>
+            </header>
+            <form onSubmit={handleSignUp}>
                <div className={styles["form-control"]}>
                   <label>Email:</label>
                   <input type="email" ref={emailRef} required />
                </div>
                <div className={styles["form-control"]}>
                   <label>Password:</label>
-                  <input type="password" ref={passwordRef} required />
+                  <input
+                     type={passVisible ? "text" : "password"}
+                     ref={passwordRef}
+                     required
+                  />
                </div>
                <div className={styles["form-control"]}>
                   <label>Phone:</label>
@@ -60,6 +73,10 @@ const SignUpForm = ({ handleFormMode }) => {
                <div className={styles["form-control"]}>
                   <label>Address:</label>
                   <input type="text" required />
+               </div>
+               <div className={styles["content-checkbox"]}>
+                  <input type="checkbox" onClick={handlePassVisible} />
+                  <span>Show Password</span>
                </div>
                {!isLoading ? (
                   <button type="submit" className="btn-tomato">

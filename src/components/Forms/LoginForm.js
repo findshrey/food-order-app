@@ -8,14 +8,21 @@ import useHttp from "../../hooks/useHttp"
 import styles from "./Forms.module.scss"
 
 const LoginForm = ({ handleFormMode }) => {
-   const navigate = useNavigate()
-   const emailRef = useRef()
-   const passwordRef = useRef()
+   const [passVisible, setPassVisible] = useState(false)
    const { isLoading, error, sendRequest: loginRequest } = useHttp()
-
    const authCtx = useContext(AuthContext)
 
-   const handleSubmit = (e) => {
+   const emailRef = useRef()
+   const passwordRef = useRef()
+
+   const navigate = useNavigate()
+
+   // Toggle password visibility
+   const handlePassVisible = () => {
+      setPassVisible((prevState) => !prevState)
+   }
+
+   const handleLogin = (e) => {
       e.preventDefault()
 
       loginRequest(
@@ -40,15 +47,25 @@ const LoginForm = ({ handleFormMode }) => {
    return (
       <div className={styles["login-form"]}>
          <div className={styles["form-inner"]}>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+            <header>
+               <h2>Login</h2>
+            </header>
+            <form onSubmit={handleLogin}>
                <div className={styles["form-control"]}>
                   <label>Email:</label>
                   <input type="email" ref={emailRef} required />
                </div>
                <div className={styles["form-control"]}>
                   <label>Password:</label>
-                  <input type="password" ref={passwordRef} required />
+                  <input
+                     type={passVisible ? "text" : "password"}
+                     ref={passwordRef}
+                     required
+                  />
+               </div>
+               <div className={styles["content-checkbox"]}>
+                  <input type="checkbox" onClick={handlePassVisible} />
+                  <label>Show Password</label>
                </div>
                {!isLoading ? (
                   <button type="submit" className="btn-tomato">

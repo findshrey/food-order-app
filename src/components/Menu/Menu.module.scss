@@ -49,3 +49,9 @@
       grid-template-columns: 1fr;
    }
 }
+
+@media (max-width: 600px) {
+   .sub-menu header h3 {
+      font-size: 2.3rem;
+   }
+}

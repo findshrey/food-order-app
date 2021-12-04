@@ -72,10 +72,10 @@ const LoginForm = ({ handleFormMode }) => {
                      Login
                   </button>
                ) : (
-                  <p className={styles["logging-message"]}>Logging In ...</p>
+                  <p className={styles["loading-msg"]}>Logging In ...</p>
                )}
                {!isLoading && error && <p>{error}</p>}
-               <div className={styles["text-row"]}>
+               <div className={styles["mode-change"]}>
                   <span>Don't have an account?</span>
                   <button
                      type="button"

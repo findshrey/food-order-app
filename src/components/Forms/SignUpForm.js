@@ -14,6 +14,8 @@ const SignUpForm = ({ handleFormMode }) => {
 
    const emailRef = useRef()
    const passwordRef = useRef()
+   const phoneRef = useRef()
+   const addressRef = useRef()
 
    const navigate = useNavigate()
 
@@ -39,6 +41,22 @@ const SignUpForm = ({ handleFormMode }) => {
             },
          },
          (data) => {
+            // Create and populate user data
+            fetch(
+               `https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/users/${data.localId}.json`,
+               {
+                  method: "PUT",
+                  headers: {
+                     "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                     name: emailRef.current.value.split("@")[0],
+                     phone: phoneRef.current.value,
+                     address: addressRef.current.value,
+                  }),
+               }
+            )
+
             const expirationTime = Date.now() + data.expiresIn * 1000
 
             authCtx.login(data.idToken, expirationTime)
@@ -68,11 +86,11 @@ const SignUpForm = ({ handleFormMode }) => {
                </div>
                <div className={styles["form-control"]}>
                   <label>Phone:</label>
-                  <input type="number" required />
+                  <input type="number" ref={phoneRef} required />
                </div>
                <div className={styles["form-control"]}>
                   <label>Address:</label>
-                  <input type="text" required />
+                  <input type="text" ref={addressRef} required />
                </div>
                <div className={styles["content-checkbox"]}>
                   <input type="checkbox" onClick={handlePassVisible} />

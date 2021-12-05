@@ -3,26 +3,11 @@ import { useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 import PersonalInfo from "./PersonalInfo"
-import useHttp from "../../hooks/useHttp"
 
 const Profile = () => {
    const navigate = useNavigate()
    const passwordRef = useRef()
    const authCtx = useContext(AuthContext)
-   const { isLoading, error, sendRequest: fetchUserInfo } = useHttp()
-   const [userInfo, setUserInfo] = useState({})
-
-   // Get user data on mount
-   useEffect(() => {
-      fetchUserInfo(
-         {
-            url: `https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/users/${authCtx.userId}.json`,
-         },
-         (data) => {
-            setUserInfo(data)
-         }
-      )
-   }, [fetchUserInfo])
 
    // const handleSubmit = (e) => {
    //    e.preventDefault()
@@ -53,7 +38,7 @@ const Profile = () => {
          <header className="profile-head">
             <h2>My Profile</h2>
          </header>
-         <PersonalInfo userInfo={userInfo} />
+         <PersonalInfo userId={authCtx.userId} />
          {/* <h3>Change your Password</h3>
          <form onSubmit={handleSubmit}>
             <div className="form-control">

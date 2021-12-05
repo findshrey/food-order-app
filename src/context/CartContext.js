@@ -1,7 +1,13 @@
 import React, { useReducer } from "react"
 
-const CartContext = React.createContext()
+const CartContext = React.createContext({
+   items: [],
+   totalAmount: 0,
+   addItem: (item) => {},
+   removeItem: (id) => {},
+})
 
+// useReducer default state
 const defaultCartState = {
    items: [],
    totalAmount: 0,

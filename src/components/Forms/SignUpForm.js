@@ -59,7 +59,7 @@ const SignUpForm = ({ handleFormMode }) => {
 
             const expirationTime = Date.now() + data.expiresIn * 1000
 
-            authCtx.login(data.idToken, expirationTime)
+            authCtx.login(data.idToken, expirationTime, data.localId)
             navigate("/", { replace: true })
          }
       )

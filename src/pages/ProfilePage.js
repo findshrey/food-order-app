@@ -1,11 +1,11 @@
 import React from "react"
 
-import ProfileForm from "../components/ProfileForm/ProfileForm"
+import Profile from "../components/Profile/Profile"
 
 const ProfilePage = () => {
    return (
       <div className="container">
-         <ProfileForm />
+         <Profile />
       </div>
    )
 }

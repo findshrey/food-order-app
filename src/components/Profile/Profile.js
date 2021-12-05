@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
+import PersonalInfo from "./PersonalInfo"
 import useHttp from "../../hooks/useHttp"
 
 const Profile = () => {
@@ -52,27 +53,7 @@ const Profile = () => {
          <header className="profile-head">
             <h2>My Profile</h2>
          </header>
-         <section className="personal-info">
-            <header>
-               <h3>Personal Info</h3>
-            </header>
-            <div className="info-container">
-               <form>
-                  <div className="form-control">
-                     <label>User Name</label>
-                     <span>{userInfo.name}</span>
-                  </div>
-                  <div className="form-control">
-                     <label>Phone Number</label>
-                     <span>{userInfo.phone}</span>
-                  </div>
-                  <div className="form-control">
-                     <label>Address</label>
-                     <span>{userInfo.address}</span>
-                  </div>
-               </form>
-            </div>
-         </section>
+         <PersonalInfo userInfo={userInfo} />
          {/* <h3>Change your Password</h3>
          <form onSubmit={handleSubmit}>
             <div className="form-control">

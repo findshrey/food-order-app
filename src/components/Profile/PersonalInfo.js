@@ -5,14 +5,28 @@ import useHttp from "../../hooks/useHttp"
 
 const PersonalInfo = ({ userId }) => {
    const [userInfo, setUserInfo] = useState({ name: "", phone: 0, address: "" })
-   const { isLoading, error, sendRequest: fetchUserInfo } = useHttp()
    const [editMode, setEditMode] = useState(false)
 
-   // Get user data on page load
+   const {
+      isLoading: fetchLoad,
+      error: fetchErr,
+      sendRequest: fetchUserInfo,
+   } = useHttp()
+
+   const {
+      isLoading: updateLoad,
+      error: updateErr,
+      sendRequest: updateUserInfo,
+   } = useHttp()
+
+   // URL to user's personal data
+   const userURL = `https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json`
+
+   // Get user's data on page load
    useEffect(() => {
       fetchUserInfo(
          {
-            url: `https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json`,
+            url: userURL,
          },
          (data) => {
             setUserInfo(data)
@@ -20,7 +34,26 @@ const PersonalInfo = ({ userId }) => {
       )
    }, [fetchUserInfo])
 
-   // Controlled field values
+   // Update the user's personal info
+   const handleUpdate = (e) => {
+      e.preventDefault()
+
+      updateUserInfo(
+         {
+            url: userURL,
+            method: "PUT",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: userInfo,
+         },
+         (data) => console.log(data)
+      )
+
+      setEditMode(false)
+   }
+
+   // Controlled input
    const handleFieldValue = (fieldName, val) => {
       setUserInfo((prevState) => ({ ...prevState, [fieldName]: val }))
    }
@@ -38,7 +71,7 @@ const PersonalInfo = ({ userId }) => {
                      label="User Name"
                      inputProps={{
                         type: "text",
-                        value: userInfo.name,
+                        value: userInfo?.name || "",
                         onChange: (e) => {
                            handleFieldValue("name", e.target.value)
                         },
@@ -51,7 +84,7 @@ const PersonalInfo = ({ userId }) => {
                      label="Phone Number"
                      inputProps={{
                         type: "number",
-                        value: userInfo.phone,
+                        value: userInfo?.phone || 0,
                         onChange: (e) => {
                            handleFieldValue("phone", e.target.value)
                         },
@@ -64,7 +97,7 @@ const PersonalInfo = ({ userId }) => {
                      label="Address"
                      inputProps={{
                         type: "text",
-                        value: userInfo.address,
+                        value: userInfo?.address || "",
                         onChange: (e) => {
                            handleFieldValue("address", e.target.value)
                         },
@@ -75,7 +108,9 @@ const PersonalInfo = ({ userId }) => {
                <button type="button" onClick={() => setEditMode(false)}>
                   Cancel
                </button>
-               <button type="submit">Save</button>
+               <button type="submit" onClick={handleUpdate}>
+                  Save
+               </button>
             </form>
          </div>
       </section>

@@ -6,7 +6,7 @@ import useHttp from "../../hooks/useHttp"
 const PersonalInfo = ({ userId }) => {
    const [userInfo, setUserInfo] = useState({ name: "", phone: 0, address: "" })
    const { isLoading, error, sendRequest: fetchUserInfo } = useHttp()
-   const [editInfo, setEditInfo] = useState(false)
+   const [editMode, setEditMode] = useState(false)
 
    // Get user data on page load
    useEffect(() => {
@@ -25,18 +25,13 @@ const PersonalInfo = ({ userId }) => {
       setUserInfo((prevState) => ({ ...prevState, [fieldName]: val }))
    }
 
-   // Toggle edit form
-   const handleEditMode = () => {
-      setEditInfo((prevState) => !prevState)
-   }
-
    return (
       <section className="personal-info">
          <header>
             <h3>Personal Info</h3>
          </header>
          <div className="info-form">
-            <button onClick={handleEditMode}>Edit</button>
+            <button onClick={() => setEditMode(true)}>Edit</button>
             <form>
                <div className="form-control">
                   <Input
@@ -47,7 +42,7 @@ const PersonalInfo = ({ userId }) => {
                         onChange: (e) => {
                            handleFieldValue("name", e.target.value)
                         },
-                        disabled: !editInfo,
+                        disabled: !editMode,
                      }}
                   />
                </div>
@@ -55,12 +50,12 @@ const PersonalInfo = ({ userId }) => {
                   <Input
                      label="Phone Number"
                      inputProps={{
-                        type: "text",
+                        type: "number",
                         value: userInfo.phone,
                         onChange: (e) => {
                            handleFieldValue("phone", e.target.value)
                         },
-                        disabled: !editInfo,
+                        disabled: !editMode,
                      }}
                   />
                </div>
@@ -73,10 +68,14 @@ const PersonalInfo = ({ userId }) => {
                         onChange: (e) => {
                            handleFieldValue("address", e.target.value)
                         },
-                        disabled: !editInfo,
+                        disabled: !editMode,
                      }}
                   />
                </div>
+               <button type="button" onClick={() => setEditMode(false)}>
+                  Cancel
+               </button>
+               <button type="submit">Save</button>
             </form>
          </div>
       </section>

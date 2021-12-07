@@ -1,6 +1,6 @@
 @import "../../index.scss";
 
-.deals {
+.profile {
    padding: $pad-y5_8;
 
    &-head {
@@ -11,17 +11,5 @@
          color: darken($c-yellow-mustard, 5%);
          font-size: $fs-600;
       }
-   }
-}
-
-.deals-inner {
-   background-color: $c-red-light;
-   text-align: center;
-   padding: $pad-y6-x2;
-   border-radius: 20px;
-
-   p {
-      font-size: $fs-700;
-      font-weight: 600;
    }
 }

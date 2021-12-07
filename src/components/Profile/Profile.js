@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import AuthContext from "../../context/AuthContext"
 import PersonalInfo from "./PersonalInfo"
 
+import styles from "./Profile.module.scss"
+
 const Profile = () => {
    const navigate = useNavigate()
    const passwordRef = useRef()
@@ -34,9 +36,9 @@ const Profile = () => {
    // }
 
    return (
-      <div className="profile">
-         <header className="profile-head">
-            <h2>My Profile</h2>
+      <div className={styles.profile}>
+         <header className={styles["profile-head"]}>
+            <h2>MY PROFILE</h2>
          </header>
          <PersonalInfo userId={authCtx.userId} />
          {/* <h3>Change your Password</h3>

@@ -1,7 +1,7 @@
 @import "../../index.scss";
 
 .menu-item {
-   background-color: $c-white-cream;
+   background-color: $c-red-light;
    border-radius: 20px;
    display: flex;
    flex-direction: column;
@@ -20,7 +20,7 @@
 }
 
 .item-head {
-   color: darken($c-red-light, 5%);
+   color: darken($c-red-fire-brick, 5%);
    display: flex;
    justify-content: space-between;
    gap: 2rem;
@@ -52,7 +52,7 @@
 }
 
 .btn-add {
-   background-color: darken($c-red-light, 5%);
+   background-color: darken($c-red-fire-brick, 5%);
    border: none;
    border-radius: 20px;
    color: $c-white;
@@ -67,7 +67,7 @@
    gap: 0.7rem;
 
    .btn-qty-adjust {
-      background-color: darken($c-red-light, 5%);
+      background-color: darken($c-red-fire-brick, 5%);
       border: none;
       border-radius: 50%;
       color: $c-white;

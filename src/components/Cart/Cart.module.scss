@@ -14,7 +14,7 @@
    }
 
    .empty-cart {
-      background-color: $c-white-cream;
+      background-color: $c-red-light;
       border-radius: 20px;
       text-align: center;
       padding: $pad-y6-x2;
@@ -26,8 +26,8 @@
       }
 
       button {
-         background-color: darken($c-red-light, 5%);
-         border: 1px solid $c-red-light;
+         background-color: darken($c-red-fire-brick, 5%);
+         border: 1px solid $c-red-fire-brick;
          border-radius: 30px;
          color: $c-white;
          font-size: $fs-300;

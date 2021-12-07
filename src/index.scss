@@ -17,9 +17,9 @@ $fs-200: 1.3rem;
 $c-black-matte: #252525;
 $c-blue-dark: #262743;
 $c-blue-navy: #004a9c;
-$c-red-light: #e75c63;
+$c-red-fire-brick: #e75c63;
+$c-red-light: #fef2f2;
 $c-white: #fff;
-$c-white-cream: #fef2f2;
 $c-yellow-mustard: #fe8338;
 
 // Paddings & Margins
@@ -116,11 +116,11 @@ img {
 
    &-tomato {
       @extend %btn-common;
-      background-color: $c-red-light;
+      background-color: $c-red-fire-brick;
       color: $c-white;
 
       &:hover {
-         background-color: darken($c-red-light, 10%);
+         background-color: darken($c-red-fire-brick, 10%);
       }
    }
 }

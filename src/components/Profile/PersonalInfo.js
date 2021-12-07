@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react"
 import Input from "../UI/Input"
 import useHttp from "../../hooks/useHttp"
 
+import styles from "./PersonalInfo.module.scss"
+
 const PersonalInfo = ({ userId }) => {
    const [userInfo, setUserInfo] = useState({ name: "", phone: 0, address: "" })
    const [editMode, setEditMode] = useState(false)
@@ -58,84 +60,88 @@ const PersonalInfo = ({ userId }) => {
       setUserInfo((prevState) => ({ ...prevState, [fieldName]: val }))
    }
 
+   const editClass = editMode ? styles.edit : ""
+
    return (
-      <section className="personal-info">
+      <section className={styles["personal-info"]}>
          <header>
             <h3>Personal Info</h3>
+            {!fetchLoad && !fetchErr && (
+               <button
+                  className={styles["btn-edit"]}
+                  onClick={() => setEditMode(true)}
+                  disabled={editMode}
+               >
+                  [EDIT]
+               </button>
+            )}
          </header>
          {fetchLoad && <p>Fetching user data ...</p>}
          {!fetchLoad && fetchErr && <p>{fetchErr}</p>}
          {!fetchLoad && !fetchErr && (
-            <div className="info-form">
-               <button onClick={() => setEditMode(true)} disabled={editMode}>
-                  Edit
-               </button>
-               <form>
-                  <div className="form-control">
-                     <Input
-                        label="User Name"
-                        inputProps={{
-                           type: "text",
-                           value: userInfo?.name || "",
-                           onChange: (e) => {
-                              handleFieldValue("name", e.target.value)
-                           },
-                           disabled: !editMode,
-                        }}
-                     />
-                  </div>
-                  <div className="form-control">
-                     <Input
-                        label="Phone Number"
-                        inputProps={{
-                           type: "number",
-                           value: userInfo?.phone || 0,
-                           onChange: (e) => {
-                              handleFieldValue("phone", e.target.value)
-                           },
-                           disabled: !editMode,
-                        }}
-                     />
-                  </div>
-                  <div className="form-control">
-                     <Input
-                        label="Address"
-                        inputProps={{
-                           type: "text",
-                           value: userInfo?.address || "",
-                           onChange: (e) => {
-                              handleFieldValue("address", e.target.value)
-                           },
-                           disabled: !editMode,
-                        }}
-                     />
-                  </div>
-                  <>
-                     {updateLoad && (
-                        <p className="request-status">Updating ...</p>
-                     )}
-                     {!updateLoad && updateErr && (
-                        <p className="request-status">{updateErr}</p>
-                     )}
-                  </>
-                  <div className="buttons">
-                     <button
-                        type="button"
-                        onClick={() => setEditMode(false)}
-                        disabled={!editMode}
-                     >
-                        Cancel
-                     </button>
-                     <button
-                        type="submit"
-                        onClick={handleUpdate}
-                        disabled={!editMode}
-                     >
-                        Save
-                     </button>
-                  </div>
-               </form>
-            </div>
+            <form className={styles["info-form"]}>
+               <div className={`${styles["form-control"]} ${editClass}`}>
+                  <Input
+                     label="User Name"
+                     inputProps={{
+                        type: "text",
+                        value: userInfo?.name || "",
+                        onChange: (e) => {
+                           handleFieldValue("name", e.target.value)
+                        },
+                        disabled: !editMode,
+                     }}
+                  />
+               </div>
+               <div className={`${styles["form-control"]} ${editClass}`}>
+                  <Input
+                     label="Phone Number"
+                     inputProps={{
+                        type: "number",
+                        value: userInfo?.phone || 0,
+                        onChange: (e) => {
+                           handleFieldValue("phone", e.target.value)
+                        },
+                        disabled: !editMode,
+                     }}
+                  />
+               </div>
+               <div className={`${styles["form-control"]} ${editClass}`}>
+                  <Input
+                     label="Address"
+                     inputProps={{
+                        type: "text",
+                        value: userInfo?.address || "",
+                        onChange: (e) => {
+                           handleFieldValue("address", e.target.value)
+                        },
+                        disabled: !editMode,
+                     }}
+                  />
+               </div>
+               <>
+                  {updateLoad && <p className="request-status">Updating ...</p>}
+                  {!updateLoad && updateErr && (
+                     <p className="request-status">{updateErr}</p>
+                  )}
+               </>
+               <div className={styles["buttons"]}>
+                  <button
+                     type="button"
+                     onClick={() => setEditMode(false)}
+                     disabled={!editMode}
+                  >
+                     Cancel
+                  </button>
+                  <button
+                     type="submit"
+                     onClick={handleUpdate}
+                     disabled={!editMode}
+                  >
+                     Save
+                  </button>
+               </div>
+            </form>
          )}
       </section>
    )

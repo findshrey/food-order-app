@@ -120,27 +120,30 @@ const PersonalInfo = ({ userId }) => {
                   />
                </div>
                <>
-                  {updateLoad && <p className="request-status">Updating ...</p>}
+                  {updateLoad ? (
+                     <p className="request-status">Updating ...</p>
+                  ) : (
+                     <div className={styles["buttons"]}>
+                        <button
+                           type="button"
+                           onClick={() => setEditMode(false)}
+                           disabled={!editMode}
+                        >
+                           Cancel
+                        </button>
+                        <button
+                           type="submit"
+                           onClick={handleUpdate}
+                           disabled={!editMode}
+                        >
+                           Save
+                        </button>
+                     </div>
+                  )}
                   {!updateLoad && updateErr && (
                      <p className="request-status">{updateErr}</p>
                   )}
                </>
-               <div className={styles["buttons"]}>
-                  <button
-                     type="button"
-                     onClick={() => setEditMode(false)}
-                     disabled={!editMode}
-                  >
-                     Cancel
-                  </button>
-                  <button
-                     type="submit"
-                     onClick={handleUpdate}
-                     disabled={!editMode}
-                  >
-                     Save
-                  </button>
-               </div>
             </form>
          )}
       </section>

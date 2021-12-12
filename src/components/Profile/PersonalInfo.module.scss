@@ -6,12 +6,12 @@
 
    .info-head-wrapper {
       flex: 1 1 40%;
+      padding: 1.5rem 3rem 0 0;
 
       header {
          display: flex;
          align-items: center;
          gap: 1rem;
-         padding-top: 1rem;
          margin-bottom: 2rem;
 
          .btn-edit {
@@ -107,8 +107,8 @@
    .personal-info {
       flex-direction: column;
 
-      .info-head-wrapper header {
-         padding-top: 0;
+      .info-head-wrapper {
+         padding: 0;
       }
    }
 

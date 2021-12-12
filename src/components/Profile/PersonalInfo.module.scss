@@ -11,6 +11,7 @@
          display: flex;
          align-items: center;
          gap: 1rem;
+         padding-top: 1rem;
          margin-bottom: 2rem;
 
          .btn-edit {
@@ -105,6 +106,10 @@
 @media (max-width: 768px) {
    .personal-info {
       flex-direction: column;
+
+      .info-head-wrapper header {
+         padding-top: 0;
+      }
    }
 
    .form-control label {

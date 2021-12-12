@@ -2,7 +2,7 @@
 
 .personal-info {
    display: flex;
-   gap: 5rem;
+   gap: calc(2rem + 2vw);
 
    .info-head-wrapper {
       flex: 1 1 40%;
@@ -37,13 +37,14 @@
       border-radius: 5px;
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       padding: 4rem 3rem;
-
-      .fields-wrapper {
-         display: grid;
-         grid-template-columns: repeat(2, 1fr);
-         gap: 4rem;
-      }
    }
+}
+
+.fields-wrapper {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   column-gap: calc(1rem + 2vw);
+   row-gap: 4rem;
 }
 
 .form-control {
@@ -82,7 +83,7 @@
       color: $c-white;
       font-weight: 500;
       font-size: $fs-300;
-      padding: 1rem 2rem;
+      padding: 0.9rem 1.8rem;
       transition: all 0.4s ease-in-out;
 
       &:disabled {
@@ -91,5 +92,28 @@
          color: lighten($c-red-fire-brick, 10%);
          cursor: auto;
       }
+   }
+}
+
+@media (max-width: 1024px) {
+   .fields-wrapper {
+      grid-template-columns: 1fr;
+      row-gap: 4rem;
+   }
+}
+
+@media (max-width: 768px) {
+   .personal-info {
+      flex-direction: column;
+   }
+
+   .form-control label {
+      font-size: $fs-300;
+   }
+}
+
+@media (max-width: 500px) {
+   .personal-info .info-form {
+      padding: 4rem 2rem;
    }
 }

@@ -60,8 +60,6 @@ const PersonalInfo = ({ userId }) => {
       setUserInfo((prevState) => ({ ...prevState, [fieldName]: val }))
    }
 
-   const editClass = editMode ? styles.edit : ""
-
    return (
       <section className={styles["personal-info"]}>
          <div className={styles["info-head-wrapper"]}>

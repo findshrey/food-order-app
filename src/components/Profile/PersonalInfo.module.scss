@@ -1,68 +1,70 @@
 @import "../../index.scss";
 
 .personal-info {
-   // background-color: $c-red-light;
-   margin: 3rem 0;
+   display: flex;
+   gap: 5rem;
 
-   header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
+   .info-head-wrapper {
+      flex: 1 1 40%;
 
-      h3 {
-         font-size: $fs-500;
-         font-weight: 600;
+      header {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         margin-bottom: 2rem;
+
+         .btn-edit {
+            background-color: transparent;
+            border: none;
+            color: darken($c-yellow-mustard, 10%);
+            font-size: $fs-300;
+            font-weight: 500;
+
+            &:disabled {
+               color: lighten($c-yellow-mustard, 20%);
+               cursor: auto;
+            }
+         }
+      }
+
+      p {
+         color: darken($c-white, 60%);
       }
    }
 
-   .btn-edit {
-      border: none;
-      background-color: transparent;
-      color: darken($c-yellow-mustard, 10%);
-      font-weight: 500;
-      font-size: $fs-300;
+   .info-form {
+      flex: 1 1 60%;
+      border-radius: 5px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      padding: 4rem 3rem;
 
-      &:disabled {
-         color: lighten($c-yellow-mustard, 10%);
-         cursor: auto;
+      .fields-wrapper {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 4rem;
       }
    }
 }
 
-.info-form {
-   display: flex;
-   flex-direction: column;
-   gap: 2rem;
+.form-control {
+   &:nth-child(3) {
+      grid-column: 1/ -1;
+   }
 
-   .form-control {
-      background-color: $c-red-light;
-      border: 2px solid $c-red-light;
-      border-radius: 10px;
-      padding: 1.5rem;
-      transition: all 0.4s ease-in-out;
+   label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+   }
 
-      &.edit {
-         border: 2px solid darken($c-red-light, 15%);
-      }
-
-      label {
-         color: darken($c-white, 55%);
-         display: block;
-         font-size: $fs-300;
-         margin-bottom: 0.5rem;
-      }
-
-      input {
-         background-color: transparent;
-         border: none;
-         font-weight: 500;
-         width: 100%;
-
-         &:focus {
-            outline: none;
-         }
-      }
+   input {
+      background-color: darken($c-white, 3%);
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      outline: none;
+      width: 100%;
+      padding: 1.2rem;
    }
 }
 
@@ -71,17 +73,22 @@
    align-items: center;
    justify-content: center;
    gap: 3rem;
-   margin-top: 3rem;
+   margin-top: 4rem;
 
    button {
-      background-color: darken($c-red-fire-brick, 10%);
-      border: none;
-      border-radius: 30px;
+      background-color: darken($c-red-fire-brick, 5%);
+      border: 2px solid darken($c-red-fire-brick, 5%);
+      border-radius: 25px;
       color: $c-white;
+      font-weight: 500;
+      font-size: $fs-300;
       padding: 1rem 2rem;
+      transition: all 0.4s ease-in-out;
 
       &:disabled {
-         background-color: lighten($c-red-fire-brick, 5%);
+         background-color: transparent;
+         border: 2px solid lighten($c-red-fire-brick, 10%);
+         color: lighten($c-red-fire-brick, 10%);
          cursor: auto;
       }
    }

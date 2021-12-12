@@ -64,60 +64,69 @@ const PersonalInfo = ({ userId }) => {
 
    return (
       <section className={styles["personal-info"]}>
-         <header>
-            <h3>Personal Info</h3>
-            {!fetchLoad && !fetchErr && (
-               <button
-                  className={styles["btn-edit"]}
-                  onClick={() => setEditMode(true)}
-                  disabled={editMode}
-               >
-                  [EDIT]
-               </button>
-            )}
-         </header>
+         <div className={styles["info-head-wrapper"]}>
+            <header>
+               <h3>Personal Info</h3>
+               {!fetchLoad && !fetchErr && (
+                  <button
+                     className={styles["btn-edit"]}
+                     onClick={() => setEditMode(true)}
+                     disabled={editMode}
+                  >
+                     [EDIT]
+                  </button>
+               )}
+            </header>
+            <p>
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+               aliquid accusamus rem doloremque blanditiis sit deserunt quis
+               delectus debitis nulla!
+            </p>
+         </div>
          {fetchLoad && <p>Fetching user data ...</p>}
          {!fetchLoad && fetchErr && <p>{fetchErr}</p>}
          {!fetchLoad && !fetchErr && (
             <form className={styles["info-form"]}>
-               <div className={`${styles["form-control"]} ${editClass}`}>
-                  <Input
-                     label="User Name"
-                     inputProps={{
-                        type: "text",
-                        value: userInfo?.name || "",
-                        onChange: (e) => {
-                           handleFieldValue("name", e.target.value)
-                        },
-                        disabled: !editMode,
-                     }}
-                  />
-               </div>
-               <div className={`${styles["form-control"]} ${editClass}`}>
-                  <Input
-                     label="Phone Number"
-                     inputProps={{
-                        type: "number",
-                        value: userInfo?.phone || 0,
-                        onChange: (e) => {
-                           handleFieldValue("phone", e.target.value)
-                        },
-                        disabled: !editMode,
-                     }}
-                  />
-               </div>
-               <div className={`${styles["form-control"]} ${editClass}`}>
-                  <Input
-                     label="Address"
-                     inputProps={{
-                        type: "text",
-                        value: userInfo?.address || "",
-                        onChange: (e) => {
-                           handleFieldValue("address", e.target.value)
-                        },
-                        disabled: !editMode,
-                     }}
-                  />
+               <div className={styles["fields-wrapper"]}>
+                  <div className={styles["form-control"]}>
+                     <Input
+                        label="User Name"
+                        inputProps={{
+                           type: "text",
+                           value: userInfo?.name || "",
+                           onChange: (e) => {
+                              handleFieldValue("name", e.target.value)
+                           },
+                           disabled: !editMode,
+                        }}
+                     />
+                  </div>
+                  <div className={styles["form-control"]}>
+                     <Input
+                        label="Phone Number"
+                        inputProps={{
+                           type: "number",
+                           value: userInfo?.phone || 0,
+                           onChange: (e) => {
+                              handleFieldValue("phone", e.target.value)
+                           },
+                           disabled: !editMode,
+                        }}
+                     />
+                  </div>
+                  <div className={styles["form-control"]}>
+                     <Input
+                        label="Address"
+                        inputProps={{
+                           type: "text",
+                           value: userInfo?.address || "",
+                           onChange: (e) => {
+                              handleFieldValue("address", e.target.value)
+                           },
+                           disabled: !editMode,
+                        }}
+                     />
+                  </div>
                </div>
                <>
                   {updateLoad ? (

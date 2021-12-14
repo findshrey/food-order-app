@@ -1,4 +1,8 @@
-### React Meals
+# React Meals
+
+A Food order app I created to practice modern React workflow. Bootstrapped using [CRA](https://create-react-app.dev/).
+<br>
+Uses Google [Firebase](https://firebase.google.com/) for authentication. Firebase's Realtime Database is used for storing user data. Hosted with [Netlify](https://www.netlify.com).
 
 1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
 

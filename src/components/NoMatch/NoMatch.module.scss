@@ -1,0 +1,17 @@
+@import "../../index.scss";
+
+.no-match {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: $pad-y5_8;
+
+   h2 {
+      font-size: $fs-600;
+   }
+
+   a {
+      color: $c-yellow-mustard;
+      margin-left: 1rem;
+   }
+}

@@ -1,9 +1,11 @@
 import React from "react"
 
+import NoMatch from "../components/NoMatch/NoMatch"
+
 const NotFound = () => {
    return (
       <div className="container">
-         <p>Not Found</p>
+         <NoMatch />
       </div>
    )
 }

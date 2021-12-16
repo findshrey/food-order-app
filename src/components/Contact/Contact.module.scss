@@ -19,3 +19,72 @@
       }
    }
 }
+
+.contact-body {
+   display: flex;
+   gap: 5rem;
+
+   .contact-img {
+      flex: 1 1 65%;
+
+      img {
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   .form-wrapper {
+      flex: 1 1 35%;
+   }
+
+   button {
+      background-color: darken($c-red-fire-brick, 10%);
+      border: 2px solid darken($c-red-fire-brick, 10%);
+      border-radius: 5px;
+      color: $c-white;
+      font-weight: 500;
+      width: 100%;
+      padding: 1rem;
+   }
+}
+
+.form-control {
+   margin-bottom: 2rem;
+
+   label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+   }
+
+   input {
+      background-color: darken($c-white, 2%);
+      border: 2px solid darken($c-white, 8%);
+      border-radius: 5px;
+      color: $c-black-matte;
+      width: 100%;
+      padding: 1rem;
+      outline: none;
+   }
+
+   textarea {
+      background-color: darken($c-white, 2%);
+      border: 2px solid darken($c-white, 8%);
+      border-radius: 5px;
+      color: $c-black-matte;
+      width: 100%;
+      resize: none;
+      outline: none;
+      padding: 1rem;
+   }
+}
+
+@media (max-width: 1024px) {
+   .contact-body {
+      flex-direction: column;
+
+      .contact-img img {
+         width: 100%;
+      }
+   }
+}

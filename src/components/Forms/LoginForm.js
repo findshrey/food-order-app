@@ -64,8 +64,12 @@ const LoginForm = ({ handleFormMode }) => {
                   />
                </div>
                <div className={styles["content-checkbox"]}>
-                  <input type="checkbox" onClick={handlePassVisible} />
-                  <label>Show Password</label>
+                  <input
+                     id="check-visible"
+                     type="checkbox"
+                     onClick={handlePassVisible}
+                  />
+                  <label htmlFor="check-visible">Show Password</label>
                </div>
                {!isLoading ? (
                   <button type="submit" className="btn-tomato">

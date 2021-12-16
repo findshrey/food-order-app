@@ -93,8 +93,12 @@ const SignUpForm = ({ handleFormMode }) => {
                   <input type="text" ref={addressRef} required />
                </div>
                <div className={styles["content-checkbox"]}>
-                  <input type="checkbox" onClick={handlePassVisible} />
-                  <span>Show Password</span>
+                  <input
+                     id="check-visible"
+                     type="checkbox"
+                     onClick={handlePassVisible}
+                  />
+                  <label htmlFor="check-visible">Show Password</label>
                </div>
                {!isLoading ? (
                   <button type="submit" className="btn-tomato">

@@ -24,7 +24,7 @@ const Hero = () => {
                Our job is to fill your tummy with delicious food and fast and
                free delivery!
             </p>
-            <button className="btn-mustard" onClick={handleOrder}>
+            <button className="btn-yellow-mustard" onClick={handleOrder}>
                Order Food
             </button>
          </div>

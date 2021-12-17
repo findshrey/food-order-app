@@ -25,13 +25,8 @@
          margin-bottom: 4rem;
       }
 
-      button {
-         background-color: darken($c-red-fire-brick, 5%);
-         border: 1px solid $c-red-fire-brick;
-         border-radius: 30px;
-         color: $c-white;
-         font-size: $fs-300;
-         padding: 1rem 3rem;
+      :global(.btn-red-brick) {
+         @include btn-props(30px, $fs-300, 500, 13px 26px);
       }
    }
 

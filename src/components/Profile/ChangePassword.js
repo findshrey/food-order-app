@@ -43,9 +43,8 @@ const ChangePassword = ({ token }) => {
          <header>
             <h3>Change Your Password</h3>
             <p>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-               sit doloremque facere itaque mollitia officia laudantium
-               cupiditate nemo ea eligendi.
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+               iure.
             </p>
          </header>
          <form className={styles["change-pass-form"]} onSubmit={handlePassword}>
@@ -60,7 +59,9 @@ const ChangePassword = ({ token }) => {
                </div>
             </div>
             <div className={styles["btn-wrapper"]}>
-               <button type="submit">Change</button>
+               <button className="btn-red-brick" type="submit">
+                  Change
+               </button>
             </div>
          </form>
       </section>

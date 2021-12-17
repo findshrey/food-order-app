@@ -7,12 +7,10 @@
    align-items: center;
    padding: $pad-y4_8;
 
-   :global(.btn-tomato) {
-      border: 2px solid $c-red-fire-brick;
-      border-radius: 5px;
-      font-weight: 500;
+   :global(.btn-red-brick) {
+      @include btn-props(5px, null, 500, 10px);
+      border: 2px solid $c-red-brick;
       width: 100%;
-      padding: 1rem;
       margin-top: 3rem;
    }
 }
@@ -29,7 +27,7 @@
       margin-bottom: 5rem;
 
       h2 {
-         color: $c-red-fire-brick;
+         color: $c-red-brick;
          font-size: $fs-600;
          text-align: center;
       }
@@ -70,7 +68,7 @@
 }
 
 .loading-msg {
-   color: darken($c-red-fire-brick, 10%);
+   color: darken($c-red-brick, 10%);
    font-weight: 500;
    text-align: center;
    margin-top: 5rem;
@@ -83,7 +81,7 @@
    button {
       border: none;
       background-color: transparent;
-      color: $c-red-fire-brick;
+      color: $c-red-brick;
       font-weight: 500;
       margin-left: 0.5rem;
    }

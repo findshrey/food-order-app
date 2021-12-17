@@ -76,9 +76,8 @@ const PersonalInfo = ({ userId }) => {
                )}
             </header>
             <p>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-               aliquid accusamus rem doloremque blanditiis sit deserunt quis
-               delectus debitis nulla!
+               Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Doloremque, ex.
             </p>
          </div>
          {fetchLoad && <p>Fetching user data ...</p>}
@@ -130,8 +129,9 @@ const PersonalInfo = ({ userId }) => {
                   {updateLoad ? (
                      <p className="request-status">Updating ...</p>
                   ) : (
-                     <div className={styles["buttons"]}>
+                     <div className={styles.btns}>
                         <button
+                           className="btn-red-brick"
                            type="button"
                            onClick={() => setEditMode(false)}
                            disabled={!editMode}
@@ -139,6 +139,7 @@ const PersonalInfo = ({ userId }) => {
                            Cancel
                         </button>
                         <button
+                           className="btn-red-brick"
                            type="submit"
                            onClick={handleUpdate}
                            disabled={!editMode}

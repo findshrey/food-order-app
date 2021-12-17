@@ -18,7 +18,7 @@ const CartSummary = ({ items, totalAmount, handleOrder }) => {
             <span>Subtotal</span>
             <span>{`$${addZeroes(totalAmount)}`}</span>
          </div>
-         <button className={styles["place-order"]} onClick={handleOrder}>
+         <button className="btn-red-brick" onClick={handleOrder}>
             Place Order
          </button>
       </aside>

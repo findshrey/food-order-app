@@ -13,18 +13,18 @@
          align-items: center;
          gap: 1rem;
          margin-bottom: 2rem;
+      }
 
-         .btn-edit {
-            background-color: transparent;
-            border: none;
-            color: darken($c-yellow-mustard, 10%);
-            font-size: $fs-300;
-            font-weight: 500;
+      .btn-edit {
+         background-color: transparent;
+         border: none;
+         color: darken($c-yellow-mustard, 10%);
+         font-size: $fs-300;
+         font-weight: 500;
 
-            &:disabled {
-               color: lighten($c-yellow-mustard, 20%);
-               cursor: auto;
-            }
+         &:disabled {
+            color: lighten($c-yellow-mustard, 20%);
+            cursor: auto;
          }
       }
 
@@ -70,27 +70,21 @@
    }
 }
 
-.buttons {
+.btns {
    display: flex;
    align-items: center;
    justify-content: center;
    gap: 3rem;
    margin-top: 4rem;
 
-   button {
-      background-color: darken($c-red-fire-brick, 5%);
-      border: 2px solid darken($c-red-fire-brick, 5%);
-      border-radius: 25px;
-      color: $c-white;
-      font-weight: 500;
-      font-size: $fs-300;
-      padding: 0.9rem 1.8rem;
-      transition: all 0.4s ease-in-out;
+   :global(.btn-red-brick) {
+      @include btn-props(25px, $fs-300, 500, 9px 18px);
+      border: 2px solid darken($c-red-brick, 5%);
 
       &:disabled {
          background-color: transparent;
-         border: 2px solid lighten($c-red-fire-brick, 10%);
-         color: lighten($c-red-fire-brick, 10%);
+         border: 2px solid lighten($c-red-brick, 10%);
+         color: lighten($c-red-brick, 10%);
          cursor: auto;
       }
    }

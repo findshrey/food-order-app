@@ -29,9 +29,8 @@
       }
    }
 
-   :global(.btn-mustard) {
-      font-size: $fs-300;
-      padding: 1.1rem 2.2rem;
+   :global(.btn-yellow-mustard) {
+      @include btn-props(30px, $fs-300, null, 11px 22px);
    }
 }
 

@@ -54,7 +54,10 @@ const Cart = () => {
                   YOUR CART IS EMPTY. <br />
                   LET'S START AN ORDER!
                </p>
-               <button onClick={() => navigate(ROUTES.MENU)}>
+               <button
+                  className="btn-red-brick"
+                  onClick={() => navigate(ROUTES.MENU)}
+               >
                   Start Order
                </button>
             </div>

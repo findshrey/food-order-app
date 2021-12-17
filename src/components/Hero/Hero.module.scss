@@ -24,6 +24,10 @@
          font-size: $fs-500;
          margin: 3rem 0 4rem 0;
       }
+
+      :global(.btn-yellow-mustard) {
+         @include btn-props(30px, null, null, 13px 26px);
+      }
    }
 
    &-img {

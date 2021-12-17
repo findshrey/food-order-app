@@ -37,14 +37,10 @@
       flex: 1 1 35%;
    }
 
-   button {
-      background-color: darken($c-red-fire-brick, 10%);
-      border: 2px solid darken($c-red-fire-brick, 10%);
-      border-radius: 5px;
-      color: $c-white;
-      font-weight: 500;
+   :global(.btn-red-brick) {
+      @include btn-props(5px, null, 500, 10px);
+      border: 2px solid $c-red-brick;
       width: 100%;
-      padding: 1rem;
    }
 }
 

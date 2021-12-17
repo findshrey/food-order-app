@@ -9,16 +9,16 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
       <li className={styles["cart-item"]}>
          <span className={styles["item-name"]}>{item.name}</span>
          <div className={styles["item-info"]}>
-            <div className={styles["btns"]}>
+            <div className={styles.btns}>
                <button
-                  className={styles["btn-qty-adjust"]}
+                  className="btn-red-brick"
                   onClick={handleRemoveItem.bind(null, item.id)}
                >
                   -
                </button>
                <span className={styles["item-quant"]}>{item.quantity}</span>
                <button
-                  className={styles["btn-qty-adjust"]}
+                  className="btn-red-brick"
                   onClick={handleAddItem.bind(null, item)}
                >
                   +

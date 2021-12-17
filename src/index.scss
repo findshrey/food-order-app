@@ -17,7 +17,7 @@ $fs-200: 1.3rem;
 $c-black-matte: #252525;
 $c-blue-dark: #262743;
 $c-blue-navy: #004a9c;
-$c-red-fire-brick: #e75c63;
+$c-red-brick: #e54d55;
 $c-red-light: #fef2f2;
 $c-white: #fff;
 $c-yellow-mustard: #fe8338;
@@ -95,16 +95,24 @@ img {
    margin: 0 auto;
 }
 
-// Buttons
+// Base button props
 %btn-common {
    border: none;
-   border-radius: 3rem;
-   padding: 1.5rem 3rem;
    transition: all 0.4s ease;
 }
 
 .btn {
-   &-mustard {
+   &-red-brick {
+      @extend %btn-common;
+      background-color: $c-red-brick;
+      color: $c-white;
+
+      &:hover {
+         background-color: darken($c-red-brick, 8%);
+      }
+   }
+
+   &-yellow-mustard {
       @extend %btn-common;
       background-color: $c-yellow-mustard;
       color: $c-white;
@@ -113,14 +121,12 @@ img {
          background-color: darken($c-yellow-mustard, 8%);
       }
    }
+}
 
-   &-tomato {
-      @extend %btn-common;
-      background-color: $c-red-fire-brick;
-      color: $c-white;
-
-      &:hover {
-         background-color: darken($c-red-fire-brick, 10%);
-      }
-   }
+// Configurable button props
+@mixin btn-props($border-radius, $font-size, $font-weight, $padding) {
+   border-radius: $border-radius;
+   font-size: $font-size;
+   font-weight: $font-weight;
+   padding: $padding;
 }

@@ -62,12 +62,15 @@ const Header = () => {
                   </li>
                   <li>
                      {!authCtx.isLoggedIn ? (
-                        <NavLink to={ROUTES.AUTH} className="btn-mustard">
+                        <NavLink
+                           to={ROUTES.AUTH}
+                           className="btn-yellow-mustard"
+                        >
                            Login
                         </NavLink>
                      ) : (
                         <button
-                           className="btn-mustard"
+                           className="btn-yellow-mustard"
                            onClick={() => {
                               authCtx.logout()
                               navigate(ROUTES.HOME)

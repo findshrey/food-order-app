@@ -35,7 +35,9 @@ const Contact = () => {
                      <label>Message</label>
                      <textarea rows="8" required />
                   </div>
-                  <button type="submit">Send Message</button>
+                  <button className="btn-red-brick" type="submit">
+                     Send Message
+                  </button>
                </form>
             </div>
          </div>

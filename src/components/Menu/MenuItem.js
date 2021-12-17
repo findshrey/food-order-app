@@ -37,7 +37,7 @@ const MenuItem = ({ item }) => {
             <div className={styles["item-lower"]}>
                {!itemInCart ? (
                   <button
-                     className={styles["btn-add"]}
+                     className="btn-red-brick"
                      onClick={handleAddItem.bind(null, item)}
                   >
                      ADD
@@ -45,7 +45,7 @@ const MenuItem = ({ item }) => {
                ) : (
                   <div className={styles["btns-qty"]}>
                      <button
-                        className={styles["btn-qty-adjust"]}
+                        className="btn-red-brick"
                         onClick={handleRemoveItem.bind(null, item.id)}
                      >
                         -
@@ -54,7 +54,7 @@ const MenuItem = ({ item }) => {
                         {itemInCart?.quantity ?? 0}
                      </span>
                      <button
-                        className={styles["btn-qty-adjust"]}
+                        className="btn-red-brick"
                         onClick={handleAddItem.bind(null, item)}
                      >
                         +

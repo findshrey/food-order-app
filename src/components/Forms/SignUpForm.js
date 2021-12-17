@@ -101,7 +101,7 @@ const SignUpForm = ({ handleFormMode }) => {
                   <label htmlFor="check-visible">Show Password</label>
                </div>
                {!isLoading ? (
-                  <button type="submit" className="btn-tomato">
+                  <button type="submit" className="btn-red-brick">
                      Sign up
                   </button>
                ) : (

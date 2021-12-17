@@ -7,6 +7,11 @@
    h3 {
       font-size: $fs-500;
    }
+
+   :global(.btn-red-brick) {
+      @include btn-props(20px, null, null, 9px 16px);
+      width: 100%;
+   }
 }
 
 .summary-content {
@@ -15,14 +20,4 @@
    justify-content: space-between;
    padding-bottom: 3rem;
    margin: 3rem 0;
-}
-
-.place-order {
-   background-color: darken($c-red-fire-brick, 5%);
-   border: 1px solid $c-red-fire-brick;
-   border-radius: 20px;
-   color: $c-white;
-   padding: 0.8rem 1.6rem;
-   width: 100%;
-   transition: all 0.4s ease;
 }

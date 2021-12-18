@@ -100,14 +100,19 @@ const SignUpForm = ({ handleFormMode }) => {
                   />
                   <label htmlFor="check-visible">Show Password</label>
                </div>
-               {!isLoading ? (
-                  <button type="submit" className="btn-red-brick">
-                     Sign up
-                  </button>
-               ) : (
-                  <p className={styles["loading-msg"]}>Signing Up ...</p>
-               )}
-               {!isLoading && error && <p>{error}</p>}
+               <div className={styles["req-wrapper"]}>
+                  {isLoading && (
+                     <p className={styles["req-status"]}>Signing Up ...</p>
+                  )}
+                  {!isLoading && error && (
+                     <p className={styles["req-status"]}>{error}</p>
+                  )}
+                  {!isLoading && !error && (
+                     <button type="submit" className="btn-red-brick">
+                        Sign up
+                     </button>
+                  )}
+               </div>
                <div className={styles["mode-change"]}>
                   <span>Already a member?</span>
                   <button

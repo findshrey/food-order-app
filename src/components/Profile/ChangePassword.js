@@ -58,10 +58,18 @@ const ChangePassword = ({ token }) => {
                   <input type="password" ref={passwordConfirmRef} required />
                </div>
             </div>
-            <div className={styles["btn-wrapper"]}>
-               <button className="btn-red-brick" type="submit">
-                  Change
-               </button>
+            <div className={styles["req-wrapper"]}>
+               {isLoading && (
+                  <p className={styles["req-status"]}>Updating password ...</p>
+               )}
+               {!isLoading && error && (
+                  <p className={styles["req-status"]}>{error}</p>
+               )}
+               {!isLoading && !error && (
+                  <button className="btn-red-brick" type="submit">
+                     Change
+                  </button>
+               )}
             </div>
          </form>
       </section>

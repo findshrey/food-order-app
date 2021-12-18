@@ -80,80 +80,87 @@ const PersonalInfo = ({ userId }) => {
                Doloremque, ex.
             </p>
          </div>
-         {fetchLoad && <p>Fetching user data ...</p>}
-         {!fetchLoad && fetchErr && <p>{fetchErr}</p>}
-         {!fetchLoad && !fetchErr && (
-            <form className={styles["info-form"]}>
-               <div className={styles["fields-wrapper"]}>
-                  <div className={styles["form-control"]}>
-                     <Input
-                        label="User Name"
-                        inputProps={{
-                           type: "text",
-                           value: userInfo?.name || "",
-                           onChange: (e) => {
-                              handleFieldValue("name", e.target.value)
-                           },
-                           disabled: !editMode,
-                        }}
-                     />
-                  </div>
-                  <div className={styles["form-control"]}>
-                     <Input
-                        label="Phone Number"
-                        inputProps={{
-                           type: "number",
-                           value: userInfo?.phone || 0,
-                           onChange: (e) => {
-                              handleFieldValue("phone", e.target.value)
-                           },
-                           disabled: !editMode,
-                        }}
-                     />
-                  </div>
-                  <div className={styles["form-control"]}>
-                     <Input
-                        label="Address"
-                        inputProps={{
-                           type: "text",
-                           value: userInfo?.address || "",
-                           onChange: (e) => {
-                              handleFieldValue("address", e.target.value)
-                           },
-                           disabled: !editMode,
-                        }}
-                     />
-                  </div>
-               </div>
-               <>
-                  {updateLoad ? (
-                     <p className="request-status">Updating ...</p>
-                  ) : (
-                     <div className={styles.btns}>
-                        <button
-                           className="btn-red-brick"
-                           type="button"
-                           onClick={() => setEditMode(false)}
-                           disabled={!editMode}
-                        >
-                           Cancel
-                        </button>
-                        <button
-                           className="btn-red-brick"
-                           type="submit"
-                           onClick={handleUpdate}
-                           disabled={!editMode}
-                        >
-                           Save
-                        </button>
+         <div className={styles["info-body"]}>
+            {fetchLoad && (
+               <p className={styles["req-status"]}>Fetching user data ...</p>
+            )}
+            {!fetchLoad && fetchErr && (
+               <p className={styles["req-status"]}>{fetchErr}</p>
+            )}
+            {!fetchLoad && !fetchErr && (
+               <form className={styles["info-form"]}>
+                  <div className={styles["fields-wrapper"]}>
+                     <div className={styles["form-control"]}>
+                        <Input
+                           label="User Name"
+                           inputProps={{
+                              type: "text",
+                              value: userInfo?.name || "",
+                              onChange: (e) => {
+                                 handleFieldValue("name", e.target.value)
+                              },
+                              disabled: !editMode,
+                           }}
+                        />
                      </div>
-                  )}
-                  {!updateLoad && updateErr && (
-                     <p className="request-status">{updateErr}</p>
-                  )}
-               </>
-            </form>
-         )}
+                     <div className={styles["form-control"]}>
+                        <Input
+                           label="Phone Number"
+                           inputProps={{
+                              type: "number",
+                              value: userInfo?.phone || 0,
+                              onChange: (e) => {
+                                 handleFieldValue("phone", e.target.value)
+                              },
+                              disabled: !editMode,
+                           }}
+                        />
+                     </div>
+                     <div className={styles["form-control"]}>
+                        <Input
+                           label="Address"
+                           inputProps={{
+                              type: "text",
+                              value: userInfo?.address || "",
+                              onChange: (e) => {
+                                 handleFieldValue("address", e.target.value)
+                              },
+                              disabled: !editMode,
+                           }}
+                        />
+                     </div>
+                  </div>
+                  <div className={styles["req-wrapper"]}>
+                     {updateLoad && (
+                        <p className={styles["req-status"]}>Updating ...</p>
+                     )}
+                     {!updateLoad && updateErr && (
+                        <p className={styles["req-status"]}>{updateErr}</p>
+                     )}
+                     {!updateLoad && !updateErr && (
+                        <div className={styles.btns}>
+                           <button
+                              className="btn-red-brick"
+                              type="button"
+                              onClick={() => setEditMode(false)}
+                              disabled={!editMode}
+                           >
+                              Cancel
+                           </button>
+                           <button
+                              className="btn-red-brick"
+                              type="submit"
+                              onClick={handleUpdate}
+                              disabled={!editMode}
+                           >
+                              Save
+                           </button>
+                        </div>
+                     )}
+                  </div>
+               </form>
+            )}
+         </div>
       </section>
    )
 }

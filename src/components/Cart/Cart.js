@@ -5,14 +5,11 @@ import * as ROUTES from "../../constants/routes"
 import CartContext from "../../context/CartContext"
 import CartItem from "./CartItem"
 import CartSummary from "./CartSummary"
-import useHttp from "../../hooks/useHttp"
 
 import styles from "./Cart.module.scss"
 
 const Cart = () => {
-   const { isLoading, error, sendRequest: placeOrder } = useHttp()
    const cartCtx = useContext(CartContext)
-
    let navigate = useNavigate()
 
    const handleAddItem = (item) => {
@@ -21,23 +18,6 @@ const Cart = () => {
 
    const handleRemoveItem = (id) => {
       cartCtx.removeItem(id)
-   }
-
-   // Place order if autheticated
-   const handleOrder = () => {
-      placeOrder(
-         {
-            url: "https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: cartCtx.cartItems,
-         },
-         (data) => {
-            console.log(data)
-         }
-      )
    }
 
    // Check if cart has items
@@ -76,9 +56,8 @@ const Cart = () => {
                   </ul>
                </section>
                <CartSummary
-                  items={cartCtx.cartItems}
+                  cartItems={cartCtx.cartItems}
                   totalAmount={cartCtx.totalAmount}
-                  handleOrder={handleOrder}
                />
             </div>
          )}

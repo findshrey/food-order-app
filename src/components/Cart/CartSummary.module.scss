@@ -21,3 +21,15 @@
    padding-bottom: 3rem;
    margin: 3rem 0;
 }
+
+.req-wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 44px;
+
+   .req-status {
+      color: $c-red-brick;
+      font-weight: 500;
+   }
+}

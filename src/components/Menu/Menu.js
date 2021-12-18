@@ -43,29 +43,31 @@ const Menu = () => {
          <header className={styles["menu-head"]}>
             <h2>OUR MENU</h2>
          </header>
-         <div className={styles["menu-inner"]}>
-            {isLoading && <p className={styles.message}>Loading ...</p>}
-            {!isLoading && subMenuKeys.length === 0 && !error && (
-               <p className={styles.message}>Found no items to show!</p>
-            )}
-            {!isLoading && subMenuKeys.length > 0 && (
-               <>
-                  {subMenuKeys.map((subKey, index) => (
-                     <div key={index} className={styles["sub-menu"]}>
-                        <header>
-                           <h3>{capitalizeFirst(subKey)}</h3>
-                        </header>
-                        <ul className={styles["sub-menu-list"]}>
-                           {menu[subKey].map((item) => (
-                              <MenuItem key={item.id} item={item} />
-                           ))}
-                        </ul>
-                     </div>
-                  ))}
-               </>
-            )}
-            {!isLoading && error && <p className={styles.message}>{error}</p>}
-         </div>
+         {isLoading && (
+            <p className={styles["req-status"]}>Fetching Menu ...</p>
+         )}
+         {!isLoading && error && (
+            <p className={styles["req-status"]}>{error}</p>
+         )}
+         {!isLoading && !error && subMenuKeys.length === 0 && (
+            <p className={styles["req-status"]}>Found no items to show!</p>
+         )}
+         {!isLoading && !error && subMenuKeys.length > 0 && (
+            <>
+               {subMenuKeys.map((subKey, index) => (
+                  <div key={index} className={styles["sub-menu"]}>
+                     <header>
+                        <h3>{capitalizeFirst(subKey)}</h3>
+                     </header>
+                     <ul className={styles["sub-menu-list"]}>
+                        {menu[subKey].map((item) => (
+                           <MenuItem key={item.id} item={item} />
+                        ))}
+                     </ul>
+                  </div>
+               ))}
+            </>
+         )}
       </section>
    )
 }

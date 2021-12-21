@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Routes, Route } from "react-router-dom"
+import "@stripe/stripe-js"
 
 import * as ROUTES from "./constants/routes"
 import {

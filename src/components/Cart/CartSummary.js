@@ -5,7 +5,7 @@ import useHttp from "../../hooks/useHttp"
 
 import styles from "./CartSummary.module.scss"
 
-const CartSummary = ({ cartItems, totalAmount }) => {
+const CartSummary = ({ cartItems, totalAmount, redirectToCheckout }) => {
    const { isLoading, error, sendRequest: placeOrder } = useHttp()
 
    // Place order if autheticated
@@ -46,7 +46,13 @@ const CartSummary = ({ cartItems, totalAmount }) => {
                <p className={styles["req-status"]}>{error}</p>
             )}
             {!isLoading && !error && (
-               <button className="btn-red-brick" onClick={handleOrder}>
+               <button
+                  className="btn-red-brick"
+                  onClick={() => {
+                     handleOrder()
+                     redirectToCheckout()
+                  }}
+               >
                   Place Order
                </button>
             )}

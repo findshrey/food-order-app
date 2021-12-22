@@ -2,7 +2,13 @@
 
 A Food order app I created to practice modern React workflow. Bootstrapped using [CRA](https://create-react-app.dev/).
 <br>
-Uses Google [Firebase](https://firebase.google.com/) for authentication. Firebase's Realtime Database is used for storing user data. Hosted with [Netlify](https://www.netlify.com).
+Uses Google [Firebase](https://firebase.google.com/) for authentication. Firebase's Realtime Database is used for storing user data.
+Payment Integration using [Stripe](https://stripe.com/in).
+
+![demo-1](readme_images/demo-1.png?raw=true)
+![demo-2](readme_images/demo-2.png?raw=true)
+
+## Installation & Set Up
 
 1. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
 

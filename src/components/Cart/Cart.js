@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { loadStripe } from "@stripe/stripe-js"
 
 import * as ROUTES from "../../constants/routes"
 import CartContext from "../../context/CartContext"
@@ -8,16 +7,6 @@ import CartItem from "./CartItem"
 import CartSummary from "./CartSummary"
 
 import styles from "./Cart.module.scss"
-
-let stripePromise
-
-const getStripe = () => {
-   if (!stripePromise) {
-      stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
-   }
-
-   return stripePromise
-}
 
 const Cart = () => {
    const cartCtx = useContext(CartContext)
@@ -33,24 +22,6 @@ const Cart = () => {
 
    // Check if cart has items
    const emptyCart = cartCtx.cartItems.length === 0
-
-   const devItem = {
-      price: "price_1K9A72SE7SqEevLjF1ypHU3r",
-      quantity: 1,
-   }
-
-   const redirectToCheckout = async () => {
-      const stripe = await getStripe()
-
-      const { error } = await stripe.redirectToCheckout({
-         lineItems: [devItem],
-         mode: "payment",
-         successUrl: `http://localhost:3000/`,
-         cancelUrl: `http://localhost:3000/offers`,
-      })
-
-      console.log(error)
-   }
 
    return (
       <div className={styles.cart}>
@@ -87,7 +58,6 @@ const Cart = () => {
                <CartSummary
                   cartItems={cartCtx.cartItems}
                   totalAmount={cartCtx.totalAmount}
-                  redirectToCheckout={redirectToCheckout}
                />
             </div>
          )}

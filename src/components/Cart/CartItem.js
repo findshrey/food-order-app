@@ -1,7 +1,5 @@
 import React from "react"
 
-import { addZeroes } from "../../utils/commonFunction"
-
 import styles from "./CartItem.module.scss"
 
 const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
@@ -24,9 +22,7 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
                   +
                </button>
             </div>
-            <span className={styles["item-price"]}>{`$${addZeroes(
-               item.price
-            )}`}</span>
+            <span className={styles["item-price"]}>{`$${item.price}`}</span>
          </div>
       </li>
    )

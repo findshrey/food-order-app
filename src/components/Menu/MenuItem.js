@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 
-import { addZeroes } from "../../utils/commonFunction"
 import CartContext from "../../context/CartContext"
 
 import styles from "./MenuItem.module.scss"
@@ -29,9 +28,7 @@ const MenuItem = ({ item }) => {
          <div className={styles["item-info"]}>
             <header className={styles["item-head"]}>
                <h4>{item.name}</h4>
-               <span className={styles["item-price"]}>
-                  {`$${addZeroes(item.price)}`}
-               </span>
+               <span className={styles["item-price"]}>{`₹${item.price}`}</span>
             </header>
             <p className={styles["item-desc"]}>{item.description}</p>
             <div className={styles["item-lower"]}>

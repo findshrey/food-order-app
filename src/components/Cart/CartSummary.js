@@ -1,33 +1,43 @@
 import React from "react"
-
-import { addZeroes } from "../../utils/commonFunction"
-import useHttp from "../../hooks/useHttp"
+import { loadStripe } from "@stripe/stripe-js"
 
 import styles from "./CartSummary.module.scss"
 
-const CartSummary = ({ cartItems, totalAmount, redirectToCheckout }) => {
-   const { isLoading, error, sendRequest: placeOrder } = useHttp()
+let stripePromise
 
-   // Place order if autheticated
-   const handleOrder = () => {
-      placeOrder(
-         {
-            url: "https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: cartItems,
-         },
-         (data) => {
-            console.log(data)
-         }
-      )
+const getStripe = () => {
+   if (!stripePromise) {
+      stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
    }
 
+   return stripePromise
+}
+
+const CartSummary = ({ cartItems, totalAmount }) => {
    const numberOfItems = cartItems.reduce((acc, item) => {
       return acc + item.quantity
    }, 0)
+
+   const handleCheckout = async () => {
+      // Collect items by stripe_item_id and quantity
+      const checkoutItems = cartItems.reduce((acc, item) => {
+         return [
+            ...acc,
+            { price: item["stripe-price"], quantity: item.quantity },
+         ]
+      }, [])
+
+      const stripe = await getStripe()
+
+      const { error } = await stripe.redirectToCheckout({
+         lineItems: checkoutItems,
+         mode: "payment",
+         successUrl: `${document.location.origin}`,
+         cancelUrl: `${document.location.origin}/offers`,
+      })
+
+      console.log(error)
+   }
 
    return (
       <aside className={styles["cart-summary"]}>
@@ -36,26 +46,17 @@ const CartSummary = ({ cartItems, totalAmount, redirectToCheckout }) => {
          </header>
          <div className={styles["summary-content"]}>
             <span>Subtotal</span>
-            <span>{`$${addZeroes(totalAmount)}`}</span>
+            <span>{`₹${totalAmount}`}</span>
          </div>
          <div className={styles["req-wrapper"]}>
-            {isLoading && (
-               <p className={styles["req-status"]}>Placing Order ...</p>
-            )}
-            {!isLoading && error && (
-               <p className={styles["req-status"]}>{error}</p>
-            )}
-            {!isLoading && !error && (
-               <button
-                  className="btn-red-brick"
-                  onClick={() => {
-                     handleOrder()
-                     redirectToCheckout()
-                  }}
-               >
-                  Place Order
-               </button>
-            )}
+            <button
+               className="btn-red-brick"
+               onClick={() => {
+                  handleCheckout()
+               }}
+            >
+               Checkout
+            </button>
          </div>
       </aside>
    )

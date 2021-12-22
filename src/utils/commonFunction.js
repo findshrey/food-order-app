@@ -1,13 +1,3 @@
-const addZeroes = (num) => {
-   const newNum = Number(num)
-
-   if (isNaN(newNum)) {
-      return 0
-   }
-
-   return newNum.toFixed(2)
-}
-
 const calculateRemainingTime = (expirationTime) => {
    return expirationTime - Date.now()
 }
@@ -19,4 +9,4 @@ const capitalizeFirst = (str) => {
    return newString
 }
 
-export { addZeroes, calculateRemainingTime, capitalizeFirst }
+export { calculateRemainingTime, capitalizeFirst }

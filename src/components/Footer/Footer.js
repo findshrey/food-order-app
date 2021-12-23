@@ -44,7 +44,7 @@ const Footer = () => {
                   <ul>
                      <li>
                         <IconLocation />
-                        <span>8819 Ohio St. South Gate, CA 90280</span>
+                        <span>16 Pandara Rd, Delhi 110003</span>
                      </li>
                      <li>
                         <IconMail />

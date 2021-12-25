@@ -22,7 +22,7 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
                   +
                </button>
             </div>
-            <span className={styles["item-price"]}>{`$${item.price}`}</span>
+            <span className={styles["item-price"]}>{`₹${item.price}`}</span>
          </div>
       </li>
    )

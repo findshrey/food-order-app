@@ -60,9 +60,11 @@ const Menu = () => {
                         <h3>{capitalizeFirst(subKey)}</h3>
                      </header>
                      <ul className={styles["sub-menu-list"]}>
-                        {menu[subKey].map((item) => (
-                           <MenuItem key={item.id} item={item} />
-                        ))}
+                        {menu[subKey]
+                           .sort((a, b) => a.price - b.price) // Sorts in ascending order
+                           .map((item) => (
+                              <MenuItem key={item.id} item={item} />
+                           ))}
                      </ul>
                   </div>
                ))}

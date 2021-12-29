@@ -112,9 +112,9 @@ img {
       }
 
       &:disabled {
-         background-color: $c-white;
-         border: 2px solid $c-red-brick;
-         color: $c-red-brick;
+         background-color: transparent;
+         border: 2px solid lighten($c-red-brick, 10%);
+         color: lighten($c-red-brick, 10%);
          cursor: auto;
       }
    }

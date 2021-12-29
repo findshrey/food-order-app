@@ -35,11 +35,6 @@
 
    .info-body {
       flex: 1 1 60%;
-
-      .req-status {
-         color: $c-red-brick;
-         font-weight: 500;
-      }
    }
 }
 
@@ -78,12 +73,11 @@
    }
 }
 
-.req-wrapper {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   min-height: 45px;
-   margin-top: 4rem;
+.feedback {
+   color: $c-red-brick;
+   font-weight: 500;
+   text-align: center;
+   margin-top: 2rem;
 }
 
 .btns {
@@ -91,17 +85,11 @@
    align-items: center;
    justify-content: center;
    gap: 3rem;
+   margin-top: 4rem;
 
    :global(.btn-red-brick) {
       @include btn-props(25px, $fs-300, 500, 9px 18px);
       border: 2px solid $c-red-brick;
-
-      &:disabled {
-         background-color: transparent;
-         border: 2px solid lighten($c-red-brick, 10%);
-         color: lighten($c-red-brick, 10%);
-         cursor: auto;
-      }
    }
 }
 

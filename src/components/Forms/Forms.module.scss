@@ -11,6 +11,7 @@
       @include btn-props(5px, null, 500, 10px);
       border: 2px solid $c-red-brick;
       width: 100%;
+      margin-top: 3rem;
    }
 }
 
@@ -66,18 +67,11 @@
    }
 }
 
-.req-wrapper {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   min-height: 50px;
-   margin-top: 3rem;
-
-   .req-status {
-      color: $c-red-brick;
-      font-weight: 500;
-      text-align: center;
-   }
+.feedback {
+   color: $c-red-brick;
+   font-weight: 500;
+   text-align: center;
+   margin-top: 2rem;
 }
 
 .mode-change {

@@ -82,10 +82,10 @@ const PersonalInfo = ({ userId }) => {
          </div>
          <div className={styles["info-body"]}>
             {fetchLoad && (
-               <p className={styles["req-status"]}>Fetching user data ...</p>
+               <p className={styles.feedback}>Fetching user data ...</p>
             )}
             {!fetchLoad && fetchErr && (
-               <p className={styles["req-status"]}>{fetchErr}</p>
+               <p className={styles.feedback}>{fetchErr}</p>
             )}
             {!fetchLoad && !fetchErr && (
                <form className={styles["info-form"]}>
@@ -130,34 +130,27 @@ const PersonalInfo = ({ userId }) => {
                         />
                      </div>
                   </div>
-                  <div className={styles["req-wrapper"]}>
-                     {updateLoad && (
-                        <p className={styles["req-status"]}>Updating ...</p>
-                     )}
-                     {!updateLoad && updateErr && (
-                        <p className={styles["req-status"]}>{updateErr}</p>
-                     )}
-                     {!updateLoad && !updateErr && (
-                        <div className={styles.btns}>
-                           <button
-                              className="btn-red-brick"
-                              type="button"
-                              onClick={() => setEditMode(false)}
-                              disabled={!editMode}
-                           >
-                              Cancel
-                           </button>
-                           <button
-                              className="btn-red-brick"
-                              type="submit"
-                              onClick={handleUpdate}
-                              disabled={!editMode}
-                           >
-                              Save
-                           </button>
-                        </div>
-                     )}
+                  <div className={styles.btns}>
+                     <button
+                        className="btn-red-brick"
+                        type="button"
+                        onClick={() => setEditMode(false)}
+                        disabled={!editMode || updateLoad}
+                     >
+                        Cancel
+                     </button>
+                     <button
+                        className="btn-red-brick"
+                        type="submit"
+                        onClick={handleUpdate}
+                        disabled={!editMode || updateLoad}
+                     >
+                        {updateLoad ? "Updating ..." : "Save"}
+                     </button>
                   </div>
+                  {!updateLoad && updateErr && (
+                     <p className={styles.feedback}>{updateErr}</p>
+                  )}
                </form>
             )}
          </div>

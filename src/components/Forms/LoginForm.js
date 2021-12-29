@@ -71,19 +71,16 @@ const LoginForm = ({ handleFormMode }) => {
                   />
                   <label htmlFor="check-visible">Show Password</label>
                </div>
-               <div className={styles["req-wrapper"]}>
-                  {isLoading && (
-                     <p className={styles["req-status"]}>Logging In ...</p>
-                  )}
-                  {!isLoading && error && (
-                     <p className={styles["req-status"]}>{error}</p>
-                  )}
-                  {!isLoading && !error && (
-                     <button type="submit" className="btn-red-brick">
-                        Login
-                     </button>
-                  )}
-               </div>
+               <button
+                  type="submit"
+                  className="btn-red-brick"
+                  disabled={isLoading}
+               >
+                  {isLoading ? "Logging In ..." : "Login"}
+               </button>
+               {!isLoading && error && (
+                  <p className={styles.feedback}>{error}</p>
+               )}
                <div className={styles["mode-change"]}>
                   <span>Don't have an account?</span>
                   <button

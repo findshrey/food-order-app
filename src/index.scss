@@ -110,6 +110,13 @@ img {
       &:hover {
          background-color: darken($c-red-brick, 8%);
       }
+
+      &:disabled {
+         background-color: $c-white;
+         border: 2px solid $c-red-brick;
+         color: $c-red-brick;
+         cursor: auto;
+      }
    }
 
    &-yellow-mustard {

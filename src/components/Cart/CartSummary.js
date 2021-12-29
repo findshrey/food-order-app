@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { loadStripe } from "@stripe/stripe-js"
 
 import styles from "./CartSummary.module.scss"
@@ -7,18 +7,21 @@ let stripePromise
 
 const getStripe = () => {
    if (!stripePromise) {
-      stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
+      stripePromise = loadStripe(
+         "pk_test_51K87LqSE7SqEevLjGC30xxSsXegE04p6nU0XnaxWrpaDJgeVf8fQDWia5AqmyvZmmG5Fkp3WAOyysSjFGhXyu52r00Tq29iAkz"
+      )
    }
 
    return stripePromise
 }
 
 const CartSummary = ({ cartItems, totalAmount }) => {
-   const numberOfItems = cartItems.reduce((acc, item) => {
-      return acc + item.quantity
-   }, 0)
+   const [isLoading, setIsLoading] = useState(false)
+   const [stripeError, setStripeError] = useState(null)
 
    const handleCheckout = async () => {
+      setIsLoading(true)
+
       // Collect items by stripe_item_id and quantity
       const checkoutItems = cartItems.reduce((acc, item) => {
          return [
@@ -36,8 +39,16 @@ const CartSummary = ({ cartItems, totalAmount }) => {
          cancelUrl: `${document.location.origin}/offers`,
       })
 
-      console.log(error)
+      if (error) setStripeError(error.message)
+      setIsLoading(false)
    }
+
+   if (stripeError) alert(stripeError)
+
+   // Total no.of items in the cart
+   const numberOfItems = cartItems.reduce((acc, item) => {
+      return acc + item.quantity
+   }, 0)
 
    return (
       <aside className={styles["cart-summary"]}>
@@ -54,8 +65,9 @@ const CartSummary = ({ cartItems, totalAmount }) => {
                onClick={() => {
                   handleCheckout()
                }}
+               disabled={isLoading}
             >
-               Checkout
+               {isLoading ? "Checking out ..." : "Checkout"}
             </button>
          </div>
       </aside>

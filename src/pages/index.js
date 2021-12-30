@@ -1,7 +1,7 @@
 export { default as AuthPage } from "./AuthPage"
 export { default as CartPage } from "./CartPage"
 export { default as ContactPage } from "./ContactPage"
-export { default as HomePage } from "./HomePage"
+export { default as HomePage } from "./HomePage/HomePage"
 export { default as MenuPage } from "./MenuPage"
 export { default as NotFound } from "./NotFound"
 export { default as OffersPage } from "./OffersPage"

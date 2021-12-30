@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom"
 import { MENU } from "../../constants/routes"
 import imgCooking from "../../assets/images/cooking.svg"
 
-import styles from "./HomePage.module.scss"
+import styles from "./Homepage.module.scss"
 
-const HomePage = () => {
+const Homepage = () => {
    let navigate = useNavigate()
 
    // Navigate to menu
@@ -37,4 +37,4 @@ const HomePage = () => {
    )
 }
 
-export default HomePage
+export default Homepage

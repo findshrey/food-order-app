@@ -7,8 +7,8 @@ import {
    AuthPage,
    CartPage,
    ContactPage,
-   HomePage,
-   MenuPage,
+   Homepage,
+   Menu,
    NotFound,
    OffersPage,
    ProfilePage,
@@ -26,7 +26,7 @@ const App = () => {
    return (
       <Layout>
          <Routes>
-            <Route path={ROUTES.HOME} element={<HomePage />} />
+            <Route path={ROUTES.HOME} element={<Homepage />} />
             {!isAuth && <Route path={ROUTES.AUTH} element={<AuthPage />} />}
             <Route
                path={ROUTES.PROFILE}
@@ -37,7 +37,7 @@ const App = () => {
                }
             />
             <Route path={ROUTES.OFFERS} element={<OffersPage />} />
-            <Route path={ROUTES.MENU} element={<MenuPage />} />
+            <Route path={ROUTES.MENU} element={<Menu />} />
             <Route path={ROUTES.CART} element={<CartPage />} />
             <Route path={ROUTES.CONTACT} element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />

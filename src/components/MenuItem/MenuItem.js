@@ -15,7 +15,7 @@ const MenuItem = ({ item }) => {
       cartCtx.removeItem(id)
    }
 
-   // Check if item exists in cart
+   // Check item existance in cart
    const itemInCart = cartCtx.cartItems.find(
       (cartItem) => cartItem.id === item.id
    )

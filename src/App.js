@@ -6,11 +6,11 @@ import * as ROUTES from "./constants/routes"
 import {
    AuthPage,
    CartPage,
-   ContactPage,
+   Contact,
    Homepage,
    Menu,
    NotFound,
-   OffersPage,
+   Offers,
    ProfilePage,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
@@ -36,10 +36,10 @@ const App = () => {
                   </ProtectedRoute>
                }
             />
-            <Route path={ROUTES.OFFERS} element={<OffersPage />} />
+            <Route path={ROUTES.OFFERS} element={<Offers />} />
             <Route path={ROUTES.MENU} element={<Menu />} />
             <Route path={ROUTES.CART} element={<CartPage />} />
-            <Route path={ROUTES.CONTACT} element={<ContactPage />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path="*" element={<NotFound />} />
          </Routes>
       </Layout>

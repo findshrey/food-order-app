@@ -1,4 +1,4 @@
-export { default as AuthPage } from "./AuthPage"
+export { default as Auth } from "./Auth/Auth"
 export { default as CartPage } from "./CartPage"
 export { default as Contact } from "./Contact/Contact"
 export { default as Homepage } from "./Homepage/Homepage"

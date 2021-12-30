@@ -45,54 +45,50 @@ const LoginForm = ({ handleFormMode }) => {
    }
 
    return (
-      <div className={styles["login-form"]}>
-         <div className={styles["form-inner"]}>
-            <header>
-               <h2>Login</h2>
-            </header>
-            <form onSubmit={handleLogin}>
-               <div className={styles["form-control"]}>
-                  <label>Email:</label>
-                  <input type="email" ref={emailRef} required />
-               </div>
-               <div className={styles["form-control"]}>
-                  <label>Password:</label>
-                  <input
-                     type={passVisible ? "text" : "password"}
-                     ref={passwordRef}
-                     required
-                  />
-               </div>
-               <div className={styles["content-checkbox"]}>
-                  <input
-                     id="check-visible"
-                     type="checkbox"
-                     onClick={handlePassVisible}
-                  />
-                  <label htmlFor="check-visible">Show Password</label>
-               </div>
+      <div className={styles["auth-form"]}>
+         <header>
+            <h2>Login</h2>
+         </header>
+         <form onSubmit={handleLogin}>
+            <div className={styles["form-control"]}>
+               <label>Email:</label>
+               <input type="email" ref={emailRef} required />
+            </div>
+            <div className={styles["form-control"]}>
+               <label>Password:</label>
+               <input
+                  type={passVisible ? "text" : "password"}
+                  ref={passwordRef}
+                  required
+               />
+            </div>
+            <div className={styles["form-options"]}>
+               <input
+                  id="check-visible"
+                  type="checkbox"
+                  onClick={handlePassVisible}
+               />
+               <label htmlFor="check-visible">Show Password</label>
+            </div>
+            <button
+               type="submit"
+               className="btn-red-brick"
+               disabled={isLoading}
+            >
+               {isLoading ? "Logging In ..." : "Login"}
+            </button>
+            {!isLoading && error && <p className={styles.feedback}>{error}</p>}
+            <div className={styles["mode-change"]}>
+               <span>Don't have an account?</span>
                <button
-                  type="submit"
-                  className="btn-red-brick"
-                  disabled={isLoading}
+                  type="button"
+                  className={styles["button-secondary"]}
+                  onClick={() => handleFormMode(MODES.SIGN_UP)}
                >
-                  {isLoading ? "Logging In ..." : "Login"}
+                  Sign Up
                </button>
-               {!isLoading && error && (
-                  <p className={styles.feedback}>{error}</p>
-               )}
-               <div className={styles["mode-change"]}>
-                  <span>Don't have an account?</span>
-                  <button
-                     type="button"
-                     className={styles["button-secondary"]}
-                     onClick={() => handleFormMode(MODES.SIGN_UP)}
-                  >
-                     Sign Up
-                  </button>
-               </div>
-            </form>
-         </div>
+            </div>
+         </form>
       </div>
    )
 }

@@ -66,62 +66,58 @@ const SignUpForm = ({ handleFormMode }) => {
    }
 
    return (
-      <div className={styles["sign-up-form"]}>
-         <div className={styles["form-inner"]}>
-            <header>
-               <h2>Sign Up</h2>
-            </header>
-            <form onSubmit={handleSignUp}>
-               <div className={styles["form-control"]}>
-                  <label>Email:</label>
-                  <input type="email" ref={emailRef} required />
-               </div>
-               <div className={styles["form-control"]}>
-                  <label>Password:</label>
-                  <input
-                     type={passVisible ? "text" : "password"}
-                     ref={passwordRef}
-                     required
-                  />
-               </div>
-               <div className={styles["form-control"]}>
-                  <label>Phone:</label>
-                  <input type="number" ref={phoneRef} required />
-               </div>
-               <div className={styles["form-control"]}>
-                  <label>Address:</label>
-                  <input type="text" ref={addressRef} required />
-               </div>
-               <div className={styles["content-checkbox"]}>
-                  <input
-                     id="check-visible"
-                     type="checkbox"
-                     onClick={handlePassVisible}
-                  />
-                  <label htmlFor="check-visible">Show Password</label>
-               </div>
+      <div className={styles["auth-form"]}>
+         <header>
+            <h2>Sign Up</h2>
+         </header>
+         <form onSubmit={handleSignUp}>
+            <div className={styles["form-control"]}>
+               <label>Email:</label>
+               <input type="email" ref={emailRef} required />
+            </div>
+            <div className={styles["form-control"]}>
+               <label>Password:</label>
+               <input
+                  type={passVisible ? "text" : "password"}
+                  ref={passwordRef}
+                  required
+               />
+            </div>
+            <div className={styles["form-control"]}>
+               <label>Phone:</label>
+               <input type="number" ref={phoneRef} required />
+            </div>
+            <div className={styles["form-control"]}>
+               <label>Address:</label>
+               <input type="text" ref={addressRef} required />
+            </div>
+            <div className={styles["form-options"]}>
+               <input
+                  id="check-visible"
+                  type="checkbox"
+                  onClick={handlePassVisible}
+               />
+               <label htmlFor="check-visible">Show Password</label>
+            </div>
+            <button
+               type="submit"
+               className="btn-red-brick"
+               disabled={isLoading}
+            >
+               {isLoading ? "Signing Up ..." : "Sign up"}
+            </button>
+            {!isLoading && error && <p className={styles.feedback}>{error}</p>}
+            <div className={styles["mode-change"]}>
+               <span>Already a member?</span>
                <button
-                  type="submit"
-                  className="btn-red-brick"
-                  disabled={isLoading}
+                  type="button"
+                  className={styles["button-secondary"]}
+                  onClick={() => handleFormMode(MODES.LOGIN)}
                >
-                  {isLoading ? "Signing Up ..." : "Sign up"}
+                  Log in
                </button>
-               {!isLoading && error && (
-                  <p className={styles.feedback}>{error}</p>
-               )}
-               <div className={styles["mode-change"]}>
-                  <span>Already a member?</span>
-                  <button
-                     type="button"
-                     className={styles["button-secondary"]}
-                     onClick={() => handleFormMode(MODES.LOGIN)}
-                  >
-                     Log in
-                  </button>
-               </div>
-            </form>
-         </div>
+            </div>
+         </form>
       </div>
    )
 }

@@ -1,21 +1,6 @@
 @import "../../index.scss";
 
-.login-form,
-.sign-up-form {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: $pad-y4_8;
-
-   :global(.btn-red-brick) {
-      @include btn-props(5px, null, 500, 10px);
-      border: 2px solid $c-red-brick;
-      width: 100%;
-      margin-top: 3rem;
-   }
-}
-
-.form-inner {
+.auth-form {
    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
       rgba(17, 17, 26, 0.05) 0px 8px 32px;
    border-radius: 10px;
@@ -31,6 +16,13 @@
          font-size: $fs-600;
          text-align: center;
       }
+   }
+
+   :global(.btn-red-brick) {
+      @include btn-props(5px, null, 500, 10px);
+      border: 2px solid $c-red-brick;
+      width: 100%;
+      margin-top: 3rem;
    }
 }
 
@@ -56,7 +48,7 @@
    }
 }
 
-.content-checkbox {
+.form-options {
    display: flex;
    align-items: center;
    gap: 1rem;

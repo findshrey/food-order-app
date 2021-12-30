@@ -4,7 +4,7 @@ import "@stripe/stripe-js"
 
 import * as ROUTES from "./constants/routes"
 import {
-   AuthPage,
+   Auth,
    CartPage,
    Contact,
    Homepage,
@@ -27,7 +27,7 @@ const App = () => {
       <Layout>
          <Routes>
             <Route path={ROUTES.HOME} element={<Homepage />} />
-            {!isAuth && <Route path={ROUTES.AUTH} element={<AuthPage />} />}
+            {!isAuth && <Route path={ROUTES.AUTH} element={<Auth />} />}
             <Route
                path={ROUTES.PROFILE}
                element={

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom"
 
 import * as ROUTES from "../../constants/routes"
 import CartContext from "../../context/CartContext"
-import CartItem from "./CartItem"
-import CartSummary from "./CartSummary"
+import CartItem from "../../components/CartItem/CartItem"
+import CartSummary from "../../components/CartSummary/CartSummary"
 
 import styles from "./Cart.module.scss"
 
@@ -25,25 +25,25 @@ const Cart = () => {
 
    return (
       <div className={styles.cart}>
-         <header className={styles["cart-head"]}>
-            <h2>MY CART</h2>
-         </header>
-         {emptyCart ? (
-            <div className={styles["empty-cart"]}>
-               <p>
-                  YOUR CART IS EMPTY. <br />
-                  LET'S START AN ORDER!
-               </p>
-               <button
-                  className="btn-red-brick"
-                  onClick={() => navigate(ROUTES.MENU)}
-               >
-                  Start Order
-               </button>
-            </div>
-         ) : (
-            <div className={styles["cart-inner"]}>
-               <section>
+         <div className="container">
+            <header className={styles["cart-head"]}>
+               <h2>MY CART</h2>
+            </header>
+            {emptyCart ? (
+               <section className={styles["empty-cart"]}>
+                  <p>
+                     YOUR CART IS EMPTY. <br />
+                     LET'S START AN ORDER!
+                  </p>
+                  <button
+                     className="btn-red-brick"
+                     onClick={() => navigate(ROUTES.MENU)}
+                  >
+                     Start Order
+                  </button>
+               </section>
+            ) : (
+               <section className={styles["cart-inner"]}>
                   <ul>
                      {cartCtx.cartItems.map((item) => (
                         <CartItem
@@ -54,13 +54,13 @@ const Cart = () => {
                         />
                      ))}
                   </ul>
+                  <CartSummary
+                     cartItems={cartCtx.cartItems}
+                     totalAmount={cartCtx.totalAmount}
+                  />
                </section>
-               <CartSummary
-                  cartItems={cartCtx.cartItems}
-                  totalAmount={cartCtx.totalAmount}
-               />
-            </div>
-         )}
+            )}
+         </div>
       </div>
    )
 }

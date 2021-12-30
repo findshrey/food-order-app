@@ -9,16 +9,16 @@
    gap: 5rem;
    padding: 2rem 4rem 2rem 2rem;
    margin-bottom: 1rem;
+}
 
-   .item-name {
-      font-weight: 500;
-   }
+.item-name {
+   font-weight: 500;
+}
 
-   .item-info {
-      display: flex;
-      align-items: center;
-      gap: clamp(6rem, calc(0.1rem + 6vw), 10rem);
-   }
+.item-info {
+   display: flex;
+   align-items: center;
+   gap: clamp(6rem, calc(0.1rem + 6vw), 10rem);
 }
 
 .item-price {
@@ -40,7 +40,7 @@
       width: 30px;
    }
 
-   .item-quant {
+   .item-qty {
       text-align: center;
       min-width: 28px;
    }

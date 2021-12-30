@@ -5,7 +5,7 @@ import "@stripe/stripe-js"
 import * as ROUTES from "./constants/routes"
 import {
    Auth,
-   CartPage,
+   Cart,
    Contact,
    Homepage,
    Menu,
@@ -38,7 +38,7 @@ const App = () => {
             />
             <Route path={ROUTES.OFFERS} element={<Offers />} />
             <Route path={ROUTES.MENU} element={<Menu />} />
-            <Route path={ROUTES.CART} element={<CartPage />} />
+            <Route path={ROUTES.CART} element={<Cart />} />
             <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path="*" element={<NotFound />} />
          </Routes>

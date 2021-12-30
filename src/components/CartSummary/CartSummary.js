@@ -59,17 +59,18 @@ const CartSummary = ({ cartItems, totalAmount }) => {
             <span>Subtotal</span>
             <span>{`₹${totalAmount}`}</span>
          </div>
-         <div className={styles["req-wrapper"]}>
-            <button
-               className="btn-red-brick"
-               onClick={() => {
-                  handleCheckout()
-               }}
-               disabled={isLoading}
-            >
-               {isLoading ? "Checking out ..." : "Checkout"}
-            </button>
-         </div>
+         <button
+            className="btn-red-brick"
+            onClick={() => {
+               handleCheckout()
+            }}
+            disabled={isLoading}
+         >
+            {isLoading ? "Checking out ..." : "Checkout"}
+         </button>
+         {!isLoading && stripeError && (
+            <p className={styles.feedback}>{stripeError}</p>
+         )}
       </aside>
    )
 }

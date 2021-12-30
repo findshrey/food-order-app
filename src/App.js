@@ -11,7 +11,7 @@ import {
    Menu,
    NotFound,
    Offers,
-   ProfilePage,
+   Profile,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
 import Layout from "./components/Layout"
@@ -32,7 +32,7 @@ const App = () => {
                path={ROUTES.PROFILE}
                element={
                   <ProtectedRoute isAuth={isAuth}>
-                     <ProfilePage />
+                     <Profile />
                   </ProtectedRoute>
                }
             />

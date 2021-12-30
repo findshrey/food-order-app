@@ -1,10 +1,13 @@
 @import "../../index.scss";
 
-.no-match {
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.not-found {
    padding: $pad-y4_8;
+
+   :global(.container) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
 
    h2 {
       font-size: $fs-600;

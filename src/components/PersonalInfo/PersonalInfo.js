@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 
-import Input from "../UI/Input"
 import useHttp from "../../hooks/useHttp"
 
 import styles from "./PersonalInfo.module.scss"
@@ -91,42 +90,36 @@ const PersonalInfo = ({ userId }) => {
                <form className={styles["info-form"]}>
                   <div className={styles["fields-wrapper"]}>
                      <div className={styles["form-control"]}>
-                        <Input
-                           label="User Name"
-                           inputProps={{
-                              type: "text",
-                              value: userInfo?.name || "",
-                              onChange: (e) => {
-                                 handleFieldValue("name", e.target.value)
-                              },
-                              disabled: !editMode,
-                           }}
+                        <label>User Name</label>
+                        <input
+                           type="text"
+                           value={userInfo?.name || ""}
+                           onChange={(e) =>
+                              handleFieldValue("name", e.target.value)
+                           }
+                           disabled={!editMode}
                         />
                      </div>
                      <div className={styles["form-control"]}>
-                        <Input
-                           label="Phone Number"
-                           inputProps={{
-                              type: "number",
-                              value: userInfo?.phone || 0,
-                              onChange: (e) => {
-                                 handleFieldValue("phone", e.target.value)
-                              },
-                              disabled: !editMode,
-                           }}
+                        <label>Phone Number</label>
+                        <input
+                           type="number"
+                           value={userInfo?.phone || 0}
+                           onChange={(e) =>
+                              handleFieldValue("phone", e.target.value)
+                           }
+                           disabled={!editMode}
                         />
                      </div>
                      <div className={styles["form-control"]}>
-                        <Input
-                           label="Address"
-                           inputProps={{
-                              type: "text",
-                              value: userInfo?.address || "",
-                              onChange: (e) => {
-                                 handleFieldValue("address", e.target.value)
-                              },
-                              disabled: !editMode,
-                           }}
+                        <label>Address</label>
+                        <input
+                           type="text"
+                           value={userInfo?.address || ""}
+                           onChange={(e) =>
+                              handleFieldValue("address", e.target.value)
+                           }
+                           disabled={!editMode}
                         />
                      </div>
                   </div>

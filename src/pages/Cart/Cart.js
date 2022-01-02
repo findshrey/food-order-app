@@ -5,11 +5,13 @@ import * as ROUTES from "../../constants/routes"
 import CartContext from "../../context/CartContext"
 import CartItem from "../../components/CartItem/CartItem"
 import CartSummary from "../../components/CartSummary/CartSummary"
+import useTitle from "../../hooks/useTitle"
 
 import styles from "./Cart.module.scss"
 
 const Cart = () => {
    const cartCtx = useContext(CartContext)
+   useTitle("React Meals | Cart")
    let navigate = useNavigate()
 
    const handleAddItem = (item) => {

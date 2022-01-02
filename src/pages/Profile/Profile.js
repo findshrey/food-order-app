@@ -4,10 +4,13 @@ import AuthContext from "../../context/AuthContext"
 import ChangePassword from "../../components/ChangePassword/ChangePassword"
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo"
 
+import useTitle from "../../hooks/useTitle"
+
 import styles from "./Profile.module.scss"
 
 const Profile = () => {
    const authCtx = useContext(AuthContext)
+   useTitle("React Meals | Profile")
 
    return (
       <div className={styles.profile}>

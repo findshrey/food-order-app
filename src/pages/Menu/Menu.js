@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react"
 import { capitalizeFirst } from "../../utils/commonFunction"
 import MenuItem from "../../components/MenuItem/MenuItem"
 import useHttp from "../../hooks/useHttp"
+import useTitle from "../../hooks/useTitle"
 
 import styles from "./Menu.module.scss"
 
 const Menu = () => {
    const [menu, setMenu] = useState({})
    const { isLoading, error, sendRequest: fetchMenu } = useHttp()
+   useTitle("React Meals | Menu")
 
    useEffect(() => {
       fetchMenu(

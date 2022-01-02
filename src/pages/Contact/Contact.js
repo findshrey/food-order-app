@@ -1,10 +1,13 @@
 import React from "react"
 
 import imgContact from "../../assets/images/contact.svg"
+import useTitle from "../../hooks/useTitle"
 
 import styles from "./Contact.module.scss"
 
 const Contact = () => {
+   useTitle("React Meals | Contact")
+
    const handleSubmit = (e) => {
       e.preventDefault()
 

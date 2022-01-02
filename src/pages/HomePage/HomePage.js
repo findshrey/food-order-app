@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom"
 
 import { MENU } from "../../constants/routes"
 import imgCooking from "../../assets/images/cooking.svg"
+import useTitle from "../../hooks/useTitle"
 
 import styles from "./Homepage.module.scss"
 
 const Homepage = () => {
    let navigate = useNavigate()
+   useTitle("React Meals | Home")
 
    // Navigate to menu
    const handleOrder = () => {

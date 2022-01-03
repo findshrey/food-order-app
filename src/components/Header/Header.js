@@ -85,7 +85,12 @@ const Header = () => {
 
             {/* MOBILE NAVIGATION */}
             <nav className={styles["nav-mobile"]}>
-               <button className={styles.hamburger} onClick={handleSideDrawer}>
+               <button
+                  className={`${styles.hamburger} ${
+                     sideDrawer && styles.active
+                  }`}
+                  onClick={handleSideDrawer}
+               >
                   {sideDrawer ? <IconMenuClose /> : <IconMenu />}
                </button>
                <Logo />

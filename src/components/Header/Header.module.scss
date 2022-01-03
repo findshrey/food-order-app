@@ -59,6 +59,11 @@
          display: flex;
          align-items: center;
          z-index: 100;
+
+         &.active {
+            position: fixed;
+            top: 4.5rem;
+         }
       }
 
       .cart {

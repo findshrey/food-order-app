@@ -14,7 +14,7 @@ import {
    Profile,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
-import Layout from "./components/Layout"
+import Layout from "./components/Layout/Layout"
 import ProtectedRoute from "./components/ProtectedRoute"
 
 const App = () => {

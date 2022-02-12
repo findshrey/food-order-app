@@ -5,6 +5,7 @@
 
    :global(.container) {
       display: flex;
+      gap: 5rem;
    }
 
    &-text {
@@ -13,7 +14,6 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      margin-right: 5rem;
 
       h2 {
          font-size: $fs-700;
@@ -47,7 +47,6 @@
       &-text {
          align-items: center;
          text-align: center;
-         margin: 5rem 0 0 0;
       }
    }
 }

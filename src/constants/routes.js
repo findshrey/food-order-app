@@ -5,5 +5,6 @@ const OFFERS = "/offers"
 const HOME = "/"
 const MENU = "/menu"
 const PROFILE = "/profile"
+const SUCCESS = "/success"
 
-export { AUTH, CART, OFFERS, CONTACT, HOME, MENU, PROFILE }
+export { AUTH, CART, OFFERS, CONTACT, HOME, MENU, PROFILE, SUCCESS }

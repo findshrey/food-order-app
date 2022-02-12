@@ -12,6 +12,7 @@ import {
    NotFound,
    Offers,
    Profile,
+   Success,
 } from "./pages"
 import AuthContext from "./context/AuthContext"
 import Layout from "./components/Layout/Layout"
@@ -40,6 +41,7 @@ const App = () => {
             <Route path={ROUTES.MENU} element={<Menu />} />
             <Route path={ROUTES.CART} element={<Cart />} />
             <Route path={ROUTES.CONTACT} element={<Contact />} />
+            <Route path={ROUTES.SUCCESS} element={<Success />} />
             <Route path="*" element={<NotFound />} />
          </Routes>
       </Layout>

@@ -17,7 +17,7 @@ const Success = () => {
                   <h2>Order Placed!</h2>
                </header>
                <p>
-                  Thank you for ordering from Swiggy. Your order will be
+                  Thank you for ordering from React Meals. Your order will be
                   delivered to your home shortly.
                </p>
                <button

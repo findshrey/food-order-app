@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { loadStripe } from "@stripe/stripe-js"
 
+import * as ROUTES from "../../constants/routes"
+
 import styles from "./CartSummary.module.scss"
 
 let stripePromise
@@ -35,7 +37,7 @@ const CartSummary = ({ cartItems, totalAmount }) => {
       const { error } = await stripe.redirectToCheckout({
          lineItems: checkoutItems,
          mode: "payment",
-         successUrl: `${document.location.origin}`,
+         successUrl: `${document.location.origin}${ROUTES.SUCCESS}`,
          cancelUrl: `${document.location.origin}/offers`,
       })
 

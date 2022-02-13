@@ -5,6 +5,7 @@ import "@stripe/stripe-js"
 import * as ROUTES from "./constants/routes"
 import {
    Auth,
+   Cancel,
    Cart,
    Contact,
    Homepage,
@@ -42,6 +43,7 @@ const App = () => {
             <Route path={ROUTES.CART} element={<Cart />} />
             <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path={ROUTES.SUCCESS} element={<Success />} />
+            <Route path={ROUTES.CANCEL} element={<Cancel />} />
             <Route path="*" element={<NotFound />} />
          </Routes>
       </Layout>

@@ -1,4 +1,5 @@
 export { default as Auth } from "./Auth/Auth"
+export { default as Cancel } from "./Cancel/Cancel"
 export { default as Cart } from "./Cart/Cart"
 export { default as Contact } from "./Contact/Contact"
 export { default as Homepage } from "./Homepage/Homepage"

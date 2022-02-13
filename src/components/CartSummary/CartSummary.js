@@ -38,7 +38,7 @@ const CartSummary = ({ cartItems, totalAmount }) => {
          lineItems: checkoutItems,
          mode: "payment",
          successUrl: `${document.location.origin}${ROUTES.SUCCESS}`,
-         cancelUrl: `${document.location.origin}/offers`,
+         cancelUrl: `${document.location.origin}${ROUTES.CANCEL}`,
       })
 
       if (error) setStripeError(error.message)

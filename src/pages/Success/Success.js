@@ -21,7 +21,7 @@ const Success = () => {
                   delivered to your home shortly.
                </p>
                <button
-                  className="btn-yellow-mustard"
+                  className="btn-red-brick"
                   onClick={() => navigate(ROUTES.HOME)}
                >
                   Back To Home

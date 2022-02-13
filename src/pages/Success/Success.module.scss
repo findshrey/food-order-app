@@ -24,7 +24,7 @@
          font-size: $fs-500;
       }
 
-      :global(.btn-yellow-mustard) {
+      :global(.btn-red-brick) {
          @include btn-props(30px, null, null, 12px 24px);
       }
    }

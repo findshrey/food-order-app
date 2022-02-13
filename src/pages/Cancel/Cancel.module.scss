@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.cancel {
+   padding: $pad-y4_8;
+
+   :global(.container) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   h2 {
+      font-size: $fs-600;
+   }
+
+   p {
+      margin: 1.5rem 0 2.5rem 0;
+      font-size: $fs-500;
+   }
+
+   .btn-wrapper {
+      display: flex;
+      gap: 2rem;
+   }
+
+   :global(.btn-red-brick) {
+      @include btn-props(30px, null, null, 12px 24px);
+   }
+}

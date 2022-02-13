@@ -14,16 +14,16 @@ const Cancel = () => {
             <header className={styles["cancel-head"]}>
                <h2>Order Cancelled!</h2>
             </header>
-            <p>You order has been cancelled.</p>
+            <p>Your order has been cancelled.</p>
             <div className={styles["btn-wrapper"]}>
                <button
-                  className="btn-yellow-mustard"
+                  className="btn-red-brick"
                   onClick={() => navigate(ROUTES.HOME)}
                >
                   Back To Home
                </button>
                <button
-                  className="btn-yellow-mustard"
+                  className="btn-red-brick"
                   onClick={() => navigate(ROUTES.MENU)}
                >
                   Order Again

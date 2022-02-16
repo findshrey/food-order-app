@@ -1,5 +1,10 @@
 import React, { useReducer } from "react"
 
+const ACTIONS = {
+   ADD_ITEM: "add-item",
+   REMOVE_ITEM: "remove-item",
+}
+
 const CartContext = React.createContext({
    items: [],
    totalAmount: 0,
@@ -15,7 +20,7 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
    switch (action.type) {
-      case "ADD": {
+      case ACTIONS.ADD_ITEM: {
          const updatedAmount =
             state.totalAmount + action.item.quantity * action.item.price
 
@@ -45,7 +50,7 @@ const cartReducer = (state, action) => {
          }
       }
 
-      case "REMOVE": {
+      case ACTIONS.REMOVE_ITEM: {
          // Check if cart item already exists
          const existingItemIndex = state.items.findIndex(
             (item) => item.id === action.id
@@ -87,11 +92,11 @@ const CartProvider = ({ children }) => {
    )
 
    const handleAddItem = (item) => {
-      dispatchCartAction({ type: "ADD", item: item })
+      dispatchCartAction({ type: ACTIONS.ADD_ITEM, item: item })
    }
 
    const handleRemoveItem = (id) => {
-      dispatchCartAction({ type: "REMOVE", id: id })
+      dispatchCartAction({ type: ACTIONS.REMOVE_ITEM, id: id })
    }
 
    // Context data to share

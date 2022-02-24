@@ -50,10 +50,11 @@ const Header = () => {
                   ))}
                </ul>
                <ul className={styles["nav-right"]}>
-                  <li>
+                  <li className={styles.cart}>
                      <NavLink to={ROUTES.CART}>
                         <IconCart />
                      </NavLink>
+                     {numberOfItems !== 0 && <span>{numberOfItems}</span>}
                   </li>
                   <li>
                      <NavLink to={ROUTES.PROFILE}>
@@ -97,6 +98,7 @@ const Header = () => {
                <div className={styles.cart}>
                   <NavLink to={ROUTES.CART}>
                      <IconCart />
+                     {numberOfItems !== 0 && <span>{numberOfItems}</span>}
                   </NavLink>
                </div>
 

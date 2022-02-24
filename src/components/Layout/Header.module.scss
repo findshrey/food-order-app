@@ -44,6 +44,26 @@
    font-weight: 500;
 }
 
+// Total items in cart
+.cart {
+   position: relative;
+
+   span {
+      background-color: $c-yellow-mustard;
+      border-radius: 50%;
+      color: $c-white;
+      font-size: $fs-300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0%;
+      right: -45%;
+      height: 23px;
+      width: 23px;
+   }
+}
+
 @media (max-width: 1024px) {
    .nav-desktop {
       display: none;

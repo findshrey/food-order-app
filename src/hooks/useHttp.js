@@ -20,12 +20,13 @@ const useHttp = () => {
          }
 
          const data = await response.json()
+
+         setIsLoading(false)
          applyData(data)
       } catch (e) {
+         setIsLoading(false)
          setError(e.message || "Something went wrong!")
       }
-
-      setIsLoading(false)
    }, [])
 
    return {

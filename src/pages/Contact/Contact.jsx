@@ -1,5 +1,3 @@
-import React from "react"
-
 import imgContact from "../../assets/images/contact.svg"
 import useTitle from "../../hooks/useTitle"
 

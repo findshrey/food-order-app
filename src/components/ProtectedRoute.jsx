@@ -1,10 +1,9 @@
-import React from "react"
 import { Navigate } from "react-router-dom"
 
-import * as ROUTES from "../constants/routes"
+import { ROUTES } from "../utils/constants"
 
 const ProtectedRoute = ({ isAuth, children }) => {
-   return isAuth ? children : <Navigate to={ROUTES.AUTH} replace />
+   return isAuth ? children : <Navigate to={ROUTES.auth} replace />
 }
 
 export default ProtectedRoute

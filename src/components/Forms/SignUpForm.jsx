@@ -1,7 +1,7 @@
-import React, { useContext, useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import * as MODES from "../../constants/formModes"
+import { FORM_MODES } from "../../utils/constants"
 import AuthContext from "../../context/AuthContext"
 import useHttp from "../../hooks/useHttp"
 
@@ -112,7 +112,7 @@ const SignUpForm = ({ handleFormMode }) => {
                <button
                   type="button"
                   className={styles["button-secondary"]}
-                  onClick={() => handleFormMode(MODES.LOGIN)}
+                  onClick={() => handleFormMode(FORM_MODES.login)}
                >
                   Log in
                </button>

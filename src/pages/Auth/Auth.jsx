@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
-import * as MODES from "../../constants/formModes"
+import { FORM_MODES } from "../../utils/constants"
 import LoginForm from "../../components/Forms/LoginForm"
 import SignUpForm from "../../components/Forms/SignUpForm"
 import useTitle from "../../hooks/useTitle"
@@ -8,10 +8,10 @@ import useTitle from "../../hooks/useTitle"
 import styles from "./Auth.module.scss"
 
 const Auth = () => {
-   const [formMode, setFormMode] = useState(MODES.LOGIN)
+   const [formMode, setFormMode] = useState(FORM_MODES.login)
 
    // Check if Login enabled
-   const isLoginMode = formMode === MODES.LOGIN
+   const isLoginMode = formMode === FORM_MODES.login
 
    useTitle(`React Meals | ${isLoginMode ? "Login" : "Sign Up"}`, formMode)
 

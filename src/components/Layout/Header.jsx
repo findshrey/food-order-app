@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react"
+import { useState, useContext } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 
-import * as ROUTES from "../../constants/routes"
+import { ROUTES } from "../../utils/constants"
+import { NAV_LINKS } from "../../utils/constants"
 import { IconCart, IconMenu, IconMenuClose, IconUser } from "../../icons"
-import NAV_LINKS from "../../constants/navLinks"
 import AuthContext from "../../context/AuthContext"
 import CartContext from "../../context/CartContext"
 import Logo from "./Logo"
@@ -51,20 +51,20 @@ const Header = () => {
                </ul>
                <ul className={styles["nav-right"]}>
                   <li className={styles.cart}>
-                     <NavLink to={ROUTES.CART}>
+                     <NavLink to={ROUTES.cart}>
                         <IconCart />
                      </NavLink>
                      {numberOfItems !== 0 && <span>{numberOfItems}</span>}
                   </li>
                   <li>
-                     <NavLink to={ROUTES.PROFILE}>
+                     <NavLink to={ROUTES.profile}>
                         <IconUser />
                      </NavLink>
                   </li>
                   <li>
                      {!authCtx.isLoggedIn ? (
                         <NavLink
-                           to={ROUTES.AUTH}
+                           to={ROUTES.auth}
                            className="btn-yellow-mustard"
                         >
                            Login
@@ -74,7 +74,7 @@ const Header = () => {
                            className="btn-yellow-mustard"
                            onClick={() => {
                               authCtx.logout()
-                              navigate(ROUTES.HOME)
+                              navigate(ROUTES.home)
                            }}
                         >
                            Logout
@@ -96,7 +96,7 @@ const Header = () => {
                </button>
                <Logo />
                <div className={styles.cart}>
-                  <NavLink to={ROUTES.CART}>
+                  <NavLink to={ROUTES.cart}>
                      <IconCart />
                      {numberOfItems !== 0 && <span>{numberOfItems}</span>}
                   </NavLink>
@@ -106,7 +106,7 @@ const Header = () => {
                <ul className={`${styles["side-drawer"]} ${activeDrawerClass}`}>
                   <li>
                      <NavLink
-                        to={ROUTES.PROFILE}
+                        to={ROUTES.profile}
                         className={(navData) =>
                            navData.isActive ? styles["active-link"] : ""
                         }
@@ -131,7 +131,7 @@ const Header = () => {
                   <li>
                      {!authCtx.isLoggedIn ? (
                         <NavLink
-                           to={ROUTES.AUTH}
+                           to={ROUTES.auth}
                            className={(navData) =>
                               navData.isActive ? styles["active-link"] : ""
                            }
@@ -143,7 +143,7 @@ const Header = () => {
                         <button
                            onClick={() => {
                               authCtx.logout()
-                              navigate(ROUTES.HOME)
+                              navigate(ROUTES.home)
                               handleSideDrawer()
                            }}
                         >

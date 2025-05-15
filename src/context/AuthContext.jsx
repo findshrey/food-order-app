@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import { calculateRemainingTime } from "../utils/commonFunction"
+import { calculateRemainingTime } from "../utils/helperFunctions"
 
 const AuthContext = React.createContext({
    token: "",

@@ -1,5 +1,3 @@
-import React from "react"
-
 const IconTwitter = () => {
    return (
       <svg

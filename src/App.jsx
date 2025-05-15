@@ -1,8 +1,8 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import { Routes, Route } from "react-router-dom"
 import "@stripe/stripe-js"
 
-import * as ROUTES from "./constants/routes"
+import { ROUTES } from "./utils/constants"
 import {
    Auth,
    Cancel,
@@ -28,22 +28,22 @@ const App = () => {
    return (
       <Layout>
          <Routes>
-            <Route path={ROUTES.HOME} element={<Homepage />} />
-            {!isAuth && <Route path={ROUTES.AUTH} element={<Auth />} />}
+            <Route path={ROUTES.home} element={<Homepage />} />
+            {!isAuth && <Route path={ROUTES.auth} element={<Auth />} />}
             <Route
-               path={ROUTES.PROFILE}
+               path={ROUTES.profile}
                element={
                   <ProtectedRoute isAuth={isAuth}>
                      <Profile />
                   </ProtectedRoute>
                }
             />
-            <Route path={ROUTES.OFFERS} element={<Offers />} />
-            <Route path={ROUTES.MENU} element={<Menu />} />
-            <Route path={ROUTES.CART} element={<Cart />} />
-            <Route path={ROUTES.CONTACT} element={<Contact />} />
-            <Route path={ROUTES.SUCCESS} element={<Success />} />
-            <Route path={ROUTES.CANCEL} element={<Cancel />} />
+            <Route path={ROUTES.offers} element={<Offers />} />
+            <Route path={ROUTES.menu} element={<Menu />} />
+            <Route path={ROUTES.cart} element={<Cart />} />
+            <Route path={ROUTES.contact} element={<Contact />} />
+            <Route path={ROUTES.success} element={<Success />} />
+            <Route path={ROUTES.cancel} element={<Cancel />} />
             <Route path="*" element={<NotFound />} />
          </Routes>
       </Layout>

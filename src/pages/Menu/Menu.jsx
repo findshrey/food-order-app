@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
-import { capitalizeFirst } from "../../utils/commonFunction"
+import { capitalizeFirst } from "../../utils/helperFunctions"
 import MenuItem from "../../components/MenuItem/MenuItem"
 import useHttp from "../../hooks/useHttp"
 import useTitle from "../../hooks/useTitle"

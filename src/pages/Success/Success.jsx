@@ -1,7 +1,6 @@
-import React from "react"
 import { useNavigate } from "react-router-dom"
 
-import * as ROUTES from "../../constants/routes"
+import { ROUTES } from "../../utils/constants"
 import imgSuccess from "../../assets/images/order-success.svg"
 
 import styles from "./Success.module.scss"
@@ -22,7 +21,7 @@ const Success = () => {
                </p>
                <button
                   className="btn-red-brick"
-                  onClick={() => navigate(ROUTES.HOME)}
+                  onClick={() => navigate(ROUTES.home)}
                >
                   Back To Home
                </button>

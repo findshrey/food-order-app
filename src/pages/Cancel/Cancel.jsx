@@ -1,7 +1,6 @@
-import React from "react"
 import { useNavigate } from "react-router-dom"
 
-import * as ROUTES from "../../constants/routes"
+import { ROUTES } from "../../utils/constants"
 
 import styles from "./Cancel.module.scss"
 
@@ -18,13 +17,13 @@ const Cancel = () => {
             <div className={styles["btn-wrapper"]}>
                <button
                   className="btn-red-brick"
-                  onClick={() => navigate(ROUTES.HOME)}
+                  onClick={() => navigate(ROUTES.home)}
                >
                   Back To Home
                </button>
                <button
                   className="btn-red-brick"
-                  onClick={() => navigate(ROUTES.MENU)}
+                  onClick={() => navigate(ROUTES.menu)}
                >
                   Order Again
                </button>

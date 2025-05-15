@@ -1,7 +1,7 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 
-import * as ROUTES from "../../constants/routes"
+import { ROUTES } from "../../utils/constants"
 import CartContext from "../../context/CartContext"
 import CartItem from "../../components/CartItem/CartItem"
 import CartSummary from "../../components/CartSummary/CartSummary"
@@ -39,7 +39,7 @@ const Cart = () => {
                   </p>
                   <button
                      className="btn-red-brick"
-                     onClick={() => navigate(ROUTES.MENU)}
+                     onClick={() => navigate(ROUTES.menu)}
                   >
                      Start Order
                   </button>

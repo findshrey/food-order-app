@@ -1,7 +1,6 @@
-import React from "react"
 import { useNavigate } from "react-router-dom"
 
-import { MENU } from "../../constants/routes"
+import { ROUTES } from "../../utils/constants"
 import imgCooking from "../../assets/images/cooking.svg"
 import useTitle from "../../hooks/useTitle"
 
@@ -13,7 +12,7 @@ const Homepage = () => {
 
    // Navigate to menu
    const handleOrder = () => {
-      navigate(MENU)
+      navigate(ROUTES.menu)
    }
 
    return (

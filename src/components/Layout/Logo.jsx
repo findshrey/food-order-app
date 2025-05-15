@@ -1,14 +1,13 @@
-import React from "react"
 import { Link } from "react-router-dom"
 
-import { HOME } from "../../constants/routes"
+import { ROUTES } from "../../utils/constants"
 
 import styles from "./Logo.module.scss"
 
 const Logo = () => {
    return (
       <div className={styles.logo}>
-         <Link to={HOME}>
+         <Link to={ROUTES.home}>
             <h1>
                <span>React</span>Meals
             </h1>

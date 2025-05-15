@@ -1,5 +1,3 @@
-import React from "react"
-
 import useTitle from "../../hooks/useTitle"
 
 import styles from "./Offers.module.scss"

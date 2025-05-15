@@ -1,7 +1,6 @@
-import React from "react"
 import { Link } from "react-router-dom"
 
-import NAV_LINKS from "../../constants/navLinks"
+import { NAV_LINKS } from "../../utils/constants"
 import {
    IconFacebook,
    IconInstagram,

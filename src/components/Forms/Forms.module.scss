@@ -78,3 +78,10 @@
       margin-left: 0.5rem;
    }
 }
+
+.validation-err {
+   color: $c-red-brick;
+   font-size: $fs-200;
+   margin-top: 0.5rem;
+   // text-align: center;
+}

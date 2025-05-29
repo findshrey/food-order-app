@@ -149,7 +149,7 @@ const SignUpForm = ({ handleFormMode }) => {
          </header>
          <form onSubmit={handleSignUp}>
             <div className={styles["form-control"]}>
-               <label>Email:</label>
+               <label>Email*</label>
                <input
                   type="text"
                   name="email"
@@ -161,7 +161,7 @@ const SignUpForm = ({ handleFormMode }) => {
                </p>
             </div>
             <div className={styles["form-control"]}>
-               <label>Password:</label>
+               <label>Password*</label>
                <input
                   type={passVisible ? "text" : "password"}
                   name="password"
@@ -173,7 +173,7 @@ const SignUpForm = ({ handleFormMode }) => {
                </p>
             </div>
             <div className={styles["form-control"]}>
-               <label>Phone:</label>
+               <label>Phone*</label>
                <input
                   type="number"
                   name="phone"
@@ -185,7 +185,7 @@ const SignUpForm = ({ handleFormMode }) => {
                </p>
             </div>
             <div className={styles["form-control"]}>
-               <label>Address:</label>
+               <label>Address*</label>
                <input
                   type="text"
                   name="address"

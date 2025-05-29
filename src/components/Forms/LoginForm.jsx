@@ -53,11 +53,11 @@ const LoginForm = ({ handleFormMode }) => {
          </header>
          <form onSubmit={handleLogin}>
             <div className={styles["form-control"]}>
-               <label>Email:</label>
+               <label>Email</label>
                <input type="email" ref={emailRef} required />
             </div>
             <div className={styles["form-control"]}>
-               <label>Password:</label>
+               <label>Password</label>
                <input
                   type={passVisible ? "text" : "password"}
                   ref={passwordRef}

@@ -1,15 +1,28 @@
+import { useState } from "react"
 import imgContact from "../../assets/images/contact.svg"
 import useTitle from "../../hooks/useTitle"
 
 import styles from "./Contact.module.scss"
 
 const Contact = () => {
+   const [isLoading, setIsLoading] = useState(false)
    useTitle("React Meals | Contact")
 
-   const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault()
+      setIsLoading(true)
 
-      console.log("Form Submitted!")
+      try {
+         // delay to simulate sending a message
+         await new Promise((resolve) => setTimeout(resolve, 1000))
+
+         alert("Message sent successfully!")
+         e.target.reset()
+      } catch (err) {
+         alert("Something went wrong!")
+      } finally {
+         setIsLoading(false)
+      }
    }
 
    return (
@@ -37,8 +50,12 @@ const Contact = () => {
                         <label>Message</label>
                         <textarea rows="8" required />
                      </div>
-                     <button className="btn-red-brick" type="submit">
-                        Send Message
+                     <button
+                        className="btn-red-brick"
+                        type="submit"
+                        disabled={isLoading}
+                     >
+                        {isLoading ? "Sending message ..." : "Send Message"}
                      </button>
                   </form>
                </div>

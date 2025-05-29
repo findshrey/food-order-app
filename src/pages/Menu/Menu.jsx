@@ -9,32 +9,40 @@ import styles from "./Menu.module.scss"
 
 const Menu = () => {
    const [menu, setMenu] = useState({})
-   const { isLoading, error, sendRequest: fetchMenu } = useHttp()
+   const { sendRequest: fetchMenu, isLoading, error } = useHttp()
+
    useTitle("React Meals | Menu")
 
    useEffect(() => {
-      fetchMenu(
-         {
+      const fetchMenuWrapper = async () => {
+         const apiRes = await fetchMenu({
             url: "https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/menu.json",
-         },
-         (data) => {
-            // Transformed menu data
-            const updatedMenu = {}
+            method: "GET",
+         })
 
-            for (const subMenu in data) {
-               updatedMenu[subMenu] = []
-
-               for (const itemKey in data[subMenu]) {
-                  updatedMenu[subMenu].push({
-                     id: itemKey,
-                     ...data[subMenu][itemKey],
-                  })
-               }
-            }
-
-            setMenu(updatedMenu)
+         if (!apiRes) {
+            console.warn("Menu fetch failed! Aborting further steps.")
+            return
          }
-      )
+
+         // Transformed menu data
+         const updatedMenu = {}
+
+         for (const subMenu in apiRes) {
+            updatedMenu[subMenu] = []
+
+            for (const itemKey in apiRes[subMenu]) {
+               updatedMenu[subMenu].push({
+                  id: itemKey,
+                  ...apiRes[subMenu][itemKey],
+               })
+            }
+         }
+
+         setMenu(updatedMenu)
+      }
+
+      fetchMenuWrapper()
    }, [fetchMenu])
 
    // Submenu keys array (apptizers, beverages etc..)

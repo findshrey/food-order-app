@@ -9,7 +9,7 @@ import styles from "./Forms.module.scss"
 
 const LoginForm = ({ handleFormMode }) => {
    const [passVisible, setPassVisible] = useState(false)
-   const { isLoading, error, sendRequest: loginRequest } = useHttp()
+   const { sendRequest: loginUser, isLoading, error } = useHttp()
    const authCtx = useContext(AuthContext)
 
    const emailRef = useRef()
@@ -22,26 +22,28 @@ const LoginForm = ({ handleFormMode }) => {
       setPassVisible((prevState) => !prevState)
    }
 
-   const handleLogin = (e) => {
+   const handleLogin = async (e) => {
       e.preventDefault()
 
-      loginRequest(
-         {
-            url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
-            method: "POST",
-            body: {
-               email: emailRef.current.value,
-               password: passwordRef.current.value,
-               returnSecureToken: true,
-            },
+      const apiRes = await loginUser({
+         url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
+         method: "POST",
+         body: {
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+            returnSecureToken: true,
          },
-         (data) => {
-            const expirationTime = Date.now() + data.expiresIn * 1000
+      })
 
-            authCtx.login(data.idToken, expirationTime, data.localId)
-            navigate("/", { replace: true })
-         }
-      )
+      if (!apiRes) {
+         console.warn("Login failed! Aborting further steps.")
+         return
+      }
+
+      const expirationTime = Date.now() + apiRes.expiresIn * 1000
+
+      authCtx.login(apiRes.idToken, expirationTime, apiRes.localId)
+      navigate("/", { replace: true })
    }
 
    return (

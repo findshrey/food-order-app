@@ -53,7 +53,14 @@ const validationCheck = (data) => {
 
 const SignUpForm = ({ handleFormMode }) => {
    const [passVisible, setPassVisible] = useState(false)
-   const { isLoading, error, sendRequest: signUpRequest } = useHttp()
+   const {
+      sendRequest: userSignUp,
+      isLoading: signUpLoading,
+      error: signUpError,
+   } = useHttp()
+
+   const { sendRequest: addUserDetails } = useHttp()
+
    const authCtx = useContext(AuthContext)
 
    const [formData, setFormData] = useState({
@@ -86,7 +93,7 @@ const SignUpForm = ({ handleFormMode }) => {
       setPassVisible((prevState) => !prevState)
    }
 
-   const handleSignUp = (e) => {
+   const handleSignUp = async (e) => {
       e.preventDefault()
 
       const { isValid, errors } = validationCheck(formData)
@@ -103,42 +110,36 @@ const SignUpForm = ({ handleFormMode }) => {
          })
       }
 
-      signUpRequest(
-         {
-            url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: {
-               email: formData.email,
-               password: formData.password,
-               returnSecureToken: true,
-            },
+      const apiRes = await userSignUp({
+         url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
+         method: "POST",
+
+         body: {
+            email: formData.email,
+            password: formData.password,
+            returnSecureToken: true,
          },
-         (data) => {
-            // Create and populate user data
-            fetch(
-               `https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/users/${data.localId}.json`,
-               {
-                  method: "PUT",
-                  headers: {
-                     "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                     name: formData.email.split("@")[0],
-                     phone: formData.phone,
-                     address: formData.address,
-                  }),
-               }
-            )
+      })
 
-            const expirationTime = Date.now() + data.expiresIn * 1000
+      if (!apiRes) {
+         console.warn("Signup failed! Aborting further steps.")
+         return
+      }
 
-            authCtx.login(data.idToken, expirationTime, data.localId)
-            navigate("/", { replace: true })
-         }
-      )
+      await addUserDetails({
+         url: `https://food-order-app-35a86-default-rtdb.asia-southeast1.firebasedatabase.app/users/${apiRes?.localId}.json`,
+         method: "PUT",
+
+         body: {
+            name: formData.email.split("@")[0],
+            phone: formData.phone,
+            address: formData.address,
+         },
+      })
+
+      const expirationTime = Date.now() + apiRes.expiresIn * 1000
+      authCtx.login(apiRes.idToken, expirationTime, apiRes.localId)
+      navigate("/", { replace: true })
    }
 
    return (
@@ -206,11 +207,13 @@ const SignUpForm = ({ handleFormMode }) => {
             <button
                type="submit"
                className="btn-red-brick"
-               disabled={isLoading}
+               disabled={signUpLoading}
             >
-               {isLoading ? "Signing Up ..." : "Sign up"}
+               {signUpLoading ? "Signing Up ..." : "Sign up"}
             </button>
-            {!isLoading && error && <p className={styles.feedback}>{error}</p>}
+            {!signUpLoading && signUpError && (
+               <p className={styles.feedback}>{signUpError}</p>
+            )}
             <div className={styles["mode-change"]}>
                <span>Already a member?</span>
                <button

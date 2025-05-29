@@ -9,15 +9,15 @@ const PersonalInfo = ({ userId }) => {
    const [editMode, setEditMode] = useState(false)
 
    const {
-      isLoading: fetchLoad,
-      error: fetchErr,
       sendRequest: fetchUserInfo,
+      isLoading: userInfoLoading,
+      error: userInfoErr,
    } = useHttp()
 
    const {
-      isLoading: updateLoad,
-      error: updateErr,
       sendRequest: updateUserInfo,
+      isLoading: updateUserLoading,
+      error: updateUserErr,
    } = useHttp()
 
    // URL to user's personal data
@@ -25,33 +25,42 @@ const PersonalInfo = ({ userId }) => {
 
    // Get user's data on page load
    useEffect(() => {
-      fetchUserInfo(
-         {
+      const fetchUserInfoWrapper = async () => {
+         const apiRes = await fetchUserInfo({
             url: dataURL,
-         },
-         (data) => {
-            setUserInfo(data)
+            method: "GET",
+         })
+
+         if (!apiRes) {
+            console.warn("User data fetch failed! Aborting further steps.")
+            return
          }
-      )
+
+         setUserInfo(apiRes)
+      }
+
+      fetchUserInfoWrapper()
    }, [fetchUserInfo])
 
    // Update user's personal info
-   const handleUpdate = (e) => {
+   const handleUpdate = async (e) => {
       e.preventDefault()
 
-      updateUserInfo(
-         {
-            url: dataURL,
-            method: "PUT",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: userInfo,
-         },
-         (data) => console.log(data)
-      )
+      const apiRes = await updateUserInfo({
+         url: dataURL,
+         method: "PUT",
+
+         body: userInfo,
+      })
 
       setEditMode(false)
+
+      if (!apiRes) {
+         console.warn("Update failed! Aborting further steps.")
+         return
+      } else {
+         console.log("Updated successfully!", apiRes)
+      }
    }
 
    // Controlled input
@@ -64,7 +73,7 @@ const PersonalInfo = ({ userId }) => {
          <div className={styles["info-head-wrapper"]}>
             <header>
                <h3>Personal Info</h3>
-               {!fetchLoad && !fetchErr && (
+               {!userInfoLoading && !userInfoErr && (
                   <button
                      className={styles["btn-edit"]}
                      onClick={() => setEditMode(true)}
@@ -80,13 +89,13 @@ const PersonalInfo = ({ userId }) => {
             </p>
          </div>
          <div className={styles["info-body"]}>
-            {fetchLoad && (
+            {userInfoLoading && (
                <p className={styles.feedback}>Fetching user data ...</p>
             )}
-            {!fetchLoad && fetchErr && (
-               <p className={styles.feedback}>{fetchErr}</p>
+            {!userInfoLoading && userInfoErr && (
+               <p className={styles.feedback}>{userInfoErr}</p>
             )}
-            {!fetchLoad && !fetchErr && (
+            {!userInfoLoading && !userInfoErr && (
                <form className={styles["info-form"]}>
                   <div className={styles["fields-wrapper"]}>
                      <div className={styles["form-control"]}>
@@ -128,7 +137,7 @@ const PersonalInfo = ({ userId }) => {
                         className="btn-red-brick"
                         type="button"
                         onClick={() => setEditMode(false)}
-                        disabled={!editMode || updateLoad}
+                        disabled={!editMode || updateUserLoading}
                      >
                         Cancel
                      </button>
@@ -136,13 +145,13 @@ const PersonalInfo = ({ userId }) => {
                         className="btn-red-brick"
                         type="submit"
                         onClick={handleUpdate}
-                        disabled={!editMode || updateLoad}
+                        disabled={!editMode || updateUserLoading}
                      >
-                        {updateLoad ? "Updating ..." : "Save"}
+                        {updateUserLoading ? "Updating ..." : "Save"}
                      </button>
                   </div>
-                  {!updateLoad && updateErr && (
-                     <p className={styles.feedback}>{updateErr}</p>
+                  {!updateUserLoading && updateUserErr && (
+                     <p className={styles.feedback}>{updateUserErr}</p>
                   )}
                </form>
             )}

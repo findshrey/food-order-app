@@ -5,12 +5,13 @@ import useHttp from "../../hooks/useHttp"
 import styles from "./ChangePassword.module.scss"
 
 const ChangePassword = ({ token }) => {
-   const { isLoading, error, sendRequest: updatePassword } = useHttp()
+   const { sendRequest: updatePassword, isLoading, error } = useHttp()
+
    const passwordRef = useRef()
    const passwordConfirmRef = useRef()
 
    // Updates account password
-   const handlePassword = (e) => {
+   const handlePassword = async (e) => {
       e.preventDefault()
 
       // Validation
@@ -21,21 +22,23 @@ const ChangePassword = ({ token }) => {
          return console.log("Passwords do not match!")
       }
 
-      updatePassword(
-         {
-            url: "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: {
-               idToken: token,
-               password: passwordRef.current.value,
-               returnSecureToken: false,
-            },
+      const apiRes = await updatePassword({
+         url: "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
+         method: "POST",
+
+         body: {
+            idToken: token,
+            password: passwordRef.current.value,
+            returnSecureToken: false,
          },
-         (data) => console.log(data)
-      )
+      })
+
+      if (!apiRes) {
+         console.warn("Password update failed! Aborting further steps.")
+         return
+      } else {
+         console.log("Password updated successfully!", apiRes)
+      }
    }
 
    return (

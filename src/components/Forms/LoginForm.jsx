@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { FORM_MODES } from "../../utils/constants"
@@ -12,14 +12,22 @@ const LoginForm = ({ handleFormMode }) => {
    const { sendRequest: loginUser, isLoading, error } = useHttp()
    const authCtx = useContext(AuthContext)
 
-   const emailRef = useRef()
-   const passwordRef = useRef()
+   const [formData, setFormData] = useState({ email: "", password: "" })
 
    const navigate = useNavigate()
 
    // Toggle password visibility
    const handlePassVisible = () => {
       setPassVisible((prevState) => !prevState)
+   }
+
+   const handleFormDataChange = (e) => {
+      const { name, value } = e.target
+
+      setFormData((prevData) => ({
+         ...prevData,
+         [name]: value,
+      }))
    }
 
    const handleLogin = async (e) => {
@@ -29,8 +37,8 @@ const LoginForm = ({ handleFormMode }) => {
          url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAfdliDaU39tcKz0o6mP08DN1Ie0lGmhE",
          method: "POST",
          body: {
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
+            email: formData.email,
+            password: formData.password,
             returnSecureToken: true,
          },
       })
@@ -54,13 +62,21 @@ const LoginForm = ({ handleFormMode }) => {
          <form onSubmit={handleLogin}>
             <div className={styles["form-control"]}>
                <label>Email</label>
-               <input type="email" ref={emailRef} required />
+               <input
+                  type="text"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormDataChange}
+                  required
+               />
             </div>
             <div className={styles["form-control"]}>
                <label>Password</label>
                <input
                   type={passVisible ? "text" : "password"}
-                  ref={passwordRef}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleFormDataChange}
                   required
                />
             </div>

@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { FORM_MODES } from "../../utils/constants"
@@ -6,6 +6,13 @@ import AuthContext from "../../context/AuthContext"
 import useHttp from "../../hooks/useHttp"
 
 import styles from "./Forms.module.scss"
+
+const initialValidations = {
+   email: "",
+   password: "",
+   phone: "",
+   address: "",
+}
 
 const validationCheck = (data) => {
    let isValid = true
@@ -70,12 +77,7 @@ const SignUpForm = ({ handleFormMode }) => {
       address: "",
    })
 
-   const [formValidations, setFormValidations] = useState({
-      email: "",
-      password: "",
-      phone: "",
-      address: "",
-   })
+   const [formValidations, setFormValidations] = useState(initialValidations)
 
    const handleFormDataChange = (e) => {
       const { name, value } = e.target
@@ -102,12 +104,7 @@ const SignUpForm = ({ handleFormMode }) => {
          setFormValidations(errors)
          return
       } else {
-         setFormValidations({
-            email: "",
-            password: "",
-            phone: "",
-            address: "",
-         })
+         setFormValidations(initialValidations)
       }
 
       const apiRes = await userSignUp({

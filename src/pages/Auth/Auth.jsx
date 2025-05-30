@@ -21,15 +21,15 @@ const Auth = () => {
    }
 
    return (
-      <div className="container">
-         <div className={styles["form-wrapper"]}>
+      <main className={styles["auth"]}>
+         <div className="container">
             {isLoginMode ? (
                <LoginForm handleFormMode={handleFormMode} />
             ) : (
                <SignUpForm handleFormMode={handleFormMode} />
             )}
          </div>
-      </div>
+      </main>
    )
 }
 

@@ -9,14 +9,14 @@ const NotFound = () => {
    useTitle("React Meals | Not Found")
 
    return (
-      <section className={styles["not-found"]}>
+      <main className={styles["not-found"]}>
          <div className="container">
             <h2>
-               <span>404 - Not Found.</span>
+               <p>404 - Not Found.</p>
                <Link to={ROUTES.home}>Go Home</Link>
             </h2>
          </div>
-      </section>
+      </main>
    )
 }
 

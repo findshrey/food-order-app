@@ -55,7 +55,7 @@ const LoginForm = ({ handleFormMode }) => {
    }
 
    return (
-      <div className={styles["auth-form"]}>
+      <section className={styles["auth-form"]}>
          <header>
             <h2>Login</h2>
          </header>
@@ -107,7 +107,7 @@ const LoginForm = ({ handleFormMode }) => {
                </button>
             </div>
          </form>
-      </div>
+      </section>
    )
 }
 

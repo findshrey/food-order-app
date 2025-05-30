@@ -8,7 +8,7 @@ const Cancel = () => {
    let navigate = useNavigate()
 
    return (
-      <section className={styles.cancel}>
+      <main className={styles.cancel}>
          <div className="container">
             <header className={styles["cancel-head"]}>
                <h2>Order Cancelled!</h2>
@@ -29,7 +29,7 @@ const Cancel = () => {
                </button>
             </div>
          </div>
-      </section>
+      </main>
    )
 }
 

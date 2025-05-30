@@ -10,7 +10,7 @@ const Layout = (props) => {
       <div className={styles.layout}>
          <ToastContainer theme="dark" />
          <Header />
-         <main className={styles["main-content"]}>{props.children}</main>
+         <div className={styles["main-content"]}>{props.children}</div>
          <Footer />
       </div>
    )

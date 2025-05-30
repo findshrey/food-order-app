@@ -9,8 +9,8 @@ const Success = () => {
    let navigate = useNavigate()
 
    return (
-      <section className={styles.success}>
-         <div className="container">
+      <main className={styles.success}>
+         <section className="container">
             <div className={styles["success-text"]}>
                <header className={styles["success-head"]}>
                   <h2>Order Placed!</h2>
@@ -29,8 +29,8 @@ const Success = () => {
             <div className={styles["success-img"]}>
                <img src={imgSuccess} />
             </div>
-         </div>
-      </section>
+         </section>
+      </main>
    )
 }
 

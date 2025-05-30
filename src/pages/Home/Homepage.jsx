@@ -16,8 +16,8 @@ const Homepage = () => {
    }
 
    return (
-      <section className={styles.hero}>
-         <div className="container">
+      <main className={styles.hero}>
+         <section className="container">
             <div className={styles["hero-text"]}>
                <h2>
                   Made With Love, <span>Savoured</span> With Interest
@@ -33,8 +33,8 @@ const Homepage = () => {
             <div className={styles["hero-img"]}>
                <img src={imgCooking} />
             </div>
-         </div>
-      </section>
+         </section>
+      </main>
    )
 }
 

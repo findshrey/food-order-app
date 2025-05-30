@@ -28,7 +28,7 @@ const MenuItem = ({ item }) => {
          <div className={styles["item-info"]}>
             <header className={styles["item-head"]}>
                <h4>{item.name}</h4>
-               <span className={styles["item-price"]}>{`₹${item.price}`}</span>
+               <p className={styles["item-price"]}>{`₹${item.price}`}</p>
             </header>
             <p className={styles["item-desc"]}>{item.description}</p>
             <div className={styles["item-lower"]}>
@@ -47,9 +47,9 @@ const MenuItem = ({ item }) => {
                      >
                         -
                      </button>
-                     <span className={styles["item-qty"]}>
+                     <p className={styles["item-qty"]}>
                         {itemInCart?.quantity ?? 0}
-                     </span>
+                     </p>
                      <button
                         className="btn-red-brick"
                         onClick={handleAddItem.bind(null, item)}

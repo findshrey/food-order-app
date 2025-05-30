@@ -3,7 +3,7 @@ import styles from "./CartItem.module.scss"
 const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
    return (
       <li className={styles["cart-item"]}>
-         <span className={styles["item-name"]}>{item.name}</span>
+         <p className={styles["item-name"]}>{item.name}</p>
          <div className={styles["item-info"]}>
             <div className={styles.btns}>
                <button
@@ -12,7 +12,7 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
                >
                   -
                </button>
-               <span className={styles["item-qty"]}>{item.quantity}</span>
+               <p className={styles["item-qty"]}>{item.quantity}</p>
                <button
                   className="btn-red-brick"
                   onClick={handleAddItem.bind(null, item)}
@@ -20,9 +20,9 @@ const CartItem = ({ item, handleAddItem, handleRemoveItem }) => {
                   +
                </button>
             </div>
-            <span className={styles["item-price"]}>{`₹${
+            <p className={styles["item-price"]}>{`₹${
                item.price * item.quantity
-            }`}</span>
+            }`}</p>
          </div>
       </li>
    )

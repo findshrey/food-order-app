@@ -140,7 +140,7 @@ const SignUpForm = ({ handleFormMode }) => {
    }
 
    return (
-      <div className={styles["auth-form"]}>
+      <section className={styles["auth-form"]}>
          <header>
             <h2>Sign Up</h2>
          </header>
@@ -222,7 +222,7 @@ const SignUpForm = ({ handleFormMode }) => {
                </button>
             </div>
          </form>
-      </div>
+      </section>
    )
 }
 

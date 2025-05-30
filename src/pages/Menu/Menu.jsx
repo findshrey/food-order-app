@@ -49,8 +49,8 @@ const Menu = () => {
    const subMenuKeys = Object.keys(menu)
 
    return (
-      <section className={styles.menu}>
-         <div className="container">
+      <main className={styles.menu}>
+         <section className="container">
             <header className={styles["menu-head"]}>
                <h2>OUR MENU</h2>
             </header>
@@ -83,8 +83,8 @@ const Menu = () => {
                   </>
                )}
             </>
-         </div>
-      </section>
+         </section>
+      </main>
    )
 }
 

@@ -26,7 +26,7 @@ const Cart = () => {
    const emptyCart = cartCtx.cartItems.length === 0
 
    return (
-      <div className={styles.cart}>
+      <main className={styles.cart}>
          <div className="container">
             <header className={styles["cart-head"]}>
                <h2>MY CART</h2>
@@ -63,7 +63,7 @@ const Cart = () => {
                </section>
             )}
          </div>
-      </div>
+      </main>
    )
 }
 

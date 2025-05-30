@@ -58,8 +58,8 @@ const CartSummary = ({ cartItems, totalAmount }) => {
             <h3>{`${numberOfItems} ITEMS`}</h3>
          </header>
          <div className={styles["summary-content"]}>
-            <span>Subtotal</span>
-            <span>{`₹${totalAmount}`}</span>
+            <p>Subtotal</p>
+            <p>{`₹${totalAmount}`}</p>
          </div>
          <button
             className="btn-red-brick"

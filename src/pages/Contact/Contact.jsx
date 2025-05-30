@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import imgContact from "../../assets/images/contact.svg"
 import useTitle from "../../hooks/useTitle"
 
@@ -26,13 +27,13 @@ const Contact = () => {
    }
 
    return (
-      <section className={styles.contact}>
+      <main className={styles.contact}>
          <div className="container">
             <header className={styles["contact-head"]}>
                <h2>CONTACT US</h2>
-               <span>We'd love to hear from you.</span>
+               <p>We'd love to hear from you.</p>
             </header>
-            <div className={styles["contact-body"]}>
+            <section className={styles["contact-body"]}>
                <div className={styles["contact-img"]}>
                   <img src={imgContact} />
                </div>
@@ -59,9 +60,9 @@ const Contact = () => {
                      </button>
                   </form>
                </div>
-            </div>
+            </section>
          </div>
-      </section>
+      </main>
    )
 }
 
